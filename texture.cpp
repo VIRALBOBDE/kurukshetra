@@ -15,19 +15,19 @@ texture::texture(std::string file_name , int slot)
 	}
 	else
 	{
-		glGenTextures    (1, &texture_id);
-		glActiveTexture  (GL_TEXTURE0 + slot);
-		glBindTexture    (GL_TEXTURE_2D , texture_id);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER , GL_LINEAR         );
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER , GL_LINEAR         );
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S     , GL_CLAMP_TO_EDGE  );
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T     , GL_CLAMP_TO_EDGE  );
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
-		glGenerateMipmap(GL_TEXTURE_2D);
+		GLcall(glGenTextures    (1, &texture_id));
+		GLcall(glActiveTexture  (GL_TEXTURE0 + slot));
+		GLcall(glBindTexture    (GL_TEXTURE_2D , texture_id));
+		GLcall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER , GL_LINEAR         ));
+		GLcall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER , GL_LINEAR         ));
+		GLcall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S     , GL_CLAMP_TO_EDGE  ));
+		GLcall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T     , GL_CLAMP_TO_EDGE  ));
+		GLcall(glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data));
+		GLcall(glGenerateMipmap(GL_TEXTURE_2D));
 		stbi_image_free(data);
-		glBindTexture(GL_TEXTURE_2D, 0);
-		glEnable(GL_BLEND);
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		GLcall(glBindTexture(GL_TEXTURE_2D, 0));
+		GLcall(glEnable(GL_BLEND));
+		GLcall(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
 	}
 
 }
@@ -35,16 +35,16 @@ texture::texture(std::string file_name , int slot)
 void texture::bind(unsigned int slot)
 {
 	if (texture_id == 0) glGenTextures(1, &texture_id);
-	glActiveTexture  (GL_TEXTURE0 + slot);
-	glBindTexture    (GL_TEXTURE_2D, texture_id);
+	GLcall(glActiveTexture  (GL_TEXTURE0 + slot));
+	GLcall(glBindTexture    (GL_TEXTURE_2D, texture_id));
 }
 
 void texture::unbind() const
 {
-	glBindTexture(GL_TEXTURE_2D, 0);
+	GLcall(glBindTexture(GL_TEXTURE_2D, 0));
 }
 
 texture::~texture()
 {
-	glDeleteTextures  ( 1 , &texture_id );
+	GLcall(glDeleteTextures  ( 1 , &texture_id ));
 }

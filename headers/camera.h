@@ -2,6 +2,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include "error.h"
 class camera
 {
 private:
@@ -12,5 +13,5 @@ private:
 public:
 	camera(float width, float height);
 	void viewmatrix(glm::vec3 changed_camera_pos);
-	glm::mat4 view_projection_matrix() { return view_projection; }
+	glm::mat4 view_projection_matrix() const { return view_projection; }
 };

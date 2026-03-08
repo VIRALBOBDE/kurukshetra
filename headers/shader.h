@@ -7,6 +7,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include "error.h"
 class shader
 {
 private:
@@ -17,6 +18,6 @@ public:
 	void use();
 	void setsampler(std::string name, int data);
 	void setsamplermatrix(std::string name_of_matrix , glm::mat4& matrix);
-	unsigned int getid() { return program_id; }
+	unsigned int getid() const { return program_id; }
 	~shader();
 };

@@ -75,6 +75,12 @@
     <ClCompile Include="error.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="common.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="renderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dependencies\includes\glad\glad.h">
@@ -878,6 +884,9 @@
     <ClInclude Include="headers\error.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="headers\common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="dependencies\includes\glm\detail\func_common.inl">
@@ -1295,6 +1304,21 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="resources\textures\bheem.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\image (4).jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\kurukshetra.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\realtest.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\sprite-8-bit-animation-dreams-of-an-absolution-sprite-sheet-bb0009c2e460cf8a770dcb1dcfa84a7d.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\testimage.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

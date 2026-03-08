@@ -1,30 +1,39 @@
 #include "headers/VBO.h"
 
-vbo::vbo(float* array , int size)
+
+
+
+vbo::vbo(int size)
 {
 	glGenBuffers(1, &id);
-	glBindBuffer(GL_ARRAY_BUFFER, id);
-	glBufferData(GL_ARRAY_BUFFER, size, array, GL_DYNAMIC_DRAW);
+	GLcall(glBindBuffer(GL_ARRAY_BUFFER, id));
+	GLcall(glBufferData(GL_ARRAY_BUFFER, size, NULL , GL_DYNAMIC_DRAW));
 }
 
 void vbo::bind()
 {
-	if (id == 0) glGenBuffers(1, &id);
-	glBindBuffer(GL_ARRAY_BUFFER, id);
+	if (id == 0)
+	{
+		cout << "NO VBO!!!\n";
+		GLcall(glGenBuffers(1, &id));
+	}
+	GLcall(glBindBuffer(GL_ARRAY_BUFFER, id));
 }
 
 void vbo::unbind()
 {
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	GLcall(glBindBuffer(GL_ARRAY_BUFFER, 0));
 }
 
-void vbo::loaddata(float* array , int size)
+float* vbo::get_data_from_vram(float* array, int size)
 {
 	bind();
-	glBufferData(GL_ARRAY_BUFFER, size, array, GL_DYNAMIC_DRAW);
+	glBindBuffer(GL_ARRAY_BUFFER, id);
+	glGetBufferSubData(GL_ARRAY_BUFFER, 0, size , array);
+	return array;
 }
 
 vbo::~vbo()
 {
-	glDeleteBuffers(1, &id);
+	GLcall(glDeleteBuffers(1, &id));
 }

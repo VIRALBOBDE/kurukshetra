@@ -12,6 +12,10 @@ window::window(int width, int height,  const char* name, int major, int minor)
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 	myWindow = glfwCreateWindow(width, height , name, NULL, NULL);
 	glfwMakeContextCurrent(myWindow);
+	if (glfwGetCurrentContext() == nullptr) {
+		std::cout << "CRITICAL ERROR: No OpenGL Context!" << std::endl;
+		__debugbreak();
+	}
 	gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 	glViewport(0, 0, width, height);
 	IMGUI_CHECKVERSION();
@@ -34,6 +38,8 @@ bool window::iswindowclose()
 
 void window::swapbuffer()
 {
+	ImGui::Render();
+	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 	glfwSwapBuffers(myWindow);
 }
 
