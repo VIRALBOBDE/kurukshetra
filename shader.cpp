@@ -70,32 +70,32 @@ shader::shader(std::string filename)
 	GLcall(glDeleteShader(ids[1]));
 
 	//checking if shader compiled properly
-	/*int success;
+	int success;
 	char infoLog[512];
-
-	glGetShaderiv(ids[0], GL_COMPILE_STATUS, &success);                SHADER CHECKER
+	
+	glGetShaderiv(ids[0], GL_COMPILE_STATUS, &success);                //SHADER CHECKER
 	if (!success)
 	{
 		glGetShaderInfoLog(ids[0], 512, NULL, infoLog);
 		std::cout << "Vertex Shader Error:\n" << infoLog << std::endl;
-	}*/
+	}
 
-	/*glGetShaderiv(ids[1], GL_COMPILE_STATUS, &success);               SHADER CHECKER
+	glGetShaderiv(ids[1], GL_COMPILE_STATUS, &success);               //SHADER CHECKER
 	if (!success)
 	{
 		glGetShaderInfoLog(ids[1], 512, NULL, infoLog);
 		std::cout << "Fragment Shader Error:\n" << infoLog << std::endl;
-	}*/
+	}
 
 
 
 	//checking if program linked properly                        LINKER CHECKER
-	/*glGetProgramiv(program_id, GL_LINK_STATUS, &success);
+	glGetProgramiv(program_id, GL_LINK_STATUS, &success);
 	if (!success)
 	{
 		glGetProgramInfoLog(program_id, 512, NULL, infoLog);
 		std::cout << "Program Link Error:\n" << infoLog << std::endl;
-	}*/
+	}
 
 }
 
@@ -113,8 +113,16 @@ void shader::setsampler(std::string name , int data)
 
 void shader::setsamplermatrix(std::string name_of_matrix , glm::mat4& matrix)
 {
+	use();
 	unsigned int address = glGetUniformLocation(program_id, name_of_matrix.c_str());
 	GLcall(glUniformMatrix4fv(address, 1, GL_FALSE, &matrix[0][0]));
+}
+
+void shader::setsamplerarray(std::string name_of_matrix, int no_of_indices, int* data)
+{
+	use();
+	unsigned int address = glGetUniformLocation(program_id, name_of_matrix.c_str());
+	GLcall(glUniform1iv(address, no_of_indices,  data));
 }
 
 shader::~shader()

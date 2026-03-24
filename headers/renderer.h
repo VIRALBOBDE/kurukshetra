@@ -4,6 +4,7 @@
 #include "error.h"
 #include "IBO.h"
 #include "shader.h"
+#include "subtexture.h"
 #include "texture.h"
 #include "VAO.h"
 #include "VBO.h"
@@ -24,6 +25,7 @@ private:
 
 	//saare important things ke heap mai objects bana ke unke addresses store kar lenge
 	camera*                    m_camera                                 ;
+	subtexture*                 m_subtexture                             ;
 	ibo*                       m_ibo                                    ;
 	shader*                    m_shader                                 ;
 	texture*                   m_texture                                ;
@@ -34,7 +36,7 @@ private:
 	vertex*                    m_buffer_ptr    = m_buffer_base			;
 	unsigned int*              m_ibo_buffer    = new unsigned int[6000] ;
 	unsigned int               white_texture                            ;
-	array <unsigned int, 32>   m_texture_slot                           ;
+	int                        m_texture_slot[32]                        ;
 	int          texture_counter = 0 ;
 	int m_width, m_height;
 
@@ -49,6 +51,7 @@ private:
 public:
 	renderer2D(int width, int height , const char* name);
 	void set_shader(string name_of_the_shader);
+	void set_shader(string name_of_the_shader , int fragment_shader_sampler_count);
 	void set_texture(string name_of_the_texture , int slot);
 	void set_camera();
 	bool is_window_closed() const { return m_window->iswindowclose(); }
@@ -56,11 +59,11 @@ public:
 	void Begin_Scene(int texture_slot);
 	void set_colors(float r, float g, float b, float a) { m_window->setcolors(r, g, b, a); }
 	void End_Scene();
-	void swap_buffers();
-	void draw_quad(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner, glm::vec3 r_g_b_values);// vertex* structure_batao);
+	void draw_quad(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner, glm::vec3 r_g_b_values , glm::vec2 texture_indices);// vertex* structure_batao);
 	void Flush();
 	~renderer2D();
 	//void setuniform(string name_of_uniform  ,  float* data);
+	//void swap_buffers();
 
 	//temporary functions
 	void draw_quad(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner, glm::vec3 r_g_b_values, vertex *structure_batao);

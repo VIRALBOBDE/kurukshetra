@@ -18,6 +18,7 @@ public:
 	void use();
 	void setsampler(std::string name, int data);
 	void setsamplermatrix(std::string name_of_matrix , glm::mat4& matrix);
+	void setsamplerarray(std::string name_of_matrix, int no_of_indices , int* data);
 	unsigned int getid() const { return program_id; }
 	~shader();
 };

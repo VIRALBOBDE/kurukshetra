@@ -19,7 +19,10 @@ renderer2D::renderer2D(int width , int height , const char* name) : m_width(widt
 		__debugbreak();
 	}
 
-	m_texture_slot.fill(0);	
+	for (int i = 0; i < 32; i++)
+	{
+		m_texture_slot[i] = i ;
+	}
 	unsigned int offset = 0;
 	for (int i = 0; i < 6000; i += 6)
 	{
@@ -79,7 +82,17 @@ void renderer2D::set_shader(string name_of_the_shader)
 	m_shader = new shader("resources/shaders/default.shader");
 	m_shader->use();
 	m_shader->setsampler("text", 0);
-	m_camera = new camera(m_width , m_height);
+	set_camera();
+	glm::mat4 viewprojectionmatrix = m_camera->view_projection_matrix();
+	m_shader->setsamplermatrix("view_projection", viewprojectionmatrix);
+}
+
+void renderer2D::set_shader(string name_of_the_shader, int fragment_shader_sampler_count)
+{
+	m_shader = new shader("resources/shaders/default.shader");
+	m_shader->use();
+	m_shader->setsamplerarray("text", fragment_shader_sampler_count , m_texture_slot );
+	set_camera();
 	glm::mat4 viewprojectionmatrix = m_camera->view_projection_matrix();
 	m_shader->setsamplermatrix("view_projection", viewprojectionmatrix);
 }
@@ -88,14 +101,17 @@ void renderer2D::set_texture(string location_of_the_texture, int slot)
 {
 	m_texture = new texture(location_of_the_texture, slot);
 	m_texture->bind(texture_counter);
+	m_subtexture = new subtexture(*m_texture, { 372,530 });
 	m_texture_slot[texture_counter] = m_texture->get_texture_id();
 	texture_counter++;
 }
 
-void renderer2D::swap_buffers()
+void renderer2D::set_camera()
 {
-	m_window -> swapbuffer();
+	m_camera = new camera(m_width, m_height);
 }
+
+
 
 void renderer2D::Begin_Scene( int texture_slot)
 {
@@ -107,35 +123,37 @@ void renderer2D::Begin_Scene( int texture_slot)
 
 }
 
-void renderer2D::draw_quad(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner, glm::vec3 r_g_b_values) //, vertex* structure_batao)
+void renderer2D::draw_quad(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner, glm::vec3 r_g_b_values, glm::vec2 texture_indices) //, vertex* structure_batao)
 {
 	//m_buffer_ptr = m_buffer_base;
 	//m_buffer_ptr = structure_batao;
 	//left bottom wala corner ka data
+	glm::vec2 tex_coord[2];
+	m_subtexture->texturecoordinates({ texture_indices.x,texture_indices.y }, tex_coord);
 	m_buffer_ptr->coordinate = { left_bottom_corner.x,left_bottom_corner.y };
 	m_buffer_ptr->rgba_value = glm::vec4(r_g_b_values, 1.0f);
-	m_buffer_ptr->texturecoordinates = glm::vec2(0.0f, 0.0f);
+	m_buffer_ptr->texturecoordinates = {tex_coord[0].x,tex_coord[0].y };
 	m_buffer_ptr->texture_index = 0.0f;
 	m_buffer_ptr++;
 
 	//right bottom wala corner ka data
 	m_buffer_ptr->coordinate = { right_top_corner.x  ,left_bottom_corner.y };
 	m_buffer_ptr->rgba_value = glm::vec4(r_g_b_values, 1.0f);
-	m_buffer_ptr->texturecoordinates = glm::vec2(1.0f, 0.0f);
+	m_buffer_ptr->texturecoordinates = { tex_coord[1].x,tex_coord[0].y };
 	m_buffer_ptr->texture_index = 0.0f;
 	m_buffer_ptr++;
 
 	//right top wala corner ka data
 	m_buffer_ptr->coordinate = { right_top_corner.x  ,right_top_corner.y };
 	m_buffer_ptr->rgba_value = glm::vec4(r_g_b_values, 1.0f);
-	m_buffer_ptr->texturecoordinates = glm::vec2(1.0f, 1.0f);
+	m_buffer_ptr->texturecoordinates = { tex_coord[1].x,tex_coord[1].y };
 	m_buffer_ptr->texture_index = 0.0f;
 	m_buffer_ptr++;
 
 	//left top wala corner ka data
 	m_buffer_ptr->coordinate = { left_bottom_corner.x  , right_top_corner.y };
 	m_buffer_ptr->rgba_value = glm::vec4(r_g_b_values, 1.0f);
-	m_buffer_ptr->texturecoordinates = glm::vec2(0.0f, 1.0f);
+	m_buffer_ptr->texturecoordinates = { tex_coord[0].x,tex_coord[1].y };
 	m_buffer_ptr->texture_index = 0.0f;
 	m_buffer_ptr++;
 
@@ -236,7 +254,8 @@ void renderer2D::Flush()
 	//m_ibo->bind();
 	m_texture->bind(0);
 	GLcall(glDrawElements(GL_TRIANGLES, indices , GL_UNSIGNED_INT, NULL));
-
+	m_window->swapbuffer();
+	glfwPollEvents();
 }
 
 renderer2D::~renderer2D()
