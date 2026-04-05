@@ -84,6 +84,24 @@
     <ClCompile Include="subtexture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="to be tested\Character.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="to be tested\InputHandling.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="to be tested\moves.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="to be tested\Circle.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="to be tested\physics.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="to be tested\Box.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dependencies\includes\glad\glad.h">
@@ -890,9 +908,6 @@
     <ClInclude Include="headers\common.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="headers\character.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="headers\subtexture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -1303,6 +1318,8 @@
     <None Include="dependencies\includes\GLFW\glfw3.dll" />
     <None Include="resources\shaders\default.shader" />
     <None Include="resources\shaders\shader.shader" />
+    <None Include="recyclebin\artifact of the codes.codes" />
+    <None Include="resources\shaders\advance.shader" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="dependencies\includes\GLFW\glfw3.lib" />
@@ -1332,6 +1349,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="resources\textures\ideal_bheem.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\slot0.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

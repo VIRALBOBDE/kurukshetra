@@ -41,7 +41,7 @@
 		 uniform sampler2D text[32]    ;
 		 void main()  
 		 {  
-			 int index = (int)texture_index;
+			 int index = int(texture_index);
 			 if(texture(text[index] , texture_positions).xyz == vec3(0.0f,0.0f,0.0f)) 
 								 color = frag_color;
 			 else				 color = texture(text[index] , texture_positions);

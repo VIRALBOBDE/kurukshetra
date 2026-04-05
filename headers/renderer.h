@@ -1,5 +1,7 @@
 #pragma once
 #include "camera.h"
+#include "../to be tested/character.h"
+#include "../to be tested/box.h"
 #include "common.h"
 #include "error.h"
 #include "IBO.h"
@@ -12,6 +14,7 @@
 #include <iostream>
 #include <array>
 #include <string>
+#include <vector>
 using namespace std;
 class renderer2D
 {
@@ -34,11 +37,15 @@ private:
 	window*                    m_window                                 ;
 	vertex*                    m_buffer_base   = new vertex[4000]		;
 	vertex*                    m_buffer_ptr    = m_buffer_base			;
+	Character                  m_bheem   								;
+	Character                  m_duryodhan                              ;
 	unsigned int*              m_ibo_buffer    = new unsigned int[6000] ;
 	unsigned int               white_texture                            ;
-	int                        m_texture_slot[32]                        ;
+	int                        m_texture_slot[32]                       ;
+	vector<Box>                m_wall_vector                            ;
 	int          texture_counter = 0 ;
 	int m_width, m_height;
+	bool bheem_values = false, duryodhan_values = false;
 
 	//    TESTING RANDOM THINGS
 
@@ -48,18 +55,24 @@ private:
 
 	//    PRIVATE FUNCTIONS
 	void start_batch();
+	void set_wall_coordinates(glm::vec2 coordinates);
+	void fill_vbo_data(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner, glm::vec3 r_g_b_values, glm::vec2 texture_indices, int texture_no);
 public:
 	renderer2D(int width, int height , const char* name);
 	void set_shader(string name_of_the_shader);
 	void set_shader(string name_of_the_shader , int fragment_shader_sampler_count);
-	void set_texture(string name_of_the_texture , int slot);
+	void set_texture(string name_of_the_texture , int slot , int tile_width , int tile_height);
+	void set_texture(string name_of_the_texture, int slot);
 	void set_camera();
+	void set_walls(glm::vec2 left_wall_lower_bottom , glm::vec2 left_wall_upper_top , glm::vec2 right_wall_lower_bottom , glm::vec2 right_wall_upper_top );
+	void set_ground(glm::vec2 ground_botttom_left_corner, glm::vec2 ground_top_right_corner);
+	void processinput();
 	bool is_window_closed() const { return m_window->iswindowclose(); }
 	void new_frame();
 	void Begin_Scene(int texture_slot);
 	void set_colors(float r, float g, float b, float a) { m_window->setcolors(r, g, b, a); }
 	void End_Scene();
-	void draw_quad(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner, glm::vec3 r_g_b_values , glm::vec2 texture_indices);// vertex* structure_batao);
+	void draw_quad(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner, glm::vec3 r_g_b_values , glm::vec2 texture_indices , int texture_no);// vertex* structure_batao);
 	void Flush();
 	~renderer2D();
 	//void setuniform(string name_of_uniform  ,  float* data);

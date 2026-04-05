@@ -1,0 +1,103 @@
+#include <GLFW/glfw3.h>
+#include"Character.h"
+#include<iostream>
+#include<vector>
+
+//Globals 
+Character bheem(-0.5f, -0.8f, 0.1f);  //player(circle)
+Character duryodhan(0.5f, -0.8f, 0.1f); //boss(circle)
+
+std::vector<Box> walls;
+
+void DrawCharacter(Character& p, float r, float g, float b) {
+    glBegin(GL_TRIANGLES);
+    glColor3f(r, g, b);
+    glVertex2f(p.body.x, p.body.y + p.body.radius);  //top point
+    glVertex2f(p.body.x - p.body.radius, p.body.y - p.body.radius);  //bottomLeft
+    glVertex2f(p.body.x + p.body.radius, p.body.y - p.body.radius);  //bottomRight
+    glEnd();
+}
+
+void ProcessInput(GLFWwindow* window) {
+
+    float speed = 0.008f;
+    float normalJump = 0.012f;  //jump karne ke liye force 
+    float highJump = 0.02f;
+
+    //save old position before moving
+    float oldX1 = bheem.body.x;
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)bheem.body.x -= speed;
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) bheem.body.x += speed;
+
+    for (const auto& w : walls) {
+        if (Physics::CheckCircleBox(bheem.body, w)) bheem.body.x = oldX1;
+    }
+    if (Physics::isColliding(bheem.body, duryodhan.body)) bheem.body.x = oldX1;
+
+    //Jump 
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS && bheem.wReleased) {
+        bheem.Jump();
+        bheem.wReleased = false;
+    }
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_RELEASE) bheem.wReleased = true;
+
+    float oldX2 = duryodhan.body.x;
+    //if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) bheem.body.y -= speed;
+    if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS) duryodhan.body.x -= speed;
+    if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS) duryodhan.body.x += speed;
+
+    //Circle vs Box(duryodhan vs wall)
+    for (const auto& wall : walls) {
+        if (Physics::CheckCircleBox(duryodhan.body, wall)) duryodhan.body.x = oldX2;
+    }
+    if (Physics::isColliding(duryodhan.body, bheem.body)) duryodhan.body.x = oldX2;
+}
+
+
+
+int main(void)
+{
+    if (!glfwInit())  return -1;
+
+    GLFWwindow* window = glfwCreateWindow(800, 600, "bheem vs duryodhan", NULL, NULL);
+
+    glfwMakeContextCurrent(window);
+
+    walls.push_back(Box("wall1", -0.9f, -1.0f, 0.1f, 2.0f));
+    walls.push_back(Box("wall2", 0.8f, -1.0f, 0.1f, 2.0f));
+    walls.push_back(Box("Ceiling", -1.0f, -1.0f, 2.0f, 0.1f));
+
+    while (!glfwWindowShouldClose(window))
+    {
+
+        ProcessInput(window);
+        bheem.ApplyPhysics();
+        duryodhan.ApplyPhysics();
+       
+
+        glClear(GL_COLOR_BUFFER_BIT);
+
+        DrawCharacter(bheem, 0.0f, 1.0f, 1.0f);
+        DrawCharacter(duryodhan, 1.0f, 1.0f, 0.0f);
+
+       glBegin(GL_QUADS);
+        glColor3f(1.0f, 1.0f, 0.0f);
+
+
+        for (const auto& wall : walls)
+        {
+            glVertex2f(wall.x, wall.y);
+            glVertex2f(wall.x + wall.width, wall.y);
+            glVertex2f(wall.x + wall.width, wall.y + wall.height);
+            glVertex2f(wall.x, wall.y + wall.height);
+        }
+        glEnd();
+
+        glfwSwapBuffers(window);
+        glfwPollEvents();
+    }
+
+    glfwTerminate();
+
+    return 0;
+}

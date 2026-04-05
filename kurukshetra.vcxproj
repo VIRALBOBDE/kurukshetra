@@ -38,13 +38,18 @@
     <ClCompile Include="texture.cpp" />
     <ClCompile Include="IBO.cpp" />
     <ClCompile Include="shader.cpp" />
+    <ClCompile Include="to be tested\Box.h" />
+    <ClCompile Include="to be tested\Character.h" />
+    <ClCompile Include="to be tested\Circle.h" />
+    <ClCompile Include="to be tested\InputHandling.h" />
+    <ClCompile Include="to be tested\moves.h" />
+    <ClCompile Include="to be tested\physics.h" />
     <ClCompile Include="VAO.cpp" />
     <ClCompile Include="VBO.cpp" />
     <ClCompile Include="window.cpp" />
     <ClCompile Include="stbimplementation.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="headers\character.h" />
     <ClInclude Include="dependencies\includes\glad\glad.h" />
     <ClInclude Include="dependencies\includes\GLFW\glfw3.h" />
     <ClInclude Include="dependencies\includes\GLFW\glfw3native.h" />
@@ -316,6 +321,7 @@
     <ClInclude Include="headers\subtexture.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="recyclebin\artifact of the codes.codes" />
     <None Include="dependencies\includes\GLFW\glfw3.dll" />
     <None Include="dependencies\includes\glm\detail\func_common.inl" />
     <None Include="dependencies\includes\glm\detail\func_common_simd.inl" />
@@ -451,6 +457,7 @@
     <None Include="dependencies\includes\glm\gtx\vector_angle.inl" />
     <None Include="dependencies\includes\glm\gtx\vector_query.inl" />
     <None Include="dependencies\includes\glm\gtx\wrap.inl" />
+    <None Include="resources\shaders\advance.shader" />
     <None Include="resources\shaders\default.shader" />
     <None Include="resources\shaders\shader.shader" />
   </ItemGroup>
@@ -466,6 +473,7 @@
     <Image Include="resources\textures\image (4).jpg" />
     <Image Include="resources\textures\kurukshetra.png" />
     <Image Include="resources\textures\realtest.png" />
+    <Image Include="resources\textures\slot0.png" />
     <Image Include="resources\textures\sprite-8-bit-animation-dreams-of-an-absolution-sprite-sheet-bb0009c2e460cf8a770dcb1dcfa84a7d.png" />
     <Image Include="resources\textures\testimage.png" />
   </ItemGroup>
