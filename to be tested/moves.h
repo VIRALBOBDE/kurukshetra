@@ -2,7 +2,7 @@
 
 inline float apply_dash(float currentX, int direction)
 {
-	float dashDistance = 0.2f;
+	float dashDistance = 0.5f;
 	return currentX + (direction * dashDistance);
 }
 

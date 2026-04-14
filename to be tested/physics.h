@@ -3,16 +3,16 @@
 #include "circle.h"
 #include<algorithm> // max aur min ke liye
 
-class Physics {
-public:
-    //-----------AABB vs AABB (box to box)---------
-    static bool checkcollision(const Box& bheem,const Box& target) {
-        bool leftoverlap = bheem.x < (target.x + target.width);
-        bool rightoverlap = (bheem.x + bheem.width) > target.x*1.87;
-        bool bottomoverlap = bheem.y <= (target.y + target.height);
-        bool topoverlap = (bheem.y + bheem.height) > target.y;
 
-        return leftoverlap && rightoverlap && bottomoverlap && topoverlap;
+
+    //-----------AABB vs AABB (box to box)---------
+static bool checkcollision(const Box& bheem, const Box& target) {
+	bool leftoverlap = bheem.x <= (target.x + target.width);
+	bool rightoverlap = (bheem.x + bheem.width) >= target.x+1 ;
+	bool bottomoverlap = bheem.y-1 <= (target.y + target.height);
+	bool topoverlap = (bheem.y + bheem.height) >= target.y+1;
+
+	return leftoverlap && rightoverlap && bottomoverlap && topoverlap;
     }
 
     //--------------circle vs circle---------------------
@@ -46,4 +46,3 @@ public:
 
 		return (dx * dx + dy * dy) < (c.radius * c.radius);
 	}
-};

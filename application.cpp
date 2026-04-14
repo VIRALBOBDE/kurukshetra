@@ -18,6 +18,16 @@
 #include "headers/texture.h"
 #include "headers/renderer.h"
 
+//the following header files are not completed yet 
+#include "to be tested/box.h"
+#include "to be tested/Character.h"
+#include "to be tested/circular character.h"
+#include "to be tested/Circle.h"
+#include "to be tested/InputHandling.h"
+#include "to be tested/moves.h"
+#include "to be tested/physics.h"
+
+
 int main()
 {
 	renderer2D testrenderer(1280, 720, "KURUKSHETRA TEST ENGINE");
@@ -25,6 +35,12 @@ int main()
 	
 	testrenderer.set_shader("resources/shaders/default.shader");
 	testrenderer.set_texture("resources/textures/ideal_bheem.png", 0 , 372, 530);
+	BoxCharacter Bheem(testrenderer.window_address(), 30.0f, 40.0f, 150.0f, 150.0f);
+	BoxCharacter Duryodhan(testrenderer.window_address() ,640.0f, 40.0f, 150.0f, 150.0f);
+	//Character Bheem(30.0f, 40.0f, 150.0f);
+	//Character Duryodhan(640.0f, 360.0f, 150.0f);
+	InputHandler testhandler;
+	testhandler.setspeed(.5f);
 	//testrenderer.set_texture("resources/textures/slot0.png", 1 , 372, 530);
 	float screen_colors[4] = {0,1,0,1 };
 	float frameTimer = 0.0f; // Har frame ka time jodega
@@ -35,7 +51,13 @@ int main()
 	float delay = 0.12f;
 	while (!testrenderer.is_window_closed())
 	{          
-		            testrenderer.processinput();
+		Bheem.ApplyPhysics(Duryodhan);
+		//Duryodhan.ApplyPhysics(Bheem);
+		Bheem.death();
+		Duryodhan.death();
+		testhandler.ProcessInput(testrenderer.window_address(), Bheem, Duryodhan , testhandler);
+		
+		            //testrenderer.processinput();
 		testrenderer.set_colors(screen_colors[0], screen_colors[1], screen_colors[2], screen_colors[3]);
 	   
 				
@@ -60,10 +82,12 @@ int main()
 
 						timer = 0.0f;
 					}
-					testrenderer.draw_quad({ 30, 200 }, { 200.0f, 400.0f }, { 1.0f, 0.0f, 0.0f }, {(float) j,0 },0);
-					testrenderer.draw_quad({ 555, 260 }, { 725.0f, 460.0f }, { 0.0f, 0.0f, 1.0f }, { 0,0 }, 1);
+					testrenderer.draw_quad({ Bheem.body.x, Bheem.body.y}, { Bheem.body.x + Bheem.body.width+10.0f, Bheem.body.y + Bheem.body.height+10.0f }, { 1.0f, 0.0f, 0.0f , 0.0f }, { (float)j,0 }, 0);
+					testrenderer.draw_quad({ Duryodhan.body.x , Duryodhan.body.y }, { Duryodhan.body.x + Duryodhan.body.width, Duryodhan.body.y + Duryodhan.body.height }, { 0.0f, 0.0f, 1.0f , 0.0f }, { 0,0 }, 1);
+					//testrenderer.draw_quad({ Bheem.body.x-Bheem.body.radius - 5.0f, Bheem.body.y-Bheem.body.radius - 5.0f }, { Bheem.body.x+Bheem.body.radius + 5.0f, Bheem.body.y+ Bheem.body.radius + 5.0f }, { 1.0f, 0.0f, 0.0f , 0.0f }, {(float) j,0 },0);
+					//testrenderer.draw_quad({ Duryodhan.body.x-Duryodhan.body.radius - 5.0f, Duryodhan.body.y- Duryodhan.body.radius - 5.0f }, { Duryodhan.body.x + Duryodhan.body.radius + 5.0f, Duryodhan.body.y + Duryodhan.body.radius + 5.0f }, { 0.0f, 0.0f, 1.0f , 0.0f }, { 0,0 }, 1);
 					//testrenderer.draw_quad({ 30, 200 }, { 200.0f, 400.0f }, { 0.0f, 0.0f, 0.0f }, { (float)j,0 },1);
-					testrenderer.set_walls({ 0.0f,0.0f }, { 20.0f,720.0f }, { 1260.0f,0.0f }, { 1280.0f,720.0f });
+					//testrenderer.set_walls({ 0.0f,0.0f }, { 20.0f,720.0f }, { 1260.0f,0.0f }, { 1280.0f,720.0f });
 					//testrenderer.set_walls({ 0.0f,0.0f }, { 1280.0f,20.0f }, { 0.0f,700.0f }, { 1280.0f,720.0f });
 					//testrenderer.set_ground({ 0.0f,0.0f }, { 1280.0f,20.0f });
 					float frameTime = ImGui::GetIO().DeltaTime;
@@ -77,7 +101,7 @@ int main()
 					ImGui::ColorEdit4("Background Color", screen_colors);
 					ImGui::End();
 
-					
+					//cout << Duryodhan.health;
 					testrenderer.End_Scene();
 					
 		        

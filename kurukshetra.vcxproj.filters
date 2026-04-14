@@ -911,6 +911,12 @@
     <ClInclude Include="headers\subtexture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="to be tested\map.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="to be tested\circular character.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="dependencies\includes\glm\detail\func_common.inl">

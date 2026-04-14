@@ -15,40 +15,40 @@ void renderer2D::set_wall_coordinates(glm::vec2 coordinates)
 	m_buffer_ptr++;
 }
 
-void renderer2D::fill_vbo_data(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner, glm::vec3 r_g_b_values, glm::vec2 texture_indices, int texture_no)
-{
-	//m_buffer_ptr = m_buffer_base;
-	//m_buffer_ptr = structure_batao;
-	//left bottom wala corner ka data
-	glm::vec2 tex_coord[2];
-	m_subtexture->texturecoordinates({ texture_indices.x,texture_indices.y }, tex_coord);
-	m_buffer_ptr->coordinate = { left_bottom_corner.x,left_bottom_corner.y };
-	m_buffer_ptr->rgba_value = glm::vec4(r_g_b_values, 1.0f);
-	m_buffer_ptr->texturecoordinates = { tex_coord[0].x,tex_coord[0].y };
-	m_buffer_ptr->texture_index = texture_no;
-	m_buffer_ptr++;
-
-	//right bottom wala corner ka data
-	m_buffer_ptr->coordinate = { right_top_corner.x  ,left_bottom_corner.y };
-	m_buffer_ptr->rgba_value = glm::vec4(r_g_b_values, 1.0f);
-	m_buffer_ptr->texturecoordinates = { tex_coord[1].x,tex_coord[0].y };
-	m_buffer_ptr->texture_index = texture_no;
-	m_buffer_ptr++;
-
-	//right top wala corner ka data
-	m_buffer_ptr->coordinate = { right_top_corner.x  ,right_top_corner.y };
-	m_buffer_ptr->rgba_value = glm::vec4(r_g_b_values, 1.0f);
-	m_buffer_ptr->texturecoordinates = { tex_coord[1].x,tex_coord[1].y };
-	m_buffer_ptr->texture_index = texture_no;
-	m_buffer_ptr++;
-
-	//left top wala corner ka data
-	m_buffer_ptr->coordinate = { left_bottom_corner.x  , right_top_corner.y };
-	m_buffer_ptr->rgba_value = glm::vec4(r_g_b_values, 1.0f);
-	m_buffer_ptr->texturecoordinates = { tex_coord[0].x,tex_coord[1].y };
-	m_buffer_ptr->texture_index = texture_no;
-	m_buffer_ptr++;
-}
+//void renderer2D::fill_vbo_data(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner, glm::vec3 r_g_b_values, glm::vec2 texture_indices, int texture_no)
+//{
+//	//m_buffer_ptr = m_buffer_base;
+//	//m_buffer_ptr = structure_batao;
+//	//left bottom wala corner ka data
+//	glm::vec2 tex_coord[2];
+//	m_subtexture->texturecoordinates({ texture_indices.x,texture_indices.y }, tex_coord);
+//	m_buffer_ptr->coordinate = { left_bottom_corner.x,left_bottom_corner.y };
+//	m_buffer_ptr->rgba_value = glm::vec4(r_g_b_values, 1.0f);
+//	m_buffer_ptr->texturecoordinates = { tex_coord[0].x,tex_coord[0].y };
+//	m_buffer_ptr->texture_index = texture_no;
+//	m_buffer_ptr++;
+//
+//	//right bottom wala corner ka data
+//	m_buffer_ptr->coordinate = { right_top_corner.x  ,left_bottom_corner.y };
+//	m_buffer_ptr->rgba_value = glm::vec4(r_g_b_values, 1.0f);
+//	m_buffer_ptr->texturecoordinates = { tex_coord[1].x,tex_coord[0].y };
+//	m_buffer_ptr->texture_index = texture_no;
+//	m_buffer_ptr++;
+//
+//	//right top wala corner ka data
+//	m_buffer_ptr->coordinate = { right_top_corner.x  ,right_top_corner.y };
+//	m_buffer_ptr->rgba_value = glm::vec4(r_g_b_values, 1.0f);
+//	m_buffer_ptr->texturecoordinates = { tex_coord[1].x,tex_coord[1].y };
+//	m_buffer_ptr->texture_index = texture_no;
+//	m_buffer_ptr++;
+//
+//	//left top wala corner ka data
+//	m_buffer_ptr->coordinate = { left_bottom_corner.x  , right_top_corner.y };
+//	m_buffer_ptr->rgba_value = glm::vec4(r_g_b_values, 1.0f);
+//	m_buffer_ptr->texturecoordinates = { tex_coord[0].x,tex_coord[1].y };
+//	m_buffer_ptr->texture_index = texture_no;
+//	m_buffer_ptr++;
+//}
 
 renderer2D::renderer2D(int width , int height , const char* name) : m_width(width) , m_height(height)
 {
@@ -121,97 +121,114 @@ renderer2D::renderer2D(int width , int height , const char* name) : m_width(widt
 	m_vbo->unbind();
 }
 
-void renderer2D::set_walls(glm::vec2 left_wall_lower_bottom, glm::vec2 left_wall_upper_top, glm::vec2 right_wall_lower_bottom, glm::vec2 right_wall_upper_top)
-{
-	Box temp;
-	//RAM mai data ko daal raha hai ye code
-	set_wall_coordinates(left_wall_lower_bottom);
-	set_wall_coordinates({ left_wall_upper_top.x, left_wall_lower_bottom.y });
-	set_wall_coordinates(left_wall_upper_top);
-	set_wall_coordinates({ left_wall_lower_bottom.x, left_wall_upper_top.y });
-	//vector mai daal raha hai data ko collision checking ke liye
-	temp.set_box_values(left_wall_lower_bottom, left_wall_upper_top);
-	m_wall_vector.push_back(temp);
-	//doosri wall ka data ko RAM mai daal rahe hai
-	set_wall_coordinates(right_wall_lower_bottom);
-	set_wall_coordinates({right_wall_upper_top.x, right_wall_lower_bottom.y });
-	set_wall_coordinates(right_wall_upper_top);
-	set_wall_coordinates({right_wall_lower_bottom.x, right_wall_upper_top.y });
-	//doosri wall ka data vector mai daal rahe hai collision checking ke liye
-	temp.set_box_values(right_wall_lower_bottom, right_wall_upper_top);
-	m_wall_vector.push_back(temp);
-}
+//void renderer2D::set_walls(glm::vec2 left_wall_lower_bottom, glm::vec2 left_wall_upper_top, glm::vec2 right_wall_lower_bottom, glm::vec2 right_wall_upper_top)
+//{
+//	Box temp;
+//	//RAM mai data ko daal raha hai ye code
+//	set_wall_coordinates(left_wall_lower_bottom);
+//	set_wall_coordinates({ left_wall_upper_top.x, left_wall_lower_bottom.y });
+//	set_wall_coordinates(left_wall_upper_top);
+//	set_wall_coordinates({ left_wall_lower_bottom.x, left_wall_upper_top.y });
+//	//vector mai daal raha hai data ko collision checking ke liye
+//	temp.set_box_values(left_wall_lower_bottom, left_wall_upper_top);
+//	m_wall_vector.push_back(temp);
+//	//doosri wall ka data ko RAM mai daal rahe hai
+//	set_wall_coordinates(right_wall_lower_bottom);
+//	set_wall_coordinates({right_wall_upper_top.x, right_wall_lower_bottom.y });
+//	set_wall_coordinates(right_wall_upper_top);
+//	set_wall_coordinates({right_wall_lower_bottom.x, right_wall_upper_top.y });
+//	//doosri wall ka data vector mai daal rahe hai collision checking ke liye
+//	temp.set_box_values(right_wall_lower_bottom, right_wall_upper_top);
+//	m_wall_vector.push_back(temp);
+//}
 
-void renderer2D::set_ground(glm::vec2 ground_bottom_left_corner, glm::vec2 ground_top_right_corner)
-{
-	//data RAM mai daal rahe hai DRAWING ke liye
-	set_wall_coordinates(ground_bottom_left_corner);
-	set_wall_coordinates({ ground_top_right_corner.x, ground_bottom_left_corner.y });
-	set_wall_coordinates(ground_top_right_corner);
-	set_wall_coordinates({ ground_bottom_left_corner.x, ground_top_right_corner.y });
-	Box temp;
-	temp.set_box_values(ground_bottom_left_corner, ground_top_right_corner);
-	m_wall_vector.push_back(temp);
-}
+//void renderer2D::set_ground(glm::vec2 ground_bottom_left_corner, glm::vec2 ground_top_right_corner)
+//{
+//	//data RAM mai daal rahe hai DRAWING ke liye
+//	set_wall_coordinates(ground_bottom_left_corner);
+//	set_wall_coordinates({ ground_top_right_corner.x, ground_bottom_left_corner.y });
+//	set_wall_coordinates(ground_top_right_corner);
+//	set_wall_coordinates({ ground_bottom_left_corner.x, ground_top_right_corner.y });
+//	Box temp;
+//	temp.set_box_values(ground_bottom_left_corner, ground_top_right_corner);
+//	m_wall_vector.push_back(temp);
+//}
 
-void renderer2D::processinput()
-{
-	//controls for bheem
-	float speed = 0.5f;
-	float normalJump = 10.0f;  //jump karne ke liye force 
-	float highJump = 20.0f;
-	float oldX1 = m_bheem.body.x;
-	float oldwidth = m_bheem.body.width;
-	if (glfwGetKey(m_window->windowadd(), GLFW_KEY_A) == GLFW_PRESS)
-	{
-		m_bheem.body.x -= speed;
-		m_bheem.body.width -= speed;
-	}
-	if (glfwGetKey(m_window->windowadd(), GLFW_KEY_D) == GLFW_PRESS)
-	{
-		m_bheem.body.x += speed;
-		m_bheem.body.width += speed;
-	}
-
-	//if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) bheem.body.y -= speed;
-
-	for (const auto& w : m_wall_vector) {
-		if (Physics::checkcollision(m_bheem.body, w))
-		{
-			m_bheem.body.x = oldX1;
-			m_bheem.body.width = oldwidth;
-		}
-	}
-	if (Physics::checkcollision(m_bheem.body, m_duryodhan.body))
-	{
-		m_bheem.body.x = oldX1;
-		m_bheem.body.width = oldwidth;
-	}
-
-	//Jump 
-	if (glfwGetKey(m_window->windowadd(), GLFW_KEY_W) == GLFW_PRESS && m_bheem.wReleased) {
-		m_bheem.body.y += speed;
-		m_bheem.body.height += speed;
-	}
-	if (glfwGetKey(m_window->windowadd(), GLFW_KEY_S) == GLFW_PRESS && m_bheem.wReleased) {
-		m_bheem.body.y -= speed;
-		m_bheem.body.height -= speed;
-	}
-	if (glfwGetKey(m_window->windowadd(), GLFW_KEY_W) == GLFW_RELEASE) m_bheem.wReleased = true;
-
-	//controls for duryodhan
-
-
-	float oldX2 = m_duryodhan.body.x;
-	if (glfwGetKey(m_window->windowadd(), GLFW_KEY_LEFT) == GLFW_PRESS) m_duryodhan.body.x -= speed;
-	if (glfwGetKey(m_window->windowadd(), GLFW_KEY_RIGHT) == GLFW_PRESS) m_duryodhan.body.x += speed;
-
-	//box vs Box(duryodhan vs wall)
-	for (const auto& wall : m_wall_vector) {
-		if (Physics::checkcollision(m_duryodhan.body, wall)) m_duryodhan.body.x = oldX2;
-	}
-	if (Physics::checkcollision(m_duryodhan.body, m_bheem.body)) m_duryodhan.body.x = oldX2;
-}
+//void renderer2D::processinput()
+//{
+//	//controls for bheem
+//	float speed = 0.5f;
+//	float normalJump = 10.0f;  //jump karne ke liye force 
+//	float highJump = 20.0f;
+//	float oldX1 = m_bheem.body.x;
+//	float oldwidth = m_bheem.body.width;
+//	if (glfwGetKey(m_window->windowadd(), GLFW_KEY_A) == GLFW_PRESS)
+//	{
+//		m_bheem.body.x -= speed;
+//		m_bheem.body.width -= speed;
+//	}
+//	if (glfwGetKey(m_window->windowadd(), GLFW_KEY_D) == GLFW_PRESS)
+//	{
+//		m_bheem.body.x += speed;
+//		m_bheem.body.width += speed;
+//	}
+//
+//	//if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) bheem.body.y -= speed;
+//
+//	for (const auto& w : m_wall_vector) {
+//		if (Physics::checkcollision(m_bheem.body, w))
+//		{
+//			m_bheem.body.x = oldX1;
+//			m_bheem.body.width = oldwidth;
+//		}
+//	}
+//	if (Physics::checkcollision(m_bheem.body, m_duryodhan.body))
+//	{
+//		m_bheem.body.x = oldX1;
+//		m_bheem.body.width = oldwidth;
+//	}
+//
+//	//Jump 
+//	if (glfwGetKey(m_window->windowadd(), GLFW_KEY_W) == GLFW_PRESS && m_bheem.wReleased) {
+//		m_bheem.body.y += speed;
+//		m_bheem.body.height += speed;
+//	}
+//	if (glfwGetKey(m_window->windowadd(), GLFW_KEY_S) == GLFW_PRESS && m_bheem.wReleased) {
+//		m_bheem.body.y -= speed;
+//		m_bheem.body.height -= speed;
+//	}
+//	if (glfwGetKey(m_window->windowadd(), GLFW_KEY_W) == GLFW_RELEASE) m_bheem.wReleased = true;
+//
+//	//controls for duryodhan
+//
+//
+//	float oldX2 = m_duryodhan.body.x;
+//	float oldwidth2 = m_duryodhan.body.width;
+//	if (glfwGetKey(m_window->windowadd(), GLFW_KEY_LEFT) == GLFW_PRESS)
+//	{
+//		m_duryodhan.body.x -= speed;
+//		m_duryodhan.body.width -= speed;
+//	}
+//	if (glfwGetKey(m_window->windowadd(), GLFW_KEY_RIGHT) == GLFW_PRESS)
+//	{
+//		m_duryodhan.body.x += speed;
+//		m_duryodhan.body.width += speed;
+//	}
+//	//box vs Box(duryodhan vs wall)
+//	for (const auto& wall : m_wall_vector) {
+//		if (Physics::checkcollision(m_duryodhan.body, wall))
+//		{
+//			m_duryodhan.body.x = oldX2;
+//			m_duryodhan.body.width = oldwidth2;
+//		}
+//	}
+//	if (Physics::checkcollision(m_duryodhan.body, m_bheem.body))
+//	{
+//		m_duryodhan.body.x = oldX2;
+//		m_duryodhan.body.width = oldwidth2;
+//	}
+//
+//}
 
 
 
@@ -268,64 +285,40 @@ void renderer2D::Begin_Scene( int texture_slot)
 
 }
 
-void renderer2D::draw_quad(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner, glm::vec3 r_g_b_values, glm::vec2 texture_indices , int texture_no) //, vertex* structure_batao)
+void renderer2D::draw_quad(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner, glm::vec4 r_g_b_values, glm::vec2 texture_indices , int texture_no) //, vertex* structure_batao)
 {
 	
-	if (texture_no == 0 && bheem_values == false)
-	{
-		m_bheem.set_character_dimentions(left_bottom_corner.x, left_bottom_corner.y, right_top_corner.x, right_top_corner.y);
-		bheem_values = true;
-	}
-	else if (texture_no == 1 && duryodhan_values == false)
-	{
-		m_duryodhan.set_character_dimentions(left_bottom_corner.x, left_bottom_corner.y, right_top_corner.x, right_top_corner.y);
-		duryodhan_values = true;
-	}
+	//m_buffer_ptr = m_buffer_base;
+	//m_buffer_ptr = structure_batao;
+	//left bottom wala corner ka data
+	glm::vec2 tex_coord[2];
+	m_subtexture->texturecoordinates({ texture_indices.x,texture_indices.y }, tex_coord);
+	m_buffer_ptr->coordinate = { left_bottom_corner.x,left_bottom_corner.y };
+	m_buffer_ptr->rgba_value = r_g_b_values;
+	m_buffer_ptr->texturecoordinates = { tex_coord[0].x,tex_coord[0].y };
+	m_buffer_ptr->texture_index = texture_no;
+	m_buffer_ptr++;
 
-	
+	//right bottom wala corner ka data
+	m_buffer_ptr->coordinate = { right_top_corner.x  ,left_bottom_corner.y };
+	m_buffer_ptr->rgba_value = r_g_b_values;
+	m_buffer_ptr->texturecoordinates = { tex_coord[1].x,tex_coord[0].y };
+	m_buffer_ptr->texture_index = texture_no;
+	m_buffer_ptr++;
 
-	//uint32_t size = (uint32_t)((uint8_t*)m_buffer_ptr - (uint8_t*)m_buffer_base);
-	//if (size == 0) return;
-	// 
-	//uint32_t indices = (uint32_t)((float)size / (float)sizeof(vertex) * 1.5f);
-	////			THIS IS FOR TESTING
-	//          std::cout << "BASE PTR: " << m_buffer_base << std::endl;
-	//          std::cout << "CUR PTR : " << m_buffer_ptr << std::endl;
-	//          std::cout << "SIZE    : " << size << std::endl;
-	//		  m_vbo->bind();
-	//m_vbo->subdata(m_buffer_base, size);
-	//m_shader->use();
-	//m_vao->bind();
-	////m_ibo->bind();
-	//m_texture->bind(0);
-	//GLcall(glDrawElements(GL_TRIANGLES, indices, GL_UNSIGNED_INT, NULL));
-	//character banao
-	if (texture_no == 0 && bheem_values == false)
-	{
-		m_bheem.set_character_dimentions(left_bottom_corner.x, left_bottom_corner.y, right_top_corner.x , right_top_corner.y);
-		m_bheem.ApplyPhysics();
-		fill_vbo_data({m_bheem.body.x,m_bheem.body.y}, { m_bheem.body.width,m_bheem.body.height }, r_g_b_values, texture_indices, texture_no);
-		/*fill_vbo_data({ m_bheem.body.x,m_bheem.body.y }, { m_bheem.body.width,m_bheem.body.height },{0.0f,1.0f,0.0f}, texture_indices, texture_no);*/
-		bheem_values = true;
-	}
-	else if (texture_no == 0)
-	{
-		fill_vbo_data({ m_bheem.body.x,m_bheem.body.y }, { m_bheem.body.width,m_bheem.body.height }, r_g_b_values, texture_indices, texture_no);
-		//fill_vbo_data({ m_bheem.body.x,m_bheem.body.y }, { m_bheem.body.width,m_bheem.body.height }, { 0.0f,1.0f,0.0f }, texture_indices, texture_no);
-	}
-	else if (texture_no == 1 && duryodhan_values == false)
-	{
-		m_duryodhan.set_character_dimentions(left_bottom_corner.x, left_bottom_corner.y, right_top_corner.x, right_top_corner.y);
-		m_duryodhan.ApplyPhysics();
-		fill_vbo_data({ m_duryodhan.body.x,m_duryodhan.body.y }, { m_duryodhan.body.width,m_duryodhan.body.height }, r_g_b_values, texture_indices, texture_no);
-		//fill_vbo_data({ m_duryodhan.body.x,m_duryodhan.body.y }, { m_duryodhan.body.width,m_duryodhan.body.height }, { 1.0f,0.0f,0.0f }, texture_indices, texture_no);
-		duryodhan_values = true;
-	}
-	else
-	{
-		fill_vbo_data({ m_duryodhan.body.x,m_duryodhan.body.y }, { m_duryodhan.body.width,m_duryodhan.body.height }, r_g_b_values, texture_indices, texture_no);
-		//fill_vbo_data({ m_duryodhan.body.x,m_duryodhan.body.y }, { m_duryodhan.body.width,m_duryodhan.body.height }, { 1.0f,0.0f,0.0f }, texture_indices, texture_no);
-	}
+	//right top wala corner ka data
+	m_buffer_ptr->coordinate = { right_top_corner.x  ,right_top_corner.y };
+	m_buffer_ptr->rgba_value = r_g_b_values;
+	m_buffer_ptr->texturecoordinates = { tex_coord[1].x,tex_coord[1].y };
+	m_buffer_ptr->texture_index = texture_no;
+	m_buffer_ptr++;
+
+	//left top wala corner ka data
+	m_buffer_ptr->coordinate = { left_bottom_corner.x  , right_top_corner.y };
+	m_buffer_ptr->rgba_value = r_g_b_values;
+	m_buffer_ptr->texturecoordinates = { tex_coord[0].x,tex_coord[1].y };
+	m_buffer_ptr->texture_index = texture_no;
+	m_buffer_ptr++;
 }
 
 void renderer2D::draw_quad(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner, glm::vec3 r_g_b_values, vertex* structure_batao)

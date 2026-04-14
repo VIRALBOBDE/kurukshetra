@@ -319,6 +319,8 @@
     <ClInclude Include="headers\window.h" />
     <ClInclude Include="headers\renderer.h" />
     <ClInclude Include="headers\subtexture.h" />
+    <ClInclude Include="to be tested\circular character.h" />
+    <ClInclude Include="to be tested\map.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="recyclebin\artifact of the codes.codes" />
@@ -538,10 +540,13 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\lib;C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\includes;</AdditionalIncludeDirectories>
+      <AdditionalUsingDirectories>C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\lib;C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\includes;%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;user32.lib;gdi32.lib;shell32.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -554,10 +559,13 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\lib;C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\includes;</AdditionalIncludeDirectories>
+      <AdditionalUsingDirectories>C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\lib;C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\includes;%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;user32.lib;gdi32.lib;shell32.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -566,15 +574,16 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\KALYANI01\Desktop\coder bhai zindabaad\gamedev practice\kurukshetra\dependencies\includes;$(SolutionDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\lib;C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\includes;C:\Users\KALYANI01\Desktop\coder bhai zindabaad\gamedev practice\kurukshetra\dependencies\includes;$(SolutionDir)</AdditionalIncludeDirectories>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalUsingDirectories>C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\lib;C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\includes;%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)/dependencies/lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)opengl32.lib</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;user32.lib;gdi32.lib;shell32.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -585,15 +594,16 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\KALYANI01\Desktop\coder bhai zindabaad\gamedev practice\kurukshetra\dependencies\includes;$(SolutionDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\lib;C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\includes;C:\Users\KALYANI01\Desktop\coder bhai zindabaad\gamedev practice\kurukshetra\dependencies\includes;$(SolutionDir)</AdditionalIncludeDirectories>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalUsingDirectories>C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\lib;C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\includes;%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)/dependencies/lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)opengl32.lib</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;user32.lib;gdi32.lib;shell32.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

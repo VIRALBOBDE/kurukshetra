@@ -37,8 +37,6 @@ private:
 	window*                    m_window                                 ;
 	vertex*                    m_buffer_base   = new vertex[4000]		;
 	vertex*                    m_buffer_ptr    = m_buffer_base			;
-	Character                  m_bheem   								;
-	Character                  m_duryodhan                              ;
 	unsigned int*              m_ibo_buffer    = new unsigned int[6000] ;
 	unsigned int               white_texture                            ;
 	int                        m_texture_slot[32]                       ;
@@ -56,7 +54,6 @@ private:
 	//    PRIVATE FUNCTIONS
 	void start_batch();
 	void set_wall_coordinates(glm::vec2 coordinates);
-	void fill_vbo_data(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner, glm::vec3 r_g_b_values, glm::vec2 texture_indices, int texture_no);
 public:
 	renderer2D(int width, int height , const char* name);
 	void set_shader(string name_of_the_shader);
@@ -64,15 +61,12 @@ public:
 	void set_texture(string name_of_the_texture , int slot , int tile_width , int tile_height);
 	void set_texture(string name_of_the_texture, int slot);
 	void set_camera();
-	void set_walls(glm::vec2 left_wall_lower_bottom , glm::vec2 left_wall_upper_top , glm::vec2 right_wall_lower_bottom , glm::vec2 right_wall_upper_top );
-	void set_ground(glm::vec2 ground_botttom_left_corner, glm::vec2 ground_top_right_corner);
-	void processinput();
 	bool is_window_closed() const { return m_window->iswindowclose(); }
-	void new_frame();
+	GLFWwindow* window_address() const { return m_window->windowadd(); }
 	void Begin_Scene(int texture_slot);
 	void set_colors(float r, float g, float b, float a) { m_window->setcolors(r, g, b, a); }
 	void End_Scene();
-	void draw_quad(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner, glm::vec3 r_g_b_values , glm::vec2 texture_indices , int texture_no);// vertex* structure_batao);
+	void draw_quad(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner, glm::vec4 r_g_b_values , glm::vec2 texture_indices , int texture_no);// vertex* structure_batao);
 	void Flush();
 	~renderer2D();
 	//void setuniform(string name_of_uniform  ,  float* data);
@@ -83,4 +77,9 @@ public:
 	void bindvao() { m_vao->bind(); };
 	void bind_texture(int slot) { m_texture->bind(slot); }
 	void bind_shader() { m_shader->use(); }
+	void fill_vbo_data(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner, glm::vec3 r_g_b_values, glm::vec2 texture_indices, int texture_no);
+	void new_frame();
+	/*void set_walls(glm::vec2 left_wall_lower_bottom , glm::vec2 left_wall_upper_top , glm::vec2 right_wall_lower_bottom , glm::vec2 right_wall_upper_top );
+	void set_ground(glm::vec2 ground_botttom_left_corner, glm::vec2 ground_top_right_corner);
+	void processinput();*/
 };
