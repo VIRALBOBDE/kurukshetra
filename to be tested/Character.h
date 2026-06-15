@@ -3,6 +3,10 @@
 #include"Circle.h"
 #include"Box.h"
 #include <GLFW/glfw3.h>
+//#include "headers/renderer.h"
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 class BoxCharacter {
 public:
@@ -28,7 +32,7 @@ public:
 
 	// Constructor : bheem ko banane ke liye (x,y,radius)
 	BoxCharacter() {};
-	BoxCharacter(GLFWwindow* winodow ,float x, float y, float width , float height) : body("test character",x, y, width, height) {}
+	BoxCharacter(GLFWwindow* winodow ,float x, float y, float width , float height) : body("test character",x, y, width, height),window(winodow) {}
 
 	void set_character_dimentions(float x, float y, float width, float height)
 	{
@@ -49,6 +53,11 @@ public:
 		}
 	}
 
+	/*void draw(glm::vec4 r_g_b_values, glm::vec2 texture_indices, int texture_slot , renderer2D& renderer)
+	{
+		renderer.draw_quad({ body.x,body.y }, { body.x + body.width + 10.0f , body.y + body.height + 10.0f }, r_g_b_values, texture_indices, texture_slot);
+	}*/
+
 	void ApplyPhysics(BoxCharacter& target) {
 		if (isStunned) return; //freeze!! no movement
 		float oldpos = body.y;
@@ -57,7 +66,7 @@ public:
 		{
 			if (!checkcollision(body, target.body))
 			{
-				velocityY -= 0.0008f;
+				velocityY -= 0.08f;
 				body.y += velocityY;
 			}
 			else
@@ -81,21 +90,21 @@ public:
 			jumpCount = 0;
 		}
 	}
-		void Jump() {
+		void Jump(float deltatime) {
 			if (isStunned) return; // freezed !! no jump
 
-			float normalJump = 0.5f;
-			float highJump = 0.6f;
+			float normalJump = 300.0f*deltatime;
+			float highJump   = 50.0f * deltatime;
 
 			if (isGrounded) {
-				velocityY = normalJump;
-				body.y += normalJump;
+				velocityY += normalJump;
+				//body.y += normalJump;
 				isGrounded = false;
 				jumpCount = 1;
 			}
 			else if (jumpCount == 1) { //double jump
-				velocityY = highJump;
-				body.y += highJump;
+				velocityY += highJump;
+				//body.y += highJump;
 				//body.height += highJump;
 				jumpCount = 2;
 			}

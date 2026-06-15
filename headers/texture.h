@@ -12,6 +12,7 @@ private:
 	int height, width, channels;
 public:
 	texture(std::string file_name , int slot);
+	void add_texture(std::string file_name, int slot);
 	void bind(unsigned int slot);
 	void unbind() const;
 	float getheight() const  { return height; }

@@ -8,9 +8,9 @@
     //-----------AABB vs AABB (box to box)---------
 static bool checkcollision(const Box& bheem, const Box& target) {
 	bool leftoverlap = bheem.x <= (target.x + target.width);
-	bool rightoverlap = (bheem.x + bheem.width) >= target.x+1 ;
-	bool bottomoverlap = bheem.y-1 <= (target.y + target.height);
-	bool topoverlap = (bheem.y + bheem.height) >= target.y+1;
+	bool rightoverlap = (bheem.x + bheem.width) >= target.x ;
+	bool bottomoverlap = bheem.y <= (target.y + target.height);
+	bool topoverlap = (bheem.y + bheem.height) >= target.y;
 
 	return leftoverlap && rightoverlap && bottomoverlap && topoverlap;
     }

@@ -154,83 +154,6 @@ renderer2D::renderer2D(int width , int height , const char* name) : m_width(widt
 //	m_wall_vector.push_back(temp);
 //}
 
-//void renderer2D::processinput()
-//{
-//	//controls for bheem
-//	float speed = 0.5f;
-//	float normalJump = 10.0f;  //jump karne ke liye force 
-//	float highJump = 20.0f;
-//	float oldX1 = m_bheem.body.x;
-//	float oldwidth = m_bheem.body.width;
-//	if (glfwGetKey(m_window->windowadd(), GLFW_KEY_A) == GLFW_PRESS)
-//	{
-//		m_bheem.body.x -= speed;
-//		m_bheem.body.width -= speed;
-//	}
-//	if (glfwGetKey(m_window->windowadd(), GLFW_KEY_D) == GLFW_PRESS)
-//	{
-//		m_bheem.body.x += speed;
-//		m_bheem.body.width += speed;
-//	}
-//
-//	//if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) bheem.body.y -= speed;
-//
-//	for (const auto& w : m_wall_vector) {
-//		if (Physics::checkcollision(m_bheem.body, w))
-//		{
-//			m_bheem.body.x = oldX1;
-//			m_bheem.body.width = oldwidth;
-//		}
-//	}
-//	if (Physics::checkcollision(m_bheem.body, m_duryodhan.body))
-//	{
-//		m_bheem.body.x = oldX1;
-//		m_bheem.body.width = oldwidth;
-//	}
-//
-//	//Jump 
-//	if (glfwGetKey(m_window->windowadd(), GLFW_KEY_W) == GLFW_PRESS && m_bheem.wReleased) {
-//		m_bheem.body.y += speed;
-//		m_bheem.body.height += speed;
-//	}
-//	if (glfwGetKey(m_window->windowadd(), GLFW_KEY_S) == GLFW_PRESS && m_bheem.wReleased) {
-//		m_bheem.body.y -= speed;
-//		m_bheem.body.height -= speed;
-//	}
-//	if (glfwGetKey(m_window->windowadd(), GLFW_KEY_W) == GLFW_RELEASE) m_bheem.wReleased = true;
-//
-//	//controls for duryodhan
-//
-//
-//	float oldX2 = m_duryodhan.body.x;
-//	float oldwidth2 = m_duryodhan.body.width;
-//	if (glfwGetKey(m_window->windowadd(), GLFW_KEY_LEFT) == GLFW_PRESS)
-//	{
-//		m_duryodhan.body.x -= speed;
-//		m_duryodhan.body.width -= speed;
-//	}
-//	if (glfwGetKey(m_window->windowadd(), GLFW_KEY_RIGHT) == GLFW_PRESS)
-//	{
-//		m_duryodhan.body.x += speed;
-//		m_duryodhan.body.width += speed;
-//	}
-//	//box vs Box(duryodhan vs wall)
-//	for (const auto& wall : m_wall_vector) {
-//		if (Physics::checkcollision(m_duryodhan.body, wall))
-//		{
-//			m_duryodhan.body.x = oldX2;
-//			m_duryodhan.body.width = oldwidth2;
-//		}
-//	}
-//	if (Physics::checkcollision(m_duryodhan.body, m_bheem.body))
-//	{
-//		m_duryodhan.body.x = oldX2;
-//		m_duryodhan.body.width = oldwidth2;
-//	}
-//
-//}
-
-
 
 
 void renderer2D::set_shader(string name_of_the_shader)
@@ -256,17 +179,32 @@ void renderer2D::set_shader(string name_of_the_shader, int fragment_shader_sampl
 
 void renderer2D::set_texture(string location_of_the_texture, int slot , int tile_width, int tile_height)
 {
-	m_texture = new texture(location_of_the_texture, slot);
-	m_texture->bind(texture_counter);
-	m_subtexture = new subtexture(*m_texture, { tile_width,tile_height });
-	m_texture_slot[texture_counter] = m_texture->get_texture_id();
+	m_texture[slot] = new texture(location_of_the_texture, slot);
+	m_texture[slot]->bind(texture_counter);
+	m_texture_slot[texture_counter] = m_texture[slot]->get_texture_id();
 	texture_counter++;
 }
 
-void renderer2D::set_texture(string name_of_the_texture, int slot)
-{
-
-}
+//void renderer2D::add_texture(string name_of_the_texture)
+//{
+//	if (m_texture = nullptr) m_texture = new texture(name_of_the_texture,texture_counter);
+//	else
+//	{
+//		if (texture_counter <= 31)
+//		{
+//		m_texture->add_texture(name_of_the_texture, texture_counter);
+//		texture_counter++;
+//		}
+//		else
+//		{
+//			texture_counter = 15;
+//			m_texture->add_texture(name_of_the_texture, texture_counter);
+//			texture_counter++;
+//		}
+//
+//	}
+//	
+//}
 
 void renderer2D::set_camera()
 {
@@ -291,34 +229,99 @@ void renderer2D::draw_quad(glm::vec2 left_bottom_corner, glm::vec2 right_top_cor
 	//m_buffer_ptr = m_buffer_base;
 	//m_buffer_ptr = structure_batao;
 	//left bottom wala corner ka data
-	glm::vec2 tex_coord[2];
-	m_subtexture->texturecoordinates({ texture_indices.x,texture_indices.y }, tex_coord);
+	//glm::vec2 tex_coord[2];
+	//m_subtexture->texturecoordinates({ texture_indices.x,texture_indices.y }, tex_coord);
+	//m_buffer_ptr->coordinate = { left_bottom_corner.x,left_bottom_corner.y };
+	//m_buffer_ptr->rgba_value = r_g_b_values;
+	//m_buffer_ptr->texturecoordinates = { tex_coord[0].x,tex_coord[0].y };
+	//m_buffer_ptr->texture_index = texture_no;
+	//m_buffer_ptr++;
+
+	////right bottom wala corner ka data
+	//m_buffer_ptr->coordinate = { right_top_corner.x  ,left_bottom_corner.y };
+	//m_buffer_ptr->rgba_value = r_g_b_values;
+	//m_buffer_ptr->texturecoordinates = { tex_coord[1].x,tex_coord[0].y };
+	//m_buffer_ptr->texture_index = texture_no;
+	//m_buffer_ptr++;
+
+	////right top wala corner ka data
+	//m_buffer_ptr->coordinate = { right_top_corner.x  ,right_top_corner.y };
+	//m_buffer_ptr->rgba_value = r_g_b_values;
+	//m_buffer_ptr->texturecoordinates = { tex_coord[1].x,tex_coord[1].y };
+	//m_buffer_ptr->texture_index = texture_no;
+	//m_buffer_ptr++;
+
+	////left top wala corner ka data
+	//m_buffer_ptr->coordinate = { left_bottom_corner.x  , right_top_corner.y };
+	//m_buffer_ptr->rgba_value = r_g_b_values;
+	//m_buffer_ptr->texturecoordinates = { tex_coord[0].x,tex_coord[1].y };
+	//m_buffer_ptr->texture_index = texture_no;
+	//m_buffer_ptr++;
+	//fill_vbo_data(left_bottom_corner, right_top_corner, r_g_b_values, texture_indices, texture_no);
+}
+
+void renderer2D::draw_quad(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner, glm::vec4 r_g_b_values, glm::vec4 texture_coordinates ,  int texture_no)
+{
+
 	m_buffer_ptr->coordinate = { left_bottom_corner.x,left_bottom_corner.y };
 	m_buffer_ptr->rgba_value = r_g_b_values;
-	m_buffer_ptr->texturecoordinates = { tex_coord[0].x,tex_coord[0].y };
+	m_buffer_ptr->texturecoordinates = { texture_coordinates.x,texture_coordinates.y };
 	m_buffer_ptr->texture_index = texture_no;
 	m_buffer_ptr++;
 
 	//right bottom wala corner ka data
 	m_buffer_ptr->coordinate = { right_top_corner.x  ,left_bottom_corner.y };
 	m_buffer_ptr->rgba_value = r_g_b_values;
-	m_buffer_ptr->texturecoordinates = { tex_coord[1].x,tex_coord[0].y };
+	m_buffer_ptr->texturecoordinates = { texture_coordinates.z,texture_coordinates.y };
 	m_buffer_ptr->texture_index = texture_no;
 	m_buffer_ptr++;
 
 	//right top wala corner ka data
 	m_buffer_ptr->coordinate = { right_top_corner.x  ,right_top_corner.y };
 	m_buffer_ptr->rgba_value = r_g_b_values;
-	m_buffer_ptr->texturecoordinates = { tex_coord[1].x,tex_coord[1].y };
+	m_buffer_ptr->texturecoordinates = { texture_coordinates.z,texture_coordinates.a };
 	m_buffer_ptr->texture_index = texture_no;
 	m_buffer_ptr++;
 
 	//left top wala corner ka data
 	m_buffer_ptr->coordinate = { left_bottom_corner.x  , right_top_corner.y };
 	m_buffer_ptr->rgba_value = r_g_b_values;
-	m_buffer_ptr->texturecoordinates = { tex_coord[0].x,tex_coord[1].y };
+	m_buffer_ptr->texturecoordinates = { texture_coordinates.x,texture_coordinates.a };
 	m_buffer_ptr->texture_index = texture_no;
 	m_buffer_ptr++;
+}
+
+void renderer2D::set_walls(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner , glm::vec4 r_g_b_values , glm::vec2 texture_indices, float texture_no)
+{
+	//fill_vbo_data(left_bottom_corner, right_top_corner, r_g_b_values, texture_indices, texture_no);
+	////left bottom wala corner ka data
+	//m_buffer_ptr->coordinate = { left_bottom_corner.x,left_bottom_corner.y };
+	//m_buffer_ptr->rgba_value = r_g_b_values;
+	//m_buffer_ptr->texturecoordinates = { 0,0 };
+	//m_buffer_ptr->texture_index = texture_no;
+	//m_buffer_ptr++;
+
+	////right bottom wala corner ka data
+	//m_buffer_ptr->coordinate = { width_and_height.x  ,left_bottom_corner.y };
+	//m_buffer_ptr->rgba_value = r_g_b_values;
+	//m_buffer_ptr->texturecoordinates = { 1,0};
+	//m_buffer_ptr->texture_index = texture_no;
+	//m_buffer_ptr++;
+
+	////right top wala corner ka data
+	//m_buffer_ptr->coordinate = { width_and_height.x  ,width_and_height.y };
+	//m_buffer_ptr->rgba_value = r_g_b_values;
+	//m_buffer_ptr->texturecoordinates = { 1,1 };
+	//m_buffer_ptr->texture_index = texture_no;
+	//m_buffer_ptr++;
+
+	////left top wala corner ka data
+	//m_buffer_ptr->coordinate = { left_bottom_corner.x  , width_and_height.y };
+	//m_buffer_ptr->rgba_value = r_g_b_values;
+	//m_buffer_ptr->texturecoordinates = {0,1 };
+	//m_buffer_ptr->texture_index = texture_no;
+	//m_buffer_ptr++;
+	//
 }
 
 void renderer2D::draw_quad(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner, glm::vec3 r_g_b_values, vertex* structure_batao)
@@ -358,6 +361,39 @@ void renderer2D::draw_quad(glm::vec2 left_bottom_corner, glm::vec2 right_top_cor
 	cout << endl << "data bhar diya hai 4 ka:\n" << structure_batao[3].coordinate.x << "\n" << structure_batao[3].coordinate.y << "\n" << structure_batao[3].rgba_value.x << "\n" << structure_batao[3].rgba_value.y << "\n" << structure_batao[3].rgba_value.z << "\n" << structure_batao[3].rgba_value.w << "\n" << structure_batao[3].texturecoordinates.x << "\n" << structure_batao[3].texturecoordinates.y << "\n" << structure_batao[3].texture_index;
 
 }
+
+//void renderer2D::fill_vbo_data(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner, glm::vec4 r_g_b_values, glm::vec2 texture_indices, int texture_no)
+//{
+//	glm::vec2 tex_coord[2];
+//	m_subtexture[texture_no]->texturecoordinates({texture_indices.x,texture_indices.y}, tex_coord);
+//	m_buffer_ptr->coordinate = { left_bottom_corner.x,left_bottom_corner.y };
+//	m_buffer_ptr->rgba_value = r_g_b_values;
+//	m_buffer_ptr->texturecoordinates = { tex_coord[0].x,tex_coord[0].y };
+//	m_buffer_ptr->texture_index = texture_no;
+//	m_buffer_ptr++;
+//
+//	//right bottom wala corner ka data
+//	m_buffer_ptr->coordinate = { right_top_corner.x  ,left_bottom_corner.y };
+//	m_buffer_ptr->rgba_value = r_g_b_values;
+//	m_buffer_ptr->texturecoordinates = { tex_coord[1].x,tex_coord[0].y };
+//	m_buffer_ptr->texture_index = texture_no;
+//	m_buffer_ptr++;
+//
+//	//right top wala corner ka data
+//	m_buffer_ptr->coordinate = { right_top_corner.x  ,right_top_corner.y };
+//	m_buffer_ptr->rgba_value = r_g_b_values;
+//	m_buffer_ptr->texturecoordinates = { tex_coord[1].x,tex_coord[1].y };
+//	m_buffer_ptr->texture_index = texture_no;
+//	m_buffer_ptr++;
+//
+//	//left top wala corner ka data
+//	m_buffer_ptr->coordinate = { left_bottom_corner.x  , right_top_corner.y };
+//	m_buffer_ptr->rgba_value = r_g_b_values;
+//	m_buffer_ptr->texturecoordinates = { tex_coord[0].x,tex_coord[1].y };
+//	m_buffer_ptr->texture_index = texture_no;
+//	m_buffer_ptr++;
+//
+//}
 
 void renderer2D::End_Scene()
 {
@@ -399,12 +435,14 @@ void renderer2D::Flush()
 	m_shader->use();
 	m_vao->bind();
 	//m_ibo->bind();
-	m_texture->bind(0);
-	m_texture->bind(1);
+	for (int i = 0 ; i< texture_counter ; i++ )m_texture[i]->bind(0);
+	//m_texture->bind(1);
 	GLcall(glDrawElements(GL_TRIANGLES, indices, GL_UNSIGNED_INT, NULL));
 	m_window->swapbuffer();
 	glfwPollEvents();
 }
+
+
 
 renderer2D::~renderer2D()
 {
@@ -415,7 +453,7 @@ renderer2D::~renderer2D()
 	delete m_ibo         ;
 	delete m_shader      ;
 	delete m_camera		 ;
-	delete m_texture     ;
+	for ( int i = 0 ; i < texture_counter ; i++ ) delete m_texture[i]     ;
 }
 
 

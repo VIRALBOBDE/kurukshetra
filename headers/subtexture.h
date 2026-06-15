@@ -1,16 +1,17 @@
 #pragma once
-#include "texture.h"
-#include <glm/glm.hpp>
+#include <glm/glm.hpp>  // GLM library ke saare core types (vec2, vec3, mat4) ke liye
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
-class subtexture
+#include "texture.h"
+class animation;
+class subtexture 
 {
 private:
-	texture& l_texture;
-	glm::vec2 tilesize;
-	float sheetheight, sheetwidth, spriteheight, spritewidth;
-	int tileheight;
+	glm::vec4 coordinates;
+
 public:
-	subtexture(texture& tex, glm::vec2 tiledim);
-	void texturecoordinates(glm::vec2 indices, glm::vec2* coordinates);
+
+	subtexture(glm::vec4 coordinate = { 0.0f,0.0f,0.0f,0.0f }) : coordinates(coordinate) {}
+	glm::vec4 texturecoordinates(glm::vec2 indices, float tile_width, float tile_height, float sheetheight, float sheetwidth);
+	glm::vec4 const get_coordinates() { return coordinates; }
 };

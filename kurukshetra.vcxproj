@@ -33,6 +33,7 @@
     <ClCompile Include="dependencies\includes\stb_image\stb_image.cpp" />
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="error.cpp" />
+    <ClCompile Include="animation.cpp" />
     <ClCompile Include="subtexture.cpp" />
     <ClCompile Include="renderer.cpp" />
     <ClCompile Include="texture.cpp" />
@@ -308,6 +309,7 @@
     <ClInclude Include="dependencies\includes\imgui\imstb_truetype.h" />
     <ClInclude Include="dependencies\includes\KHR\khrplatform.h" />
     <ClInclude Include="dependencies\includes\stb_image\stb_image.h" />
+    <ClInclude Include="headers\animation.h" />
     <ClInclude Include="headers\common.h" />
     <ClInclude Include="headers\camera.h" />
     <ClInclude Include="headers\error.h" />
@@ -462,6 +464,7 @@
     <None Include="resources\shaders\advance.shader" />
     <None Include="resources\shaders\default.shader" />
     <None Include="resources\shaders\shader.shader" />
+    <None Include="schedule\PROJECT KURUKSHETRA ENGINE TEAM.docx" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="dependencies\includes\GLFW\glfw3.lib" />

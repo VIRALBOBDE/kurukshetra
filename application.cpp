@@ -17,6 +17,7 @@
 #include "headers/IBO.h"
 #include "headers/texture.h"
 #include "headers/renderer.h"
+#include "headers/animation.h"
 
 //the following header files are not completed yet 
 #include "to be tested/box.h"
@@ -31,59 +32,65 @@
 int main()
 {
 	renderer2D testrenderer(1280, 720, "KURUKSHETRA TEST ENGINE");
-	cout << "\nsize is : " << sizeof(vertex);
-	
+	//cout << "\nsize is : " << sizeof(vertex);
+
 	testrenderer.set_shader("resources/shaders/default.shader");
-	testrenderer.set_texture("resources/textures/ideal_bheem.png", 0 , 372, 530);
+	testrenderer.set_texture("resources/textures/ideal_bheem.png", 0, 372, 530);
+	animation bheem_idle(testrenderer.get_texture_address(0), 0.095f, { 372, 530 }, true , true);
+	for (int i{ 0 }; i < 6; i++) bheem_idle.push({ i , 0});
+
+	/*testrenderer.add_texture("resources/textures/realtest.png");
+	testrenderer.add_texture("resources/textures/kurukshetra.png");*/
 	BoxCharacter Bheem(testrenderer.window_address(), 30.0f, 40.0f, 150.0f, 150.0f);
-	BoxCharacter Duryodhan(testrenderer.window_address() ,640.0f, 40.0f, 150.0f, 150.0f);
+	BoxCharacter Duryodhan(testrenderer.window_address() ,0.0f, 0.0f, 0.0f, 10.0f);
 	//Character Bheem(30.0f, 40.0f, 150.0f);
 	//Character Duryodhan(640.0f, 360.0f, 150.0f);
 	InputHandler testhandler;
-	testhandler.setspeed(.5f);
+	testhandler.setspeed(800.0f);
+	testrenderer.vsync(1);
 	//testrenderer.set_texture("resources/textures/slot0.png", 1 , 372, 530);
 	float screen_colors[4] = {0,1,0,1 };
 	float frameTimer = 0.0f; // Har frame ka time jodega
-	float frameDelay = 0.05f; // Kitni der ek frame dikhega (in seconds)
 	int j = 0;
 	int direction = 1; // 1 matlab aage jaao, -1 matlab peeche
 	float timer = 0.0f;
-	float delay = 0.12f;
+	float delay = 0.12f;  // Kitni der ek frame dikhega (in seconds)
 	while (!testrenderer.is_window_closed())
-	{          
+	{
 		Bheem.ApplyPhysics(Duryodhan);
-		//Duryodhan.ApplyPhysics(Bheem);
+		Duryodhan.ApplyPhysics(Bheem);
 		Bheem.death();
 		Duryodhan.death();
-		testhandler.ProcessInput(testrenderer.window_address(), Bheem, Duryodhan , testhandler);
-		
-		            //testrenderer.processinput();
+		float deltaTime = ImGui::GetIO().DeltaTime; // Engine ka frame time
+		bheem_idle.update(deltaTime);
+		testhandler.ProcessInput(testrenderer.window_address(), Bheem, Duryodhan, testhandler , deltaTime);
+		//testrenderer.processinput();
 		testrenderer.set_colors(screen_colors[0], screen_colors[1], screen_colors[2], screen_colors[3]);
-	   
-				
+
+
 		testrenderer.Begin_Scene(0);
-					
-					float deltaTime = ImGui::GetIO().DeltaTime; // Engine ka frame time
-					frameTimer += deltaTime;
 
-				
-					timer += deltaTime;
 
-					if (timer >= delay) {
-						j += direction; // Direction ke hisaab se j ko badhao ya ghatao
+		if (deltaTime > 0.05f) deltaTime = 0.05f;
 
-						// Boundary Check
-						if (j >= 5) {
-							direction = -1; // End pe pahunche, ab wapas mudho
-						}
-						else if (j <= 0) {
-							direction = 1;  // Shuruat pe pahunche, ab aage badho
-						}
 
-						timer = 0.0f;
-					}
-					testrenderer.draw_quad({ Bheem.body.x, Bheem.body.y}, { Bheem.body.x + Bheem.body.width+10.0f, Bheem.body.y + Bheem.body.height+10.0f }, { 1.0f, 0.0f, 0.0f , 0.0f }, { (float)j,0 }, 0);
-					testrenderer.draw_quad({ Duryodhan.body.x , Duryodhan.body.y }, { Duryodhan.body.x + Duryodhan.body.width, Duryodhan.body.y + Duryodhan.body.height }, { 0.0f, 0.0f, 1.0f , 0.0f }, { 0,0 }, 1);
+		testrenderer.draw_quad({ Bheem.body.x, Bheem.body.y },
+			{ Bheem.body.x + Bheem.body.width + 10.0f, Bheem.body.y + Bheem.body.height + 10.0f },
+			{ 1.0f, 0.0f, 0.0f , 0.0f },
+			bheem_idle.get_current_frame(),
+			0);
+
+
+		//testrenderer.draw_quad({ Duryodhan.body.x , Duryodhan.body.y },
+			//{ Duryodhan.body.x + Duryodhan.body.width, Duryodhan.body.y + Duryodhan.body.height },
+			//{ 0.0f, 0.0f, 1.0f , 0.0f },
+			//bheem_idle.get_current_frame(),
+			//0);
+
+
+		//testrenderer.set_walls({ 0,0 }, { 20,720 }, { 0.0f,0.0f,0.0f,0.0f }, {(float)j, 0}, 0);
+
+
 					//testrenderer.draw_quad({ Bheem.body.x-Bheem.body.radius - 5.0f, Bheem.body.y-Bheem.body.radius - 5.0f }, { Bheem.body.x+Bheem.body.radius + 5.0f, Bheem.body.y+ Bheem.body.radius + 5.0f }, { 1.0f, 0.0f, 0.0f , 0.0f }, {(float) j,0 },0);
 					//testrenderer.draw_quad({ Duryodhan.body.x-Duryodhan.body.radius - 5.0f, Duryodhan.body.y- Duryodhan.body.radius - 5.0f }, { Duryodhan.body.x + Duryodhan.body.radius + 5.0f, Duryodhan.body.y + Duryodhan.body.radius + 5.0f }, { 0.0f, 0.0f, 1.0f , 0.0f }, { 0,0 }, 1);
 					//testrenderer.draw_quad({ 30, 200 }, { 200.0f, 400.0f }, { 0.0f, 0.0f, 0.0f }, { (float)j,0 },1);

@@ -62,40 +62,46 @@ shader::shader(std::string filename)
 	GLcall(glShaderSource(ids[0], 1, &vertex , NULL));
 	GLcall(glShaderSource(ids[1], 1, &fragment, NULL));
 	GLcall(glCompileShader(ids[0]));
-	GLcall(glCompileShader(ids[1]));
-	GLcall(glAttachShader(program_id, ids[0]));
-	GLcall(glAttachShader(program_id, ids[1]));
-	GLcall(glLinkProgram(program_id));
-	GLcall(glDeleteShader(ids[0]));
-	GLcall(glDeleteShader(ids[1]));
-
-	//checking if shader compiled properly
 	int success;
 	char infoLog[512];
-	
+
 	glGetShaderiv(ids[0], GL_COMPILE_STATUS, &success);                //SHADER CHECKER
 	if (!success)
 	{
 		glGetShaderInfoLog(ids[0], 512, NULL, infoLog);
-		std::cout << "Vertex Shader Error:\n" << infoLog << std::endl;
+		std::cout << "Vertex Shader :\n" << infoLog << std::endl;
+		__debugbreak();
 	}
-
+	GLcall(glCompileShader(ids[1]));
 	glGetShaderiv(ids[1], GL_COMPILE_STATUS, &success);               //SHADER CHECKER
 	if (!success)
 	{
 		glGetShaderInfoLog(ids[1], 512, NULL, infoLog);
-		std::cout << "Fragment Shader Error:\n" << infoLog << std::endl;
+		std::cout << "Fragment Shader :\n" << infoLog << std::endl;
+		__debugbreak();
 	}
-
-
-
-	//checking if program linked properly                        LINKER CHECKER
+	GLcall(glAttachShader(program_id, ids[0]));
+	GLcall(glAttachShader(program_id, ids[1]));
+	GLcall(glLinkProgram(program_id));
 	glGetProgramiv(program_id, GL_LINK_STATUS, &success);
 	if (!success)
 	{
 		glGetProgramInfoLog(program_id, 512, NULL, infoLog);
 		std::cout << "Program Link Error:\n" << infoLog << std::endl;
+		__debugbreak();
 	}
+	GLcall(glDeleteShader(ids[0]));
+	GLcall(glDeleteShader(ids[1]));
+
+	//checking if shader compiled properly
+	
+
+	
+
+
+
+	//checking if program linked properly                        LINKER CHECKER
+	
 
 }
 

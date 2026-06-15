@@ -167,7 +167,7 @@ public:
             }
         }*/
     }
-    static void ProcessInput(GLFWwindow* window, BoxCharacter& bheem, BoxCharacter& duryodhan, InputHandler& handler) {
+    static void ProcessInput(GLFWwindow* window, BoxCharacter& bheem, BoxCharacter& duryodhan, InputHandler& handler , float delta_time) {
 
        
 
@@ -182,7 +182,7 @@ public:
             float current_bheem = bheem.body.x;
             if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
                 bheem.body.x = apply_dash(bheem.body.x, 1);
-            else bheem.body.x += handler.speed;
+            else bheem.body.x += (handler.speed*delta_time);
             if (checkcollision(bheem.body, duryodhan.body))
                 bheem.body.x = current_bheem;
         }
@@ -192,7 +192,7 @@ public:
 
             if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
                 bheem.body.x = apply_dash(bheem.body.x, -1);
-            else bheem.body.x -= handler.speed;
+            else bheem.body.x -= handler.speed * delta_time;
             if (checkcollision(bheem.body, duryodhan.body))
                 bheem.body.x = current_bheem;
 
@@ -203,7 +203,7 @@ public:
         {
             if (!checkcollision(bheem.body, duryodhan.body))
             {
-                bheem.Jump();
+                bheem.Jump(delta_time);
                 bheem.wReleased = false;
             }
             else    float current_bheem = bheem.body.y;
@@ -215,7 +215,7 @@ public:
         {
             float current_bheem = bheem.body.y;
 
-            bheem.body.y -= handler.speed;
+            bheem.body.y -= handler.speed * delta_time;
             if (checkcollision(bheem.body, duryodhan.body))
                bheem.body.y = current_bheem;
             /*bheem.Jump();
