@@ -8,7 +8,12 @@
 //    // 1. Pixel Positions nikaalo
 //    
 
-glm::vec4 subtexture::texturecoordinates(glm::vec2 indices, float tile_width, float tile_height, float sheetheight, float sheetwidth)
+void subtexture::set_coordinates(glm::vec4 coordinates)
+{
+    this->coordinates = coordinates;
+}
+
+glm::vec4 subtexture::texturecoordinates(glm::vec2 indices, float tile_width, float tile_height, float sheetwidth, float sheetheight)
 {
     float min_x = (indices.x * tile_width);
     float min_y = (indices.y * tile_height);

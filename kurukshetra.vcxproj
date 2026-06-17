@@ -473,11 +473,15 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\textures\bheem.jpg" />
+    <Image Include="resources\textures\duryodhan.png" />
+    <Image Include="resources\textures\file_000000006a6071fabef6891e951e7cbb.png" />
     <Image Include="resources\textures\good.png" />
     <Image Include="resources\textures\ideal_bheem.png" />
     <Image Include="resources\textures\image (4).jpg" />
     <Image Include="resources\textures\kurukshetra.png" />
+    <Image Include="resources\textures\kurukshetra1.png" />
     <Image Include="resources\textures\realtest.png" />
+    <Image Include="resources\textures\Screenshot 2026-04-05 202910.png" />
     <Image Include="resources\textures\slot0.png" />
     <Image Include="resources\textures\sprite-8-bit-animation-dreams-of-an-absolution-sprite-sheet-bb0009c2e460cf8a770dcb1dcfa84a7d.png" />
     <Image Include="resources\textures\testimage.png" />

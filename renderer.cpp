@@ -170,18 +170,23 @@ void renderer2D::set_shader(string name_of_the_shader, int fragment_shader_sampl
 {
 	m_shader = new shader(name_of_the_shader);
 	m_shader->use();
-	m_shader->setsamplerarray("text", fragment_shader_sampler_count , m_texture_slot );
+	//m_shader->setsamplerarray("text", fragment_shader_sampler_count , m_texture_slot );
 	//set_texture(name_of_the_shader,0,232,192);
 	set_camera();
 	glm::mat4 viewprojectionmatrix = m_camera->view_projection_matrix();
 	m_shader->setsamplermatrix("view_projection", viewprojectionmatrix);
 }
 
-void renderer2D::set_texture(string location_of_the_texture, int slot , int tile_width, int tile_height)
+inline void renderer2D::set_sampler(string name_of_uniform, int sampler_count , int* sampler_array)
+{
+	m_shader->setsamplerarray(name_of_uniform, sampler_count, sampler_array);
+}
+
+void renderer2D::set_texture(string location_of_the_texture, int slot )
 {
 	m_texture[slot] = new texture(location_of_the_texture, slot);
 	m_texture[slot]->bind(texture_counter);
-	m_texture_slot[texture_counter] = m_texture[slot]->get_texture_id();
+	//m_texture_slot[texture_counter] = m_texture[slot]->get_texture_id();
 	texture_counter++;
 }
 
@@ -324,6 +329,11 @@ void renderer2D::set_walls(glm::vec2 left_bottom_corner, glm::vec2 right_top_cor
 	//
 }
 
+void renderer2D::set_sampler_array(std::string name_of_sampler)
+{
+	m_shader->setsamplerarray(name_of_sampler, 32, m_texture_slot);
+}
+
 void renderer2D::draw_quad(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner, glm::vec3 r_g_b_values, vertex* structure_batao)
 {
 	
@@ -431,11 +441,16 @@ void renderer2D::Flush()
 
 
 	uint32_t indices = (uint32_t)((float)size / (float)sizeof(vertex) * 1.5f);
-	m_vbo->loaddata(m_buffer_base, (int)(size/sizeof(vertex)));
+	m_vbo->subdata(m_buffer_base, (int)(size/sizeof(vertex)));
 	m_shader->use();
 	m_vao->bind();
 	//m_ibo->bind();
-	for (int i = 0 ; i< texture_counter ; i++ )m_texture[i]->bind(0);
+	for (int i = 0 ; i< texture_counter ; i++ ) m_texture[i]->bind(i);
+	/*glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, m_texture_slot[0]);
+	glActiveTexture(GL_TEXTURE1);
+	glBindTexture(GL_TEXTURE_2D, m_texture_slot[1]);*/
+
 	//m_texture->bind(1);
 	GLcall(glDrawElements(GL_TRIANGLES, indices, GL_UNSIGNED_INT, NULL));
 	m_window->swapbuffer();

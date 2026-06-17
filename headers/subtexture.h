@@ -12,6 +12,7 @@ private:
 public:
 
 	subtexture(glm::vec4 coordinate = { 0.0f,0.0f,0.0f,0.0f }) : coordinates(coordinate) {}
+	void set_coordinates(glm::vec4 coordinates);
 	glm::vec4 texturecoordinates(glm::vec2 indices, float tile_width, float tile_height, float sheetheight, float sheetwidth);
 	glm::vec4 const get_coordinates() { return coordinates; }
 };

@@ -38,9 +38,9 @@ private:
 	vertex*                    m_buffer_ptr    =   m_buffer_base					;
 	unsigned int*              m_ibo_buffer    =   new unsigned int[6000]			;
 	int						   texture_counter =   0								;
-	subtexture*				   m_subtexture	  [32]									;
+	//subtexture*				   m_subtexture	  [32]								;
 	texture*                   m_texture	  [32]									;
-	int                        m_texture_slot [32]									;
+	int						   m_texture_slot [32]									;
 	unsigned int               white_texture										;
 	vector<Box>                m_wall_vector										;
 	int						   m_width, m_height									;
@@ -60,10 +60,12 @@ public:
 	renderer2D(int width, int height , const char* name);
 
 	//setters
-	void set_shader		(string name_of_the_shader);
-	void set_shader		(string name_of_the_shader , int fragment_shader_sampler_count);
-	void set_texture	(string name_of_the_texture , int slot , int tile_width , int tile_height);
-	void set_walls		(glm::vec2 left_bottom_corner, glm::vec2 width_and_height, glm::vec4 r_g_b_values , glm::vec2 texture_indices , float texture_no);
+	void set_shader			(string name_of_the_shader);
+	void set_shader			(string name_of_the_shader , int fragment_shader_sampler_count);
+	void set_texture		(string name_of_the_texture , int slot );
+	void set_walls			(glm::vec2 left_bottom_corner, glm::vec2 width_and_height, glm::vec4 r_g_b_values , glm::vec2 texture_indices , float texture_no);
+	inline void set_sampler		(string name_of_uniform, int sampler_count , int* sampler_array);
+	void set_sampler_array	(std::string name_of_sampler);
 
 	//getters
 	texture* get_texture_address(int slot) { return m_texture[slot]; }

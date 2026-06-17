@@ -35,14 +35,18 @@ int main()
 	//cout << "\nsize is : " << sizeof(vertex);
 
 	testrenderer.set_shader("resources/shaders/default.shader");
-	testrenderer.set_texture("resources/textures/ideal_bheem.png", 0, 372, 530);
-	animation bheem_idle(testrenderer.get_texture_address(0), 0.095f, { 372, 530 }, true , true);
-	for (int i{ 0 }; i < 6; i++) bheem_idle.push({ i , 0});
+	testrenderer.set_texture("resources/textures/ideal_bheem.png", 0);
+	testrenderer.set_texture("resources/textures/duryodhan.png", 1);
+	testrenderer.set_sampler_array("text");
+	animation bheem_idle(testrenderer.get_texture_address(0), 0.095f, { 372, 530 }, true, true);
+	for (int i{ 0 }; i < 6; i++) bheem_idle.push({ i , 0 });
+	animation love_you_goorieeee(testrenderer.get_texture_address(0), 0.095f, { 1080,1080 }, false, false, true);
+	//love_you_goorieeee.push({ 1, 0 });
 
 	/*testrenderer.add_texture("resources/textures/realtest.png");
 	testrenderer.add_texture("resources/textures/kurukshetra.png");*/
-	BoxCharacter Bheem(testrenderer.window_address(), 30.0f, 40.0f, 150.0f, 150.0f);
-	BoxCharacter Duryodhan(testrenderer.window_address() ,0.0f, 0.0f, 0.0f, 10.0f);
+	BoxCharacter Bheem(testrenderer.window_address(), 30.0f, 40.0f, 300.0f, 300.0f);
+	BoxCharacter Duryodhan(testrenderer.window_address() ,900.0f, 40.0f, 300.0f, 300.0f);
 	//Character Bheem(30.0f, 40.0f, 150.0f);
 	//Character Duryodhan(640.0f, 360.0f, 150.0f);
 	InputHandler testhandler;
@@ -78,14 +82,14 @@ int main()
 			{ Bheem.body.x + Bheem.body.width + 10.0f, Bheem.body.y + Bheem.body.height + 10.0f },
 			{ 1.0f, 0.0f, 0.0f , 0.0f },
 			bheem_idle.get_current_frame(),
-			0);
+			0.0f);
 
 
-		//testrenderer.draw_quad({ Duryodhan.body.x , Duryodhan.body.y },
-			//{ Duryodhan.body.x + Duryodhan.body.width, Duryodhan.body.y + Duryodhan.body.height },
-			//{ 0.0f, 0.0f, 1.0f , 0.0f },
-			//bheem_idle.get_current_frame(),
-			//0);
+		testrenderer.draw_quad({ Duryodhan.body.x , Duryodhan.body.y },
+			{ Duryodhan.body.x + Duryodhan.body.width, Duryodhan.body.y + Duryodhan.body.height },
+			{ 0.0f, 0.0f, 1.0f , 0.0f },
+			love_you_goorieeee.get_current_frame(),
+			1.0f);
 
 
 		//testrenderer.set_walls({ 0,0 }, { 20,720 }, { 0.0f,0.0f,0.0f,0.0f }, {(float)j, 0}, 0);

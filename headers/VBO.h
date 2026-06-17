@@ -1,6 +1,7 @@
 #pragma once
 #include <glad/glad.h>
 #include "error.h"
+//#include "common.h"
 
 class vbo
 {
@@ -34,11 +35,11 @@ public:
 		GLcall(glBufferData(GL_ARRAY_BUFFER, sizeof(T) * size, array, GL_DYNAMIC_DRAW));
 	}
 
-	
-	void subdata(void* array, int size)
+	template<typename T>
+	void subdata(T* array, int size)
 	{
 		bind();
-		GLcall(glBufferSubData(GL_ARRAY_BUFFER, 0, size, array));
+		GLcall(glBufferSubData(GL_ARRAY_BUFFER, 0,sizeof(T) * size, array));
 	}
 
 	//   DESTRUCTOR

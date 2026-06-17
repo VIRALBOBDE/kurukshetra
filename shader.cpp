@@ -124,7 +124,7 @@ void shader::setsamplermatrix(std::string name_of_matrix , glm::mat4& matrix)
 	GLcall(glUniformMatrix4fv(address, 1, GL_FALSE, &matrix[0][0]));
 }
 
-void shader::setsamplerarray(std::string name_of_matrix, int no_of_indices, int* data)
+void shader::setsamplerarray(std::string name_of_matrix,int no_of_indices, int* data)
 {
 	use();
 	unsigned int address = glGetUniformLocation(program_id, name_of_matrix.c_str());

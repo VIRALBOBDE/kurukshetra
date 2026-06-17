@@ -22,7 +22,7 @@
 class animation
 {
 private:
-	bool			is_looping{ true }, ping_pong_animation{ false }, backward_direction{ true }		;
+	bool			is_looping{ true }, ping_pong_animation{ false }, backward_direction{ true }, full_image{ false };
 	int             current_frame  { 0 }																;
 	float			frame_duration{ 0.0f }  , time_lapsed{ 0.0f }										;
 	float			delta_time			                                                                ;
@@ -49,28 +49,32 @@ public:
 				float frame_delay ,
 				glm::vec2 tile_dimentions  ,
 				bool is_walking = true ,
-				bool ping_pong_motion = false
+				bool ping_pong_motion = false,
+				bool full_texture = false
 			 )
 		:
 		frame_duration	(frame_delay),
 		is_looping		(is_walking) ,
 		l_texture		(texture_object) ,
 		tile_size        (tile_dimentions),
-		ping_pong_animation (ping_pong_motion)
+		ping_pong_animation (ping_pong_motion),
+		full_image		(full_texture)
 		{
-		texture_size.y = l_texture->getwidth();
-		cout << "animation class sheet size :" << texture_size.y ;
-		texture_size.x = l_texture->getheight();
-		cout << " X " << texture_size.x << "\n";
+		texture_size.x = l_texture->getwidth();
+		cout << "animation class sheet size :" << texture_size.x ;
+		texture_size.y = l_texture->getheight();
+		cout << " X " << texture_size.y << "\n";
+		if(full_texture == true)	set_coordinates({ tile_size });
 		}
 
 	//ye function har eak frame mai delta_time ko change karta hai
 	void update(float delta_timee);
 
+	inline void set_coordinates(glm::vec2 coordinates) { push({ 0,0 }); frames[0].set_coordinates({ 0,0,1,1 }); }
 
 	void push(glm::vec2 indices) ;
 
-	void change_frame_delay(float frame_duration) { this->frame_duration = frame_duration ;  }
+	inline void change_frame_delay(float frame_duration) { this->frame_duration = frame_duration ;  }
 
 	glm::vec4 const get_current_frame( ) ; 
 
