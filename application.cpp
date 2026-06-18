@@ -38,9 +38,9 @@ int main()
 	testrenderer.set_texture("resources/textures/ideal_bheem.png", 0);
 	testrenderer.set_texture("resources/textures/duryodhan.png", 1);
 	testrenderer.set_sampler_array("text");
-	animation bheem_idle(testrenderer.get_texture_address(0), 0.095f, { 372, 530 }, true, true);
+	animation bheem_idle(testrenderer.get_texture_address(0), 1 , 0.095f, { 372, 530 }, true, true);
 	for (int i{ 0 }; i < 6; i++) bheem_idle.push({ i , 0 });
-	animation love_you_goorieeee(testrenderer.get_texture_address(0), 0.095f, { 1080,1080 }, false, false, true);
+	animation love_you_gaming(testrenderer.get_texture_address(0), 1 , 0.095f, { 1080,1080 }, false, false, true);
 	//love_you_goorieeee.push({ 1, 0 });
 
 	/*testrenderer.add_texture("resources/textures/realtest.png");
