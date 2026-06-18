@@ -38,8 +38,8 @@ int main()
 	testrenderer.set_texture("resources/textures/ideal_bheem.png", 0);
 	testrenderer.set_texture("resources/textures/duryodhan.png", 1);
 	testrenderer.set_sampler_array("text");
-	animation bheem_idle(testrenderer.get_texture_address(0), 1 , 0.095f, { 372, 530 }, true, true);
-	for (int i{ 0 }; i < 6; i++) bheem_idle.push({ i , 0 });
+	animation bheem_idle(testrenderer.get_texture_address(0), 0 , 0.095f, { 372, 530 }, true, true);
+	for (int i{ 0 }; i < 6; i++) bheem_idle.push({ 0 , i });
 	animation love_you_gaming(testrenderer.get_texture_address(0), 1 , 0.095f, { 1080,1080 }, false, false, true);
 	//love_you_goorieeee.push({ 1, 0 });
 
@@ -88,7 +88,7 @@ int main()
 		testrenderer.draw_quad({ Duryodhan.body.x , Duryodhan.body.y },
 			{ Duryodhan.body.x + Duryodhan.body.width, Duryodhan.body.y + Duryodhan.body.height },
 			{ 0.0f, 0.0f, 1.0f , 0.0f },
-			love_you_goorieeee.get_current_frame(),
+			love_you_gaming.get_current_frame(),
 			1.0f);
 
 
