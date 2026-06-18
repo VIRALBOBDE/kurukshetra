@@ -40,10 +40,16 @@ int main()
 	testrenderer.set_sampler_array("text");
 	animation bheem_idle(testrenderer.get_texture_address(0), 1 , 0.095f, { 372, 530 }, true, true);
 	for (int i{ 0 }; i < 6; i++) bheem_idle.push({ 0 , i });
-	animation love_you_gaming(testrenderer.get_texture_address(1), 9 , 0.095f, { 92,92 });
-	love_you_gaming.push({ 0,0 });
-	love_you_gaming.push({ 0,1 });
+	animation love_you_gaming(testrenderer.get_texture_address(1), 9 , 0.095f, { 92,91 }, true , false , false);
+	for (int i = 0; i < 8; i++)
+	{
+		/*for (int j = 0; j < 8; j++)
+		{*/
+			//if ((i == 2) && j >= 4 ) break;
 
+			love_you_gaming.push({ 5,i });
+		//}
+	}
 
 	/*testrenderer.add_texture("resources/textures/realtest.png");
 	testrenderer.add_texture("resources/textures/kurukshetra.png");*/
@@ -69,6 +75,7 @@ int main()
 		Duryodhan.death();
 		float deltaTime = ImGui::GetIO().DeltaTime; // Engine ka frame time
 		bheem_idle.update(deltaTime);
+		love_you_gaming.update(deltaTime);
 		testhandler.ProcessInput(testrenderer.window_address(), Bheem, Duryodhan, testhandler , deltaTime);
 		//testrenderer.processinput();
 		testrenderer.set_colors(screen_colors[0], screen_colors[1], screen_colors[2], screen_colors[3]);
