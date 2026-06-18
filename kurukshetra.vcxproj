@@ -473,6 +473,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\textures\bheem.jpg" />
+    <Image Include="resources\textures\cute ghost.jpg" />
     <Image Include="resources\textures\duryodhan.png" />
     <Image Include="resources\textures\file_000000006a6071fabef6891e951e7cbb.png" />
     <Image Include="resources\textures\good.png" />
