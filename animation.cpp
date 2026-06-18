@@ -45,7 +45,7 @@ void animation::push(glm::vec2 indices)
 		cerr << "\nno. of frame rows is more than the number of frame rows provided in the object";
 		__debugbreak();
 	}
-	else frames.push_back(subtexture2d.texturecoordinates({ indices.y ,no_of_frame_rows - indices.x  }, tile_size.x, tile_size.y, texture_size.x, texture_size.y));
+	else frames.push_back(subtexture2d.texturecoordinates({ indices.y ,(no_of_frame_rows - indices.x) - 1 }, tile_size.x, tile_size.y, texture_size.x, texture_size.y));
 }
 
 glm::vec4 const animation::get_current_frame()
