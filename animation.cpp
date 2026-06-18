@@ -11,15 +11,16 @@ void animation::update(float delta_timee)
 	while (time_lapsed >= frame_duration)
 	{
 		time_lapsed -= frame_duration;
+		cout << current_frame << "\n";  // used for debugging
 		current_frame++;
-		cout << current_frame << "\n";
-		if (current_frame >= frames.size() || backward_direction == true )
+		if (current_frame >= frames.size() || backward_direction == true)
 		{
+			/*cout << "flag 1st if\n";*/
 			if (current_frame < 2) backward_direction = false;
 			else backward_direction = true;
 			if (is_looping)
 			{
-				if (ping_pong_animation) 
+				if (ping_pong_animation)
 				{
 					if (backward_direction)
 					{
@@ -32,6 +33,7 @@ void animation::update(float delta_timee)
 			}
 			else current_frame = frames.size() - 1;
 		}
+		else if (current_frame >= frames.size() && is_looping == false) current_frame = frames.size() - 1;
 		if (current_frame < 0) current_frame = 0;
 
 	}

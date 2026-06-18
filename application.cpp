@@ -47,7 +47,7 @@ int main()
 		{*/
 			//if ((i == 2) && j >= 4 ) break;
 
-			love_you_gaming.push({ 5,i });
+			love_you_gaming.push({ 8,i });
 		//}
 	}
 
@@ -93,7 +93,7 @@ int main()
 			bheem_idle.get_current_frame(),
 			0.0f);
 
-
+		//cout << "done drawing 1st quad\n";
 		testrenderer.draw_quad({ Duryodhan.body.x , Duryodhan.body.y },
 			{ Duryodhan.body.x + Duryodhan.body.width, Duryodhan.body.y + Duryodhan.body.height },
 			{ 0.0f, 0.0f, 1.0f , 0.0f },

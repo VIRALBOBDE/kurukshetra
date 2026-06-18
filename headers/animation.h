@@ -22,7 +22,7 @@
 class animation
 {
 private:
-	bool			is_looping{ true }, ping_pong_animation{ false }, backward_direction{ true }, full_image{ false };
+	bool			is_looping{ true }, ping_pong_animation{ false }, backward_direction{ false }, full_image{ false };
 	int             current_frame  { 0 }																;
 	int             no_of_frame_rows																	;
 	float			frame_duration{ 0.0f }  , time_lapsed{ 0.0f }										;
