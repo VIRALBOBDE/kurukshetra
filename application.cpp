@@ -40,9 +40,9 @@ int main()
 	testrenderer.set_sampler_array("text");
 	animation bheem_idle(testrenderer.get_texture_address(0), 1 , 0.095f, { 372, 530 }, true, true);
 	for (int i{ 0 }; i < 6; i++) bheem_idle.push({ 0 , i });
-	animation love_you_gaming(testrenderer.get_texture_address(0), 9 , 0.095f, { 92,92 });
+	animation love_you_gaming(testrenderer.get_texture_address(1), 9 , 0.095f, { 92,92 });
+	love_you_gaming.push({ 0,0 });
 	love_you_gaming.push({ 0,1 });
-	love_you_gaming.push({ 0,2 });
 
 
 	/*testrenderer.add_texture("resources/textures/realtest.png");
