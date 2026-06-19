@@ -21,6 +21,8 @@ public:
 	window() {}
 	window(int height, int width, const char* name, int major, int minor);
 	GLFWwindow* windowadd() { return myWindow; }
+	int get_height() { return height; }
+	int get_width() { return width; }
 	void context();
 	bool iswindowclose();
 	void swapbuffer();

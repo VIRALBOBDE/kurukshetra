@@ -11,7 +11,7 @@ void animation::update(float delta_timee)
 	while (time_lapsed >= frame_duration)
 	{
 		time_lapsed -= frame_duration;
-		cout << current_frame << "\n";  // used for debugging
+		//cout << current_frame << "\n";  // used for debugging
 		current_frame++;
 		if (current_frame >= frames.size() || backward_direction == true)
 		{

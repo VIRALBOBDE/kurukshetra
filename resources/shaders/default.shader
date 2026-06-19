@@ -47,19 +47,21 @@
 		 //}
 		 void main()
 {
+    vec4 nthn = vec4(0.0,0.0,0.0,0.0);
+    //vec4 black = {0.0f,0.0f,0.0f,1.0f};
     int index = int(texture_index);
     switch(index)
     {
-        case 0: color = texture(text[0], texture_positions); break;
-        case 1: color = texture(text[1], texture_positions); break;
-        case 2: color = texture(text[2], texture_positions); break;
-        case 3: color = texture(text[3], texture_positions); break;
-        case 4: color = texture(text[4], texture_positions); break;
-        case 5: color = texture(text[5], texture_positions); break;
-        case 6: color = texture(text[6], texture_positions); break;
-        case 7: color = texture(text[7], texture_positions); break;
-        case 8: color = texture(text[8], texture_positions); break;
-        case 9: color = texture(text[9], texture_positions); break;
+        case 0: color =  texture(text[0] , texture_positions); break;
+        case 1: color =  texture(text[1] , texture_positions); break;
+        case 2: color =  texture(text[2] , texture_positions); break;
+        case 3: color =  texture(text[3] , texture_positions); break;
+        case 4: color =  texture(text[4] , texture_positions); break;
+        case 5: color =  texture(text[5] , texture_positions); break;
+        case 6: color =  texture(text[6] , texture_positions); break;
+        case 7: color =  texture(text[7] , texture_positions); break;
+        case 8: color =  texture(text[8] , texture_positions); break;
+        case 9: color =  texture(text[9] , texture_positions); break;
         case 10: color = texture(text[10], texture_positions); break;
         case 11: color = texture(text[11], texture_positions); break;
         case 12: color = texture(text[12], texture_positions); break;
@@ -84,4 +86,6 @@
         case 31: color = texture(text[31], texture_positions); break;
         default: color = frag_color; break;
     }
+        if (color == nthn ) discard;
+        else color.a *= frag_color.a;
 }

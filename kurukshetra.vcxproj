@@ -472,13 +472,17 @@
     <Library Include="dependencies\includes\GLFW\glfw3_mt.lib" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="resources\textures\background.png" />
     <Image Include="resources\textures\bheem.jpg" />
     <Image Include="resources\textures\cute ghost.jpg" />
+    <Image Include="resources\textures\dur.png" />
     <Image Include="resources\textures\duryodhan.png" />
+    <Image Include="resources\textures\duryodhanv1.jpeg" />
     <Image Include="resources\textures\file_000000006a6071fabef6891e951e7cbb.png" />
     <Image Include="resources\textures\good.png" />
     <Image Include="resources\textures\ideal_bheem.png" />
     <Image Include="resources\textures\image (4).jpg" />
+    <Image Include="resources\textures\kuruksetra backgrouknd v1.png" />
     <Image Include="resources\textures\kurukshetra.png" />
     <Image Include="resources\textures\kurukshetra1.png" />
     <Image Include="resources\textures\realtest.png" />

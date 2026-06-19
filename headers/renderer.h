@@ -64,14 +64,14 @@ public:
 	void set_shader			(string name_of_the_shader , int fragment_shader_sampler_count);
 	void set_texture		(string name_of_the_texture , int slot );
 	void set_walls			(glm::vec2 left_bottom_corner, glm::vec2 width_and_height, glm::vec4 r_g_b_values , glm::vec2 texture_indices , float texture_no);
-	inline void set_sampler		(string name_of_uniform, int sampler_count , int* sampler_array);
+	void set_colors			(float r, float g, float b, float a) { m_window->setcolors(r, g, b, a); }
 	void set_sampler_array	(std::string name_of_sampler);
-
+	inline void set_sampler		(string name_of_uniform, int sampler_count , int* sampler_array);
+	void set_backgroud		(float texture_slot);
 	//getters
 	texture* get_texture_address(int slot) { return m_texture[slot]; }
 
 	void Begin_Scene	(int texture_slot);
-	void set_colors		(float r, float g, float b, float a) { m_window->setcolors(r, g, b, a); }
 	void draw_quad		(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner, glm::vec4 r_g_b_values , glm::vec2 texture_indices , int texture_no);// vertex* structure_batao);
 	void draw_quad		(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner, glm::vec4 r_g_b_values, glm::vec4 texture_coordinates  , int texture_no);
 	void set_camera();
@@ -87,7 +87,7 @@ public:
 	void bindvao() { m_vao->bind(); };
 	void bind_texture(int slot) { m_texture[slot]->bind(slot); }
 	void bind_shader() { m_shader->use(); }
-	void fill_vbo_data(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner, glm::vec4 r_g_b_values, glm::vec2 texture_indices, int texture_no);
+	void fill_vbo_data(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner, glm::vec4 r_g_b_values, glm::vec4 texture_indices, int texture_no);
 	void new_frame();
 };
 	/*void set_walls(glm::vec2 left_wall_lower_bottom , glm::vec2 left_wall_upper_top , glm::vec2 right_wall_lower_bottom , glm::vec2 right_wall_upper_top );

@@ -81,7 +81,7 @@ public:
 
 
 		//20.0f -> floor level
-		float floorlevel = 20.0f;
+		float floorlevel = 150.0f;
 		if (body.y  <= floorlevel) {
 			body.y = floorlevel ;
 			//body.height = floorlevel;

@@ -36,25 +36,26 @@ int main()
 
 	testrenderer.set_shader("resources/shaders/default.shader");
 	testrenderer.set_texture("resources/textures/ideal_bheem.png", 0);
-	testrenderer.set_texture("resources/textures/cute ghost.jpg", 1);
+	testrenderer.set_texture("resources/textures/dur.png", 1);
+	testrenderer.set_texture("resources/textures/kuruksetra backgrouknd v1.png", 2);
 	testrenderer.set_sampler_array("text");
 	animation bheem_idle(testrenderer.get_texture_address(0), 1 , 0.095f, { 372, 530 }, true, true);
 	for (int i{ 0 }; i < 6; i++) bheem_idle.push({ 0 , i });
-	animation love_you_gaming(testrenderer.get_texture_address(1), 9 , 0.095f, { 92,91 }, true , false , false);
-	for (int i = 0; i < 8; i++)
+	animation love_you_gaming(testrenderer.get_texture_address(1), 9 , 0.095f, { 92,91 }, false , false , true);
+	//for (int i = 0; i < 8; i++)
 	{
 		/*for (int j = 0; j < 8; j++)
 		{*/
 			//if ((i == 2) && j >= 4 ) break;
 
-			love_you_gaming.push({ 8,i });
+		//	love_you_gaming.push({ 7,i });
 		//}
 	}
 
 	/*testrenderer.add_texture("resources/textures/realtest.png");
 	testrenderer.add_texture("resources/textures/kurukshetra.png");*/
-	BoxCharacter Bheem(testrenderer.window_address(), 30.0f, 40.0f, 300.0f, 300.0f);
-	BoxCharacter Duryodhan(testrenderer.window_address() ,900.0f, 40.0f, 300.0f, 300.0f);
+	BoxCharacter Bheem(testrenderer.window_address(), 30.0f, 40.0f, 190.0f, 230.0f);
+	BoxCharacter Duryodhan(testrenderer.window_address() ,800.0f, 40.0f, 230.0f, 250.0f);
 	//Character Bheem(30.0f, 40.0f, 150.0f);
 	//Character Duryodhan(640.0f, 360.0f, 150.0f);
 	InputHandler testhandler;
@@ -80,23 +81,23 @@ int main()
 		//testrenderer.processinput();
 		testrenderer.set_colors(screen_colors[0], screen_colors[1], screen_colors[2], screen_colors[3]);
 
-
+		cout << deltaTime <<"\n";
 		testrenderer.Begin_Scene(0);
 
 
-		if (deltaTime > 0.05f) deltaTime = 0.05f;
+		//if (deltaTime > 0.05f) deltaTime = 0.05f;
 
-
+		testrenderer.set_backgroud(2);
 		testrenderer.draw_quad({ Bheem.body.x, Bheem.body.y },
 			{ Bheem.body.x + Bheem.body.width + 10.0f, Bheem.body.y + Bheem.body.height + 10.0f },
-			{ 1.0f, 0.0f, 0.0f , 0.0f },
+			{ 1.0f, 0.0f, 0.0f , 1.0f },
 			bheem_idle.get_current_frame(),
 			0.0f);
 
 		//cout << "done drawing 1st quad\n";
 		testrenderer.draw_quad({ Duryodhan.body.x , Duryodhan.body.y },
 			{ Duryodhan.body.x + Duryodhan.body.width, Duryodhan.body.y + Duryodhan.body.height },
-			{ 0.0f, 0.0f, 1.0f , 0.0f },
+			{ 0.0f, 0.0f, 1.0f , 1.0f },
 			love_you_gaming.get_current_frame(),
 			1.0f);
 

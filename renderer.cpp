@@ -182,6 +182,13 @@ inline void renderer2D::set_sampler(string name_of_uniform, int sampler_count , 
 	m_shader->setsamplerarray(name_of_uniform, sampler_count, sampler_array);
 }
 
+void renderer2D::set_backgroud(float texture_slot)
+{
+	float coordinates_x = m_window->get_height();
+	float coordinates_y = m_window->get_width();
+	fill_vbo_data({ 0.0f,0.0f }, { coordinates_y,coordinates_x }, { 0.0f,0.0f,0.0f,1.0f }, { 0.0f,0.0f,1.0f,1.0f }, texture_slot);
+}
+
 void renderer2D::set_texture(string location_of_the_texture, int slot )
 {
 	m_texture[slot] = new texture(location_of_the_texture, slot);
@@ -268,32 +275,33 @@ void renderer2D::draw_quad(glm::vec2 left_bottom_corner, glm::vec2 right_top_cor
 void renderer2D::draw_quad(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner, glm::vec4 r_g_b_values, glm::vec4 texture_coordinates ,  int texture_no)
 {
 
-	m_buffer_ptr->coordinate = { left_bottom_corner.x,left_bottom_corner.y };
-	m_buffer_ptr->rgba_value = r_g_b_values;
-	m_buffer_ptr->texturecoordinates = { texture_coordinates.x,texture_coordinates.y };
-	m_buffer_ptr->texture_index = texture_no;
-	m_buffer_ptr++;
+	//m_buffer_ptr->coordinate = { left_bottom_corner.x,left_bottom_corner.y };
+	//m_buffer_ptr->rgba_value = r_g_b_values;
+	//m_buffer_ptr->texturecoordinates = { texture_coordinates.x,texture_coordinates.y };
+	//m_buffer_ptr->texture_index = texture_no;
+	//m_buffer_ptr++;
 
-	//right bottom wala corner ka data
-	m_buffer_ptr->coordinate = { right_top_corner.x  ,left_bottom_corner.y };
-	m_buffer_ptr->rgba_value = r_g_b_values;
-	m_buffer_ptr->texturecoordinates = { texture_coordinates.z,texture_coordinates.y };
-	m_buffer_ptr->texture_index = texture_no;
-	m_buffer_ptr++;
+	////right bottom wala corner ka data
+	//m_buffer_ptr->coordinate = { right_top_corner.x  ,left_bottom_corner.y };
+	//m_buffer_ptr->rgba_value = r_g_b_values;
+	//m_buffer_ptr->texturecoordinates = { texture_coordinates.z,texture_coordinates.y };
+	//m_buffer_ptr->texture_index = texture_no;
+	//m_buffer_ptr++;
 
-	//right top wala corner ka data
-	m_buffer_ptr->coordinate = { right_top_corner.x  ,right_top_corner.y };
-	m_buffer_ptr->rgba_value = r_g_b_values;
-	m_buffer_ptr->texturecoordinates = { texture_coordinates.z,texture_coordinates.a };
-	m_buffer_ptr->texture_index = texture_no;
-	m_buffer_ptr++;
+	////right top wala corner ka data
+	//m_buffer_ptr->coordinate = { right_top_corner.x  ,right_top_corner.y };
+	//m_buffer_ptr->rgba_value = r_g_b_values;
+	//m_buffer_ptr->texturecoordinates = { texture_coordinates.z,texture_coordinates.a };
+	//m_buffer_ptr->texture_index = texture_no;
+	//m_buffer_ptr++;
 
-	//left top wala corner ka data
-	m_buffer_ptr->coordinate = { left_bottom_corner.x  , right_top_corner.y };
-	m_buffer_ptr->rgba_value = r_g_b_values;
-	m_buffer_ptr->texturecoordinates = { texture_coordinates.x,texture_coordinates.a };
-	m_buffer_ptr->texture_index = texture_no;
-	m_buffer_ptr++;
+	////left top wala corner ka data
+	//m_buffer_ptr->coordinate = { left_bottom_corner.x  , right_top_corner.y };
+	//m_buffer_ptr->rgba_value = r_g_b_values;
+	//m_buffer_ptr->texturecoordinates = { texture_coordinates.x,texture_coordinates.a };
+	//m_buffer_ptr->texture_index = texture_no;
+	//m_buffer_ptr++;
+	fill_vbo_data(left_bottom_corner, right_top_corner, r_g_b_values, texture_coordinates, texture_no);
 }
 
 void renderer2D::set_walls(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner , glm::vec4 r_g_b_values , glm::vec2 texture_indices, float texture_no)
@@ -370,6 +378,36 @@ void renderer2D::draw_quad(glm::vec2 left_bottom_corner, glm::vec2 right_top_cor
 
 	cout << endl << "data bhar diya hai 4 ka:\n" << structure_batao[3].coordinate.x << "\n" << structure_batao[3].coordinate.y << "\n" << structure_batao[3].rgba_value.x << "\n" << structure_batao[3].rgba_value.y << "\n" << structure_batao[3].rgba_value.z << "\n" << structure_batao[3].rgba_value.w << "\n" << structure_batao[3].texturecoordinates.x << "\n" << structure_batao[3].texturecoordinates.y << "\n" << structure_batao[3].texture_index;
 
+}
+
+void renderer2D::fill_vbo_data(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner, glm::vec4 r_g_b_values, glm::vec4 texture_coordinates, int texture_no)
+{
+	m_buffer_ptr->coordinate = { left_bottom_corner.x,left_bottom_corner.y };
+	m_buffer_ptr->rgba_value = r_g_b_values;
+	m_buffer_ptr->texturecoordinates = { texture_coordinates.x,texture_coordinates.y };
+	m_buffer_ptr->texture_index = texture_no;
+	m_buffer_ptr++;
+
+	//right bottom wala corner ka data
+	m_buffer_ptr->coordinate = { right_top_corner.x  ,left_bottom_corner.y };
+	m_buffer_ptr->rgba_value = r_g_b_values;
+	m_buffer_ptr->texturecoordinates = { texture_coordinates.z,texture_coordinates.y };
+	m_buffer_ptr->texture_index = texture_no;
+	m_buffer_ptr++;
+
+	//right top wala corner ka data
+	m_buffer_ptr->coordinate = { right_top_corner.x  ,right_top_corner.y };
+	m_buffer_ptr->rgba_value = r_g_b_values;
+	m_buffer_ptr->texturecoordinates = { texture_coordinates.z,texture_coordinates.a };
+	m_buffer_ptr->texture_index = texture_no;
+	m_buffer_ptr++;
+
+	//left top wala corner ka data
+	m_buffer_ptr->coordinate = { left_bottom_corner.x  , right_top_corner.y };
+	m_buffer_ptr->rgba_value = r_g_b_values;
+	m_buffer_ptr->texturecoordinates = { texture_coordinates.x,texture_coordinates.a };
+	m_buffer_ptr->texture_index = texture_no;
+	m_buffer_ptr++;
 }
 
 //void renderer2D::fill_vbo_data(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner, glm::vec4 r_g_b_values, glm::vec2 texture_indices, int texture_no)

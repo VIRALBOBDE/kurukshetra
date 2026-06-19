@@ -1382,5 +1382,17 @@
     <Image Include="resources\textures\cute ghost.jpg">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="resources\textures\background.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\kuruksetra backgrouknd v1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\duryodhanv1.jpeg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\dur.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
