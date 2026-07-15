@@ -4,19 +4,20 @@
 #include<algorithm> // max aur min ke liye
 
 
+class Physics {
+public:
+	//-----------AABB vs AABB (box to box)---------
+	static bool checkcollision(const Box& player, const Box& target) {
+		bool leftoverlap = player.x <= (target.x + target.width);
+		bool rightoverlap = (player.x + player.width) >= target.x;
+		bool bottomoverlap = player.y <= (target.y + target.height);
+		bool topoverlap = (player.y + player.height) >= target.y;
 
-    //-----------AABB vs AABB (box to box)---------
-static bool checkcollision(const Box& bheem, const Box& target) {
-	bool leftoverlap = bheem.x <= (target.x + target.width);
-	bool rightoverlap = (bheem.x + bheem.width) >= target.x ;
-	bool bottomoverlap = bheem.y <= (target.y + target.height);
-	bool topoverlap = (bheem.y + bheem.height) >= target.y;
+		return leftoverlap && rightoverlap && bottomoverlap && topoverlap;
+	}
 
-	return leftoverlap && rightoverlap && bottomoverlap && topoverlap;
-    }
-
-    //--------------circle vs circle---------------------
-	static bool isColliding(const Circle& a , const Circle& b) {
+	//--------------circle vs circle---------------------
+	static bool isColliding(const Circle& a, const Circle& b) {
 
 		//1. center ke bich ka difference
 		float dx = a.x - b.x;
@@ -46,3 +47,10 @@ static bool checkcollision(const Box& bheem, const Box& target) {
 
 		return (dx * dx + dy * dy) < (c.radius * c.radius);
 	}
+
+	bool isHit(Box hitbox, Box defenderhurtbox)
+	{
+
+	}
+};
+

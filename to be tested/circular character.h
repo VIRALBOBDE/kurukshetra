@@ -4,18 +4,25 @@
 
 struct Character {
 	Circle body;
+public:
 	int    health = 100; // bhemm ki health 
 	float  velocityY = 0;  // kudne aur girne ki speed
 	bool   isGrounded = false;  //check if bheem zameen par hai ya nai
-	int    jumpCount = 0;   //0=ground , 1=1st jump , 2= high jump
+	int    jumpCount = 0;      //0=ground , 1=1st jump , 2= high jump
 	bool   wReleased = true;
-	bool   isStunned = false; 
+	bool   isStunned = false;
 	int    stunTimer = 0;      // Taki stun hamesha ke liye na rahe(time limit)
+	float  walkSpeed = 400.0f;
+	float  dashTimer = 0.5f;   // 0.2s ka ghost mode
+	bool   canDash = true;
+	float  currentCooldown = 2.0f;   //wait time for dash to be available again
+	bool   isGhostMode = false;
 
 	bool   isCrouching = false;
 	bool   isDashing = false;
 	bool   isDefending = false;
 	bool   hasAttacked = false;
+
 
 	float  normalRadius;
 
@@ -37,9 +44,7 @@ struct Character {
 		}
 	}
 
-	
-
-	void ApplyPhysics() {
+	void ApplyPhysic(float deltaTime) {
 		if (isStunned) return; //freeze!! no movement
 
 		if (!isGrounded) {
@@ -56,21 +61,42 @@ struct Character {
 			isGrounded = true;
 			jumpCount = 0;
 		}
-	}
-		void Jump() {
-			if (isStunned) return; // freezed !! no jump
 
-			float normalJump = 0.015f;
-			float highJump = 0.025f;
 
-			if (isGrounded) {
-				velocityY = normalJump;
-				isGrounded = false;
-				jumpCount = 1;
-			}
-			else if (jumpCount == 1) { //double jump
-				velocityY = highJump;
-				jumpCount = 2;
+		//x-axis
+		if (dashTimer > 0.0f)
+		{
+			dashTimer -= deltaTime;
+			if (dashTimer <= 0.0f)
+			{
+				dashTimer = 0.0f;
+				isGhostMode = false; // ghost mode khatam
 			}
 		}
+		if (currentCooldown > 0.0f)
+		{
+			currentCooldown -= deltaTime;
+			if (currentCooldown <= 0.0f)
+			{
+				currentCooldown = 0.0f;
+				canDash = true;
+			}
+		}
+	}
+	void Jump() {
+		if (isStunned) return; // freezed !! no jump
+
+		float normalJump = 0.015f;
+		float highJump = 0.025f;
+
+		if (isGrounded) {
+			velocityY = normalJump;
+			isGrounded = false;
+			jumpCount = 1;
+		}
+		else if (jumpCount == 1) { //double jump
+			velocityY = highJump;
+			jumpCount = 2;
+		}
+	}
 };
