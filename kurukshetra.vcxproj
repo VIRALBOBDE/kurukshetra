@@ -586,10 +586,10 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\lib;C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\includes;C:\Users\KALYANI01\Desktop\coder bhai zindabaad\gamedev practice\kurukshetra\dependencies\includes;$(SolutionDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\&amp; Goorie ke Games\kurukshetra new\dependencies\includes;D:\&amp; Goorie ke Games\kurukshetra new\dependencies\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalUsingDirectories>C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\lib;C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\includes;%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
+      <AdditionalUsingDirectories>D:\&amp; Goorie ke Games\kurukshetra new\dependencies\includes;D:\&amp; Goorie ke Games\kurukshetra new\dependencies\lib;%(AdditionalIncludeDirectories)</AdditionalUsingDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -606,10 +606,10 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\lib;C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\includes;C:\Users\KALYANI01\Desktop\coder bhai zindabaad\gamedev practice\kurukshetra\dependencies\includes;$(SolutionDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\&amp; Goorie ke Games\kurukshetra new\dependencies\includes;D:\&amp; Goorie ke Games\kurukshetra new\dependencies\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalUsingDirectories>C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\lib;C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\includes;%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
+      <AdditionalUsingDirectories>D:\&amp; Goorie ke Games\kurukshetra new\dependencies\includes;D:\&amp; Goorie ke Games\kurukshetra new\dependencies\lib;%(AdditionalIncludeDirectories)</AdditionalUsingDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

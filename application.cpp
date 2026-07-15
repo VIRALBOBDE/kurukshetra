@@ -70,11 +70,11 @@ int main()
 	float delay = 0.12f;  // Kitni der ek frame dikhega (in seconds)
 	while (!testrenderer.is_window_closed())
 	{
-		Bheem.ApplyPhysics(Duryodhan);
-		Duryodhan.ApplyPhysics(Bheem);
 		Bheem.death();
 		Duryodhan.death();
 		float deltaTime = ImGui::GetIO().DeltaTime; // Engine ka frame time
+		Bheem.UpdatedPhysics(deltaTime);
+		Duryodhan.UpdatedPhysics(deltaTime);
 		bheem_idle.update(deltaTime);
 		love_you_gaming.update(deltaTime);
 		testhandler.ProcessInput(testrenderer.window_address(), Bheem, Duryodhan, testhandler , deltaTime);
