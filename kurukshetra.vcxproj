@@ -39,6 +39,7 @@
     <ClCompile Include="texture.cpp" />
     <ClCompile Include="IBO.cpp" />
     <ClCompile Include="shader.cpp" />
+    <ClCompile Include="to be tested\background.h" />
     <ClCompile Include="to be tested\Box.h" />
     <ClCompile Include="to be tested\Character.h" />
     <ClCompile Include="to be tested\Circle.h" />
@@ -309,6 +310,104 @@
     <ClInclude Include="dependencies\includes\imgui\imstb_truetype.h" />
     <ClInclude Include="dependencies\includes\KHR\khrplatform.h" />
     <ClInclude Include="dependencies\includes\stb_image\stb_image.h" />
+    <ClInclude Include="dependencies\includes\vlc\deprecated.h" />
+    <ClInclude Include="dependencies\includes\vlc\libvlc.h" />
+    <ClInclude Include="dependencies\includes\vlc\libvlc_dialog.h" />
+    <ClInclude Include="dependencies\includes\vlc\libvlc_events.h" />
+    <ClInclude Include="dependencies\includes\vlc\libvlc_media.h" />
+    <ClInclude Include="dependencies\includes\vlc\libvlc_media_discoverer.h" />
+    <ClInclude Include="dependencies\includes\vlc\libvlc_media_library.h" />
+    <ClInclude Include="dependencies\includes\vlc\libvlc_media_list.h" />
+    <ClInclude Include="dependencies\includes\vlc\libvlc_media_list_player.h" />
+    <ClInclude Include="dependencies\includes\vlc\libvlc_media_player.h" />
+    <ClInclude Include="dependencies\includes\vlc\libvlc_renderer_discoverer.h" />
+    <ClInclude Include="dependencies\includes\vlc\libvlc_version.h" />
+    <ClInclude Include="dependencies\includes\vlc\libvlc_vlm.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_about.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_access.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_actions.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_addons.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_aout.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_aout_volume.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_arrays.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_atomic.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_avcodec.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_bits.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_block.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_block_helper.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_boxes.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_charset.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_codec.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_common.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_config.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_configuration.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_config_cat.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_cpu.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_demux.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_dialog.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_epg.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_es.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_es_out.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_events.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_filter.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_fingerprinter.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_fourcc.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_fs.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_gcrypt.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_http.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_httpd.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_image.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_inhibit.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_input.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_input_item.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_interface.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_interrupt.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_keystore.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_main.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_md5.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_media_library.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_memstream.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_messages.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_meta.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_meta_fetcher.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_mime.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_modules.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_mouse.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_mtime.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_network.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_objects.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_opengl.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_picture.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_picture_fifo.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_picture_pool.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_playlist.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_plugin.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_probe.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_rand.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_renderer_discovery.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_services_discovery.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_sout.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_spu.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_stream.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_stream_extractor.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_strings.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_subpicture.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_text_style.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_threads.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_timestamp_helper.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_tls.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_url.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_variables.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_video_splitter.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_viewpoint.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_vlm.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_vout.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_vout_display.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_vout_osd.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_vout_window.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_xlib.h" />
+    <ClInclude Include="dependencies\includes\vlc\plugins\vlc_xml.h" />
+    <ClInclude Include="dependencies\includes\vlc\vlc.h" />
     <ClInclude Include="headers\animation.h" />
     <ClInclude Include="headers\common.h" />
     <ClInclude Include="headers\camera.h" />
@@ -318,6 +417,7 @@
     <ClInclude Include="headers\texture.h" />
     <ClInclude Include="headers\VAO.h" />
     <ClInclude Include="headers\VBO.h" />
+    <ClInclude Include="headers\video.h" />
     <ClInclude Include="headers\window.h" />
     <ClInclude Include="headers\renderer.h" />
     <ClInclude Include="headers\subtexture.h" />
@@ -325,6 +425,9 @@
     <ClInclude Include="to be tested\map.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".gitattributes" />
+    <None Include=".gitignore" />
+    <None Include="imgui.ini" />
     <None Include="recyclebin\artifact of the codes.codes" />
     <None Include="dependencies\includes\GLFW\glfw3.dll" />
     <None Include="dependencies\includes\glm\detail\func_common.inl" />
@@ -488,6 +591,7 @@
     <Image Include="resources\textures\realtest.png" />
     <Image Include="resources\textures\Screenshot 2026-04-05 202910.png" />
     <Image Include="resources\textures\slot0.png" />
+    <Image Include="resources\textures\sprite sheet.png" />
     <Image Include="resources\textures\sprite-8-bit-animation-dreams-of-an-absolution-sprite-sheet-bb0009c2e460cf8a770dcb1dcfa84a7d.png" />
     <Image Include="resources\textures\testimage.png" />
   </ItemGroup>
@@ -614,8 +718,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)/dependencies/lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;user32.lib;gdi32.lib;shell32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)dependencies\lib\vlc;$(ProjectDir)dependencies\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;libvlc.lib;libvlccore.lib;opengl32.lib;user32.lib;gdi32.lib;shell32.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
