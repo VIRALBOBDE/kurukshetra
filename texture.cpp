@@ -2,7 +2,7 @@
 
 texture::texture(std::string file_name , int slot)
 {
-	
+	this->slot = slot;
 	stbi_set_flip_vertically_on_load(1);
 	const char* filename = file_name.c_str();
 	unsigned char* data  = stbi_load(filename, &width, &height, &channels, 4);
@@ -16,7 +16,7 @@ texture::texture(std::string file_name , int slot)
 	else
 	{
 		GLcall(glGenTextures    (1, &texture_id));
-		//GLcall(glActiveTexture  (GL_TEXTURE0 + slot));
+		GLcall(glActiveTexture  (GL_TEXTURE0 + slot));
 		GLcall(glBindTexture    (GL_TEXTURE_2D , texture_id));
 		GLcall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER , GL_LINEAR         ));
 		GLcall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER , GL_LINEAR         ));
@@ -30,6 +30,30 @@ texture::texture(std::string file_name , int slot)
 		GLcall(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
 	}
 
+}
+
+texture::texture(int height_of_image, int width_of_image, int channels_in_image , int slot)
+{
+	height = height_of_image;
+	width = width_of_image;
+	channels = channels_in_image;
+	this->slot = slot;
+	GLcall(glGenTextures(1, &texture_id));
+	GLcall(glActiveTexture  (GL_TEXTURE0 + slot));
+	GLcall(glBindTexture(GL_TEXTURE_2D, texture_id));
+	GLcall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR));
+	GLcall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR));
+	GLcall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE));
+	GLcall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE));
+	GLcall(glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr));
+}
+
+void texture::update_texture(const unsigned char* data)
+{
+	if (data == nullptr) return;
+	//GLcall(glActiveTexture(GL_TEXTURE0 + slot));
+	GLcall(glBindTexture(GL_TEXTURE_2D, texture_id));
+	GLcall(glTexSubImage2D(GL_TEXTURE_2D, 0, 0 , 0 , width, height, GL_RGBA , GL_UNSIGNED_BYTE, data));
 }
 
 void texture::add_texture(std::string file_name, int slot)
@@ -47,7 +71,7 @@ void texture::add_texture(std::string file_name, int slot)
 	else
 	{
 		GLcall(glGenTextures(1, &texture_id));
-		//GLcall(glActiveTexture(GL_TEXTURE0 + slot));
+		GLcall(glActiveTexture(GL_TEXTURE0 + slot));
 		GLcall(glBindTexture(GL_TEXTURE_2D, texture_id));
 		GLcall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR));
 		GLcall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR));
@@ -62,7 +86,7 @@ void texture::add_texture(std::string file_name, int slot)
 	}
 }
 
-void texture::bind(unsigned int slot)
+void texture::bind()
 {
 	//if (texture_id == 0) glGenTextures(1, &texture_id);
 	GLcall(glActiveTexture  (GL_TEXTURE0 + slot));

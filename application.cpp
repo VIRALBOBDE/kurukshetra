@@ -37,14 +37,21 @@ int main()
 	if (testplayer.initialize())
 	{
 		cout << "VLC initialized successfully\n";
+		cout << "Libvlc version :" << libvlc_get_version() << endl;
+	}
+	testplayer.load_media("resources/videos/video.mp4");
+	if (!testplayer.play())
+	{
+		cout << "couldn't play";
+		__debugbreak();
 	}
 	renderer2D testrenderer(1280, 720, "KURUKSHETRA TEST ENGINE");
 	//cout << "\nsize is : " << sizeof(vertex);
 
 	testrenderer.set_shader("resources/shaders/default.shader");
-	testrenderer.set_texture("resources/textures/ideal_bheem.png", 1);
-	testrenderer.set_texture("resources/textures/dur.png", 2);
-	testrenderer.set_texture("resources/textures/kuruksetra backgrouknd v1.png", 3);
+	testrenderer.set_texture("resources/textures/ideal_bheem.png");
+	testrenderer.set_texture("resources/textures/dur.png");
+	testrenderer.set_texture("resources/textures/kuruksetra backgrouknd v1.png");
 	testrenderer.set_sampler_array("text");
 	animation bheem_idle(testrenderer.get_texture_address(1), 1, 0.095f, { 372, 530 }, true, true);
 	for (int i{ 0 }; i < 6; i++) bheem_idle.push({ 0 , i });
@@ -118,6 +125,7 @@ int main()
 			love_you_gaming.get_current_frame(),
 			2.0f);
 
+		//Bheem.debug_draw();
 
 		//testrenderer.set_walls({ 0,0 }, { 20,720 }, { 0.0f,0.0f,0.0f,0.0f }, {(float)j, 0}, 0);
 

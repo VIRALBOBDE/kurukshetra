@@ -48,6 +48,7 @@
     <ClCompile Include="to be tested\physics.h" />
     <ClCompile Include="VAO.cpp" />
     <ClCompile Include="VBO.cpp" />
+    <ClCompile Include="video.cpp" />
     <ClCompile Include="window.cpp" />
     <ClCompile Include="stbimplementation.cpp" />
   </ItemGroup>
@@ -594,6 +595,9 @@
     <Image Include="resources\textures\sprite sheet.png" />
     <Image Include="resources\textures\sprite-8-bit-animation-dreams-of-an-absolution-sprite-sheet-bb0009c2e460cf8a770dcb1dcfa84a7d.png" />
     <Image Include="resources\textures\testimage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="resources\videos\video.mp4" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

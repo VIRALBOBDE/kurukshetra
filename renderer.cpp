@@ -189,12 +189,12 @@ void renderer2D::set_backgroud(float texture_slot)
 	fill_vbo_data({ 0.0f,0.0f }, { coordinates_y,coordinates_x }, { 0.0f,0.0f,0.0f,1.0f }, { 0.0f,0.0f,1.0f,1.0f }, texture_slot);
 }
 
-void renderer2D::set_texture(string location_of_the_texture, int slot )
+void renderer2D::set_texture(string location_of_the_texture )
 {
-	m_texture[slot] = new texture(location_of_the_texture, slot);
-	m_texture[slot]->bind(texture_counter);
+	m_texture[texture_counter] = new texture(location_of_the_texture, texture_counter);
+	m_texture[texture_counter++]->bind();
 	//m_texture_slot[texture_counter] = m_texture[slot]->get_texture_id();
-	texture_counter++;
+	//texture_counter++;
 }
 
 //void renderer2D::add_texture(string name_of_the_texture)
@@ -501,7 +501,7 @@ void renderer2D::Flush()
 	m_shader->use();
 	m_vao->bind();
 	//m_ibo->bind();
-	for (int i = 1 ; i< texture_counter ; i++ ) m_texture[i]->bind(i);
+	for (int i = 1 ; i< texture_counter ; i++ ) m_texture[i]->bind();
 	/*glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, m_texture_slot[0]);
 	glActiveTexture(GL_TEXTURE1);
