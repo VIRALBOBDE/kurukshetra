@@ -12,7 +12,7 @@ class InputHandler
 private:
     float speed = 0.8f;
 public:
-    void setspeed(float speed_in_pixels) { speed = speed_in_pixels; }
+    void setspeed(float speed_in_pixels);
 
 
     //==============================================Box character input handling==============================================
@@ -23,40 +23,45 @@ public:
         //--------BHEEM------------
 
         float oldX1 = bheem.body.x;
+        bool moved = false; // Check karne ke liye ki koi key dabi ya nahi
+
 
         //----------------bheem right movement and dash---------------------
-
-        if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-        {
-
-            float current_bheem = bheem.body.x;
-            if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS && bheem.canDash)
+     
+            if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
             {
-                bheem.velocityX = apply_dash(0, 1);
-                bheem.currentCooldown = 2.0f;
-                bheem.dashTimer = 0.2f;
-                bheem.isGhostMode = true;
-                bheem.canDash = false;
+
+                float current_bheem = bheem.body.x;
+                if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS && bheem.canDash)
+                {
+                    
+                    bheem.velocityX = apply_dash(0, 1);
+                    bheem.currentCooldown = 2.0f;
+                    bheem.dashTimer = 0.2f;
+                    bheem.isGhostMode = true;
+                    bheem.canDash = false;
+                }
+                else bheem.body.x += (bheem.walkSpeed * delta_time);
             }
-            else bheem.body.x += (bheem.walkSpeed * delta_time);
-        }
 
-        //---------------bheem left movement and dash-----------------------
+            //---------------bheem left movement and dash-----------------------
 
-        if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-        {
-            float current_bheem = bheem.body.x;
-
-            if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS && bheem.canDash)
+            if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
             {
-                bheem.velocityX = apply_dash(bheem.body.x, -1);
-                bheem.currentCooldown = 2.0f;
-                bheem.dashTimer = 0.2f;
-                bheem.isGhostMode = true;
-                bheem.canDash = false;
+                float current_bheem = bheem.body.x;
+
+                if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS && bheem.canDash)
+                {
+                    bheem.velocityX = apply_dash(bheem.body.x, -1);
+                    bheem.currentCooldown = 2.0f;
+                    bheem.dashTimer = 0.2f;
+                    bheem.isGhostMode = true;
+                    bheem.canDash = false;
+                }
+                else bheem.body.x -= bheem.walkSpeed * delta_time;
             }
-            else bheem.body.x -= bheem.walkSpeed * delta_time;           
-        }
+       
+
 
 		//--------------bheem jump------------------------------
 
@@ -89,18 +94,65 @@ public:
 
 		//------------bheem attack------------------------
 
-        bool space_now = glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS;
-        if (space_now && !(bheem.spacepressed))
-        {
 
-            if ((bheem.body.x + bheem.body.width + bheem.playerReach >= duryodhan.body.x) && (bheem.body.x + bheem.body.width + 50.0f <= duryodhan.body.width + duryodhan.body.x))
+
+        bool space_now = glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS;
+
+        if (space_now && !bheem.spacepressed) 
+        {
+            bheem.spacepressed = true;
+
+            // Naya Attack Start
+            if (!bheem.isHitboxActive) 
             {
-                std::cout << "HIT!\n";
-                duryodhan.health -= 20;
-                bheem.spacepressed = true;
+                bheem.isHitboxActive = true;
+                bheem.attack_delta_time = 0.5f;     //  timing logic
+                bheem.hasDealtDamage = false; // Reset damage flag
             }
         }
-        else if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_RELEASE) bheem.spacepressed = false;
+        else if (!space_now) 
+{
+            bheem.spacepressed = false;
+        }
+
+        // (The actual hit logic)
+        if (bheem.isHitboxActive) 
+        {
+            bheem.attack_delta_time -= delta_time; // Timer countdown
+
+
+            // Hitbox ko position karo
+            float attackOffset = (bheem.isFacingRight) ? bheem.body.width : -bheem.hitbox.width;
+            bheem.hitbox.x = bheem.sprite_coordinates.x + attackOffset;
+            bheem.hitbox.y = bheem.sprite_coordinates.y + (bheem.body.height / 3);
+
+
+            // Hit Check
+            if (!bheem.hasDealtDamage && Physics::checkcollision(bheem.hitbox, duryodhan.hurtbox)) 
+{
+                std::cout << "HIT" << std::endl;
+                duryodhan.health -= 20;
+                bheem.hasDealtDamage = true; // No spamming
+
+                // Knockback ( 30% chance)
+                if (rand() % 100 < 30) 
+{
+                    int dir = (bheem.body.x < duryodhan.body.x) ? 1 : -1;
+                    apply_knockback(duryodhan.velocityX, 500.0f, dir); 
+
+                    duryodhan.isStunned = true;
+                    duryodhan.stunTimer = 0.5f;
+                }
+            }
+
+            // Timer khatam toh attack khatam
+            if (bheem.attack_delta_time <= 0.0f)
+            {
+                bheem.isHitboxActive = false;
+            }
+        }
+
+
 
 
 		////------------sliding logic-----------------------

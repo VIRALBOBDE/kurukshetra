@@ -54,22 +54,30 @@ int main()
 
 	/*testrenderer.add_texture("resources/textures/realtest.png");
 	testrenderer.add_texture("resources/textures/kurukshetra.png");*/
+
 	BoxCharacter Bheem(testrenderer.window_address(), 30.0f, 40.0f, 190.0f, 230.0f);
 	BoxCharacter Duryodhan(testrenderer.window_address() ,800.0f, 40.0f, 230.0f, 250.0f);
+	
 	//Character Bheem(30.0f, 40.0f, 150.0f);
 	//Character Duryodhan(640.0f, 360.0f, 150.0f);
+	
 	InputHandler testhandler;
 	testhandler.setspeed(800.0f);
 	testrenderer.vsync(1);
+	
 	//testrenderer.set_texture("resources/textures/slot0.png", 1 , 372, 530);
+	
 	float screen_colors[4] = {0,1,0,1 };
 	float frameTimer = 0.0f; // Har frame ka time jodega
 	int j = 0;
 	int direction = 1; // 1 matlab aage jaao, -1 matlab peeche
 	float timer = 0.0f;
 	float delay = 0.12f;  // Kitni der ek frame dikhega (in seconds)
+
 	while (!testrenderer.is_window_closed())
 	{
+
+		
 		Bheem.death();
 		Duryodhan.death();
 		float deltaTime = ImGui::GetIO().DeltaTime; // Engine ka frame time
@@ -78,11 +86,14 @@ int main()
 		bheem_idle.update(deltaTime);
 		love_you_gaming.update(deltaTime);
 		testhandler.ProcessInput(testrenderer.window_address(), Bheem, Duryodhan, testhandler , deltaTime);
+		
 		//testrenderer.processinput();
+		
 		testrenderer.set_colors(screen_colors[0], screen_colors[1], screen_colors[2], screen_colors[3]);
 
 		cout << deltaTime <<"\n";
 		testrenderer.Begin_Scene(0);
+
 
 
 		//if (deltaTime > 0.05f) deltaTime = 0.05f;
@@ -101,6 +112,7 @@ int main()
 			love_you_gaming.get_current_frame(),
 			1.0f);
 
+		
 
 		//testrenderer.set_walls({ 0,0 }, { 20,720 }, { 0.0f,0.0f,0.0f,0.0f }, {(float)j, 0}, 0);
 
@@ -115,12 +127,15 @@ int main()
 					float fps = 1.0f / frameTime;
 
 					
+
 					ImGui::Begin("Engine Stats");
 					ImGuiIO& io = ImGui::GetIO();
 					ImGui::Text("FPS: %.1f", io.Framerate);
 					ImGui::Text("Frame Time: %.3f ms", 1000.0f / io.Framerate);
 					ImGui::ColorEdit4("Background Color", screen_colors);
 					ImGui::End();
+
+				
 
 					//cout << Duryodhan.health;
 					testrenderer.End_Scene();

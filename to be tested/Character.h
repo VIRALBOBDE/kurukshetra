@@ -4,160 +4,112 @@
 #include"Box.h"
 #include"moves.h"
 #include"map.h"
+#include<vector>
 #include <GLFW/glfw3.h>
 //#include "headers/renderer.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-class BoxCharacter {
+
+class BoxCharacter 
+{
+
 public:
 	GLFWwindow* window;
 	Box body;
-	int    health = 100; // bhemm ki health 
-	float  velocityY = 0.0f;  // kudne aur girne ki speed
-	bool   isGrounded = false;  //check if bheem zameen par hai ya nai
-	int    jumpCount = 0;   //0=ground , 1=1st jump , 2= high jump
-	bool   isStunned = false;
-	int    stunTimer = 0;      // Taki stun hamesha ke liye na rahe(time limit)
-	float  jumpForce = 1000.0f;
-	float  gravity = -2900.0f;
-	float  floorY = 100.0f;
-	float  walkSpeed = 400.0f;
-	bool   canDash = true;
-	float  dashTimer = 0.5f;
-	float  currentCooldown = 2.0f;
-	bool   isGhostMode = false;
-	float  playerReach = 50.0f;
 
-
+	int    health              = 100; // bhemm ki health 
+	int    jumpCount           = 0;   //0=ground , 1=1st jump , 2= high jump
+	int    current_attack      = 0;
+	
+	float  hurtTimer           = 0.0f;
+	float  stunTimer           = 0.0f;      // Taki stun hamesha ke liye na rahe(time limit)
+	float  jumpForce           = 1000.0f;
+	float  velocityY           = 0.0f;  // kudne aur girne ki speed
+	float  gravity             = -2900.0f;
+	float  floorY              = 100.0f; 
+	float  walkSpeed           = 400.0f;
+	float  dashTimer           = 0.5f;
+	float  currentCooldown     = 2.0f;
+	float  playerReach         = 50.0f;
 	float  getXvalue;
-	float  velocityX = 0.0f;
-	float  resistance = 200.0f; // air resistance for dash
-	float  dashSpeed = 800.0f;
-
-
-	bool   wReleased = true;
-	bool   sReleased = true;
-	bool   shiftpressed = false;
-	bool   spacepressed = false;
-	bool   isCrouching = false;
-	bool   isDashing = false;
-	bool   isDefending = false;
-	bool   hasAttacked = false;
-
-
-	float  bheemCenter  ;
+	float  velocityX           = 0.0f;
+	float  resistance          = 200.0f; // air resistance for dash
+	float  dashSpeed           = 800.0f;
+	float  normalRadius;
+	float  normalHeight        = 220.0f;
+	float  attack_delta_time   = 0.0f;
+	float  bheemCenter;
 	float  duryodhanCenter;
 
-	Box  hurtbox;
-	Box  hitbox;
+	bool   wReleased           = true;
+	bool   sReleased           = true;
+	bool   shiftpressed        = false;
+	bool   spacepressed        = false;
+	bool   isGrounded          = false;  //check if bheem zameen par hai ya nai
+	bool   isStunned           = false;
+	bool   isCrouching         = false;
+	bool   isDashing           = false;
+	bool   canDash             = true;
+	bool   isGhostMode         = false;
+	bool   isDefending         = false;
+	bool   hasAttacked         = false;
+	bool   isHitboxActive      = false;
+	bool   hasDealtDamage      = false;
+	bool   isFacingRight       = true;
 
 
-	float  normalRadius;
-	float  normalHeight = 220.0f;
+	Box    hurtbox;
+	Box    hitbox;
 
-	// Constructor : bheem ko banane ke liye (x,y,radius)
+
+	std::vector<std::vector<float>> attacks;
+	
+	enum State 
+	{
+		IDLE      = 0 ,
+		WALKING   = 1 , 
+		JUMPING   = 2 ,  
+		CROUCHING = 3 , 
+		DASHING   = 4 , 
+		ATTACKING = 5 , 
+		DEFENDING = 6 , 
+		STUNNED   = 7 , 
+		HURT      = 8 , 
+		DEAD      = 9 
+	};
+
+	State current_state;
+
+	glm::vec4 sprite_coordinates;
+	glm::vec4 hurtbox_coordinates;
+
+	glm::mat4 modelMatrix;
+	
+
+	// Constructor : bheem ko banane ke liye 
 	BoxCharacter() {};
-	BoxCharacter(GLFWwindow* window, float x, float y, float width, float height) : body("test character", x, y, width, height),hurtbox("hurtbox",x,y,width,height), hitbox("hitbox", x, y, width, height), window(window) {}
+	BoxCharacter(GLFWwindow* window, float x, float y, float width, float height);
+	
+	// KnockBack apply karne ke liye function
+	void apply_knockback(float force, int direction);	
 
-	void set_character_dimentions(float x, float y, float width, float height)
-	{
-		body.set_box_values({ x, y }, { width, height });
-	}
-	void death()
-	{
-		if (health <= 0)
-		{
-			body.x = body.width = body.height = body.y = 0;
-		}
-	}
+	//character ki positions set karne ke liye funciton
+	void set_character_dimentions(float x, float y, float width, float height) ;
 
-	void Update() 
-	{
-		hurtbox.x = body.x;
-		hurtbox.y = body.y;
-		hurtbox.width = body.width;	
-		hurtbox.height = body.height;
+	// character mara ya nahi wo dekhne ke liye function
+	void death();
 
-		if (isStunned) 
-		{
-			stunTimer--;
-			if (stunTimer <= 0) isStunned = false; // Stun khatam hoke player firse move karne lagega
-		}
-	}
+	// character ki saari values ko upadate karne ke liye function
+	void Update(float deltaTime);
 
-	void UpdatedPhysics(float deltaTime)
-	{
-		//y-axis
-		if (!isGrounded)
-		{
-			velocityY += gravity * deltaTime;  //niche aayega
-		}
+	// character ke physics ko update karne ke liye function
+	void UpdatedPhysics(float deltaTime);
 
-		body.y += velocityY * deltaTime;     // velocity change hui to position bhi change hogi
-
-		if (body.y <= floorY)
-		{
-			body.y = floorY;     // floor pe ayega
-			velocityY = 0.0f;   // movement stop ho jayegi
-			isGrounded = true; // grounded
-			jumpCount = 0;    // jump resest ho jayega
-		}
-		
-		//x-axis
-
-		if (dashTimer > 0.0f)
-		{
-			dashTimer -= deltaTime;
-			if (dashTimer <= 0.0f)
-			{
-				dashTimer = 0.0f;
-				isGhostMode = false; // ghost mode khatam
-				velocityX = 0.0f; // speed reset ho jayegi
-			}
-		}
-		if (currentCooldown > 0.0f)
-		{
-			currentCooldown -= deltaTime;
-			if (currentCooldown <= 0.0f)
-			{
-				currentCooldown = 0.0f;
-				canDash = true;
-			}
-		}
-		float direction = (velocityX > 0) ? 1.0f : -1.0f;
-
-		if (std::abs(velocityX) >= walkSpeed)
-		{
-			body.x += velocityX * deltaTime; // x position change hogi
-
-			velocityX -= resistance * deltaTime * direction; // air resistance apply hoga
-			if (std::abs(velocityX) < walkSpeed)
-			{
-				velocityX = walkSpeed * direction; // speed reset ho jayegi
-			}
-		}
-		if (body.x < 0) body.x = 0.0f; // left wall
-		if (body.x + body.width > 1280) body.x = 1280 - body.width; // right wall
-
-	}
-	void Jump(float deltatime)
-	{
-		if (isStunned) return; // freezed !! no jump
-
-		if (isGrounded || jumpCount < 2)   //double jump 
-		{
-			velocityY = jumpForce;    // upar ki taraf force
-			isGrounded = false;
-			jumpCount++;
-		}
-	}
-
-
-
-
-
+	// character ko jump karane ke liye function
+	void Jump(float deltatime);
+	
 
 
 
