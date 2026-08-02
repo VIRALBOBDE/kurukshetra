@@ -25,7 +25,7 @@ public:
 
     //======================================Circular Characters Input===================================================================
 
-    static void Processkimakichuchu(GLFWwindow* window, Character& bheem, Character& duryodhan, InputHandler& handler, float deltaTime);
+    static void CircleProcess(GLFWwindow* window, Character& bheem, Character& duryodhan, InputHandler& handler, float deltaTime);
 
 
 };

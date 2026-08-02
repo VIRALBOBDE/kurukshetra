@@ -32,8 +32,7 @@ void InputHandler::ProcessInput(GLFWwindow* window, BoxCharacter& bheem, BoxChar
                 bheem.isGhostMode = true;
                 bheem.canDash = false;
             }
-            else  bheem.velocityX = bheem.walkSpeed;
-                  bheem.current_state = bheem.WALKING;
+			else  bheem.body.x += bheem.walkSpeed * delta_time;
         }
 
 
@@ -194,7 +193,7 @@ void InputHandler::ProcessInput(GLFWwindow* window, BoxCharacter& bheem, BoxChar
 
 //======================================Circular Characters Input===================================================================
 
-void InputHandler::Processkimakichuchu(GLFWwindow* window, Character& bheem, Character& duryodhan, InputHandler& handler, float deltaTime)
+void InputHandler::CircleProcess(GLFWwindow* window, Character& bheem, Character& duryodhan, InputHandler& handler, float deltaTime)
 {
     {
 
@@ -288,7 +287,7 @@ void InputHandler::Processkimakichuchu(GLFWwindow* window, Character& bheem, Cha
 
 
 
-/*//---------DURYODHAN ---------
+/*//---------DURYODHAN---------
 
 float oldX2 = duryodhan.body.x;
 
