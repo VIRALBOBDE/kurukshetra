@@ -69,7 +69,8 @@ void BoxCharacter::Update(float deltaTime)
 		break;
 
 	case WALKING:
-
+		
+		body.x += velocityX * deltaTime;
 		if (!isGrounded) current_state = JUMPING;
 		if (std::abs(velocityX) < 0.1f) current_state = IDLE;
 		break;

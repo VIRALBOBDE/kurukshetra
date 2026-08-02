@@ -32,7 +32,8 @@ void InputHandler::ProcessInput(GLFWwindow* window, BoxCharacter& bheem, BoxChar
                 bheem.isGhostMode = true;
                 bheem.canDash = false;
             }
-            else bheem.body.x += (bheem.walkSpeed * delta_time);
+            else  bheem.velocityX = bheem.walkSpeed;
+                  bheem.current_state = bheem.WALKING;
         }
 
 
