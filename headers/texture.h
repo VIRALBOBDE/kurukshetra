@@ -9,11 +9,13 @@ class texture
 {
 private:
 	unsigned int texture_id = 0;
-	int height, width, channels;
+	int height, width, channels , slot = -1;
 public:
 	texture(std::string file_name , int slot);
+	texture(int height_of_image, int width_of_image, int channels_in_image , int slot);
+	void update_texture(const unsigned char* data);
 	void add_texture(std::string file_name, int slot);
-	void bind(unsigned int slot);
+	void bind();
 	void unbind() const;
 	float getheight() const  { return height; }
 	float getwidth()  const  { return width; }

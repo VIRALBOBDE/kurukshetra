@@ -2,8 +2,9 @@
 
 inline float apply_dash(float currentX, int direction)
 {
-	float dashDistance = 0.5f;
-	return currentX + (direction * dashDistance);
+	float dashDistance = 300.0f;
+	//return currentX + (direction * dashDistance);
+	return 3000.0f * direction; // dash speed
 }
 
 inline float get_crouch_height(float normalHeight)

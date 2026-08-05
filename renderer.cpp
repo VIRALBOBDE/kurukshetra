@@ -53,7 +53,7 @@ void renderer2D::set_wall_coordinates(glm::vec2 coordinates)
 renderer2D::renderer2D(int width , int height , const char* name) : m_width(width) , m_height(height)
 {
 	m_window =  new window (width, height , name , 3, 3);
-	m_window -> checkwindow();
+	//m_window -> checkwindow();
 	gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 
 	//checking if window is open or not
@@ -189,12 +189,12 @@ void renderer2D::set_backgroud(float texture_slot)
 	fill_vbo_data({ 0.0f,0.0f }, { coordinates_y,coordinates_x }, { 0.0f,0.0f,0.0f,1.0f }, { 0.0f,0.0f,1.0f,1.0f }, texture_slot);
 }
 
-void renderer2D::set_texture(string location_of_the_texture, int slot )
+void renderer2D::set_texture(string location_of_the_texture )
 {
-	m_texture[slot] = new texture(location_of_the_texture, slot);
-	m_texture[slot]->bind(texture_counter);
+	m_texture[texture_counter] = new texture(location_of_the_texture, texture_counter);
+	m_texture[texture_counter++]->bind();
 	//m_texture_slot[texture_counter] = m_texture[slot]->get_texture_id();
-	texture_counter++;
+	//texture_counter++;
 }
 
 //void renderer2D::add_texture(string name_of_the_texture)
@@ -224,6 +224,15 @@ void renderer2D::set_camera()
 }
 
 
+
+void renderer2D::update_camera(glm::vec3 position)
+{
+	m_camera->viewmatrix(position);
+	m_shader->use();
+	glm::mat4 viewprojectionmatrix = m_camera->view_projection_matrix();
+	m_shader->setsamplermatrix("view_projection", viewprojectionmatrix);
+
+}
 
 void renderer2D::Begin_Scene( int texture_slot)
 {
@@ -302,6 +311,15 @@ void renderer2D::draw_quad(glm::vec2 left_bottom_corner, glm::vec2 right_top_cor
 	//m_buffer_ptr->texture_index = texture_no;
 	//m_buffer_ptr++;
 	fill_vbo_data(left_bottom_corner, right_top_corner, r_g_b_values, texture_coordinates, texture_no);
+}
+
+void renderer2D::draw_quad(BoxCharacter character_details, debug_boxes type_of_box)
+{
+	//if (type_of_box == debug_boxes::hurt)
+	//{
+	//	//fill_vbo_data()
+	//}
+
 }
 
 void renderer2D::set_walls(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner , glm::vec4 r_g_b_values , glm::vec2 texture_indices, float texture_no)
@@ -483,7 +501,7 @@ void renderer2D::Flush()
 	m_shader->use();
 	m_vao->bind();
 	//m_ibo->bind();
-	for (int i = 0 ; i< texture_counter ; i++ ) m_texture[i]->bind(i);
+	for (int i = 1 ; i< texture_counter ; i++ ) m_texture[i]->bind();
 	/*glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, m_texture_slot[0]);
 	glActiveTexture(GL_TEXTURE1);
@@ -491,6 +509,8 @@ void renderer2D::Flush()
 
 	//m_texture->bind(1);
 	GLcall(glDrawElements(GL_TRIANGLES, indices, GL_UNSIGNED_INT, NULL));
+
+
 	m_window->swapbuffer();
 	glfwPollEvents();
 }

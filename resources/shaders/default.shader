@@ -52,7 +52,7 @@
     int index = int(texture_index);
     switch(index)
     {
-        case 0: color =  texture(text[0] , texture_positions); break;
+        case 0: color =  frag_color;  break;
         case 1: color =  texture(text[1] , texture_positions); break;
         case 2: color =  texture(text[2] , texture_positions); break;
         case 3: color =  texture(text[3] , texture_positions); break;
