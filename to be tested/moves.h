@@ -1,7 +1,11 @@
 #pragma once
 
-//dashhh
- float apply_dash(float currentX, int direction);
+float apply_dash(float currentX, int direction)
+{
+	float dashDistance = 300.0f;
+	//return currentX + (direction * dashDistance);
+	return 3000.0f * direction; // dash speed
+}
 
 //crouch
 inline float get_crouch_height(float normalHeight);
