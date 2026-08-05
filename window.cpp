@@ -1,4 +1,4 @@
-#include<headers/window.h>
+#include "headers/window.h"
 window::window(int width, int height,  const char* name, int major, int minor)
 {
 	glfwInit();

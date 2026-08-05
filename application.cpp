@@ -68,13 +68,16 @@ int main()
 
 	/*testrenderer.add_texture("resources/textures/realtest.png");
 	testrenderer.add_texture("resources/textures/kurukshetra.png");*/
+
 	BoxCharacter Bheem(testrenderer.window_address(), 30.0f, 40.0f, 190.0f, 230.0f);
 	BoxCharacter Duryodhan(testrenderer.window_address(), 800.0f, 40.0f, 230.0f, 250.0f);
 	//Character Bheem(30.0f, 40.0f, 150.0f);
 	//Character Duryodhan(640.0f, 360.0f, 150.0f);
+	
 	InputHandler testhandler;
 	testhandler.setspeed(800.0f);
 	testrenderer.vsync(1);
+	
 	//testrenderer.set_texture("resources/textures/slot0.png", 1 , 372, 530);
 	float screen_colors[4] = { 0,1,0,1 };
 	float frameTimer = 0.0f; // Har frame ka time jodega
@@ -103,10 +106,12 @@ int main()
 		love_you_gaming.update(deltaTime);
 		testhandler.ProcessInput(testrenderer.window_address(), Bheem, Duryodhan, testhandler, deltaTime);
 		//testrenderer.processinput();
+		
 		testrenderer.set_colors(screen_colors[0], screen_colors[1], screen_colors[2], screen_colors[3]);
 
 		cout << deltaTime << "\n";
 		testrenderer.Begin_Scene(0);
+
 
 
 		//if (deltaTime > 0.05f) deltaTime = 0.05f;
