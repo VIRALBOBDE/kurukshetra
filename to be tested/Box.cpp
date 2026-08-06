@@ -10,6 +10,3 @@ void Box::set_box_values(glm::vec2 bottom_coordinates, glm::vec2 top_coordinates
     width = top_coordinates.x;
     height = top_coordinates.y;
 }
-
-
-

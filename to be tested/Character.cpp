@@ -14,6 +14,18 @@ BoxCharacter::BoxCharacter(GLFWwindow* window, float x, float y, float width, fl
 
 }
 
+BoxCharacter::BoxCharacter(renderer2D* renderer , GLFWwindow* window, glm::vec4 sprite_coordinates, glm::vec4 hurtbox_coordinates)
+{
+	this->renderer = renderer;
+	this->sprite_coordinates = sprite_coordinates;
+	this->hurtbox_coordinates = hurtbox_coordinates;
+}
+
+void BoxCharacter::draw(glm::vec4 rgb_values)
+{
+	renderer->draw_quad({sprite_coordinates.x,sprite_coordinates.y} , { sprite_coordinates.z,sprite_coordinates.w } , rgb_values , /*animation[current_state]*/ , )
+}
+
 
 
 
@@ -35,12 +47,14 @@ void BoxCharacter::set_character_dimentions(float x, float y, float width, float
 
 
 
-void BoxCharacter::death()
+bool BoxCharacter::death()
 {
 	if (health <= 0)
 	{
 		body.x = body.width = body.height = body.y = 0;
+		return true;
 	}
+	return false;
 }
 
 
@@ -254,5 +268,3 @@ void BoxCharacter::Jump(float deltatime)
 		jumpCount++;
 	}
 }
-
-

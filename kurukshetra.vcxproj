@@ -40,6 +40,7 @@
     <ClCompile Include="IBO.cpp" />
     <ClCompile Include="shader.cpp" />
     <ClCompile Include="to be tested\background.h" />
+    <ClCompile Include="to be tested\Box.cpp" />
     <ClCompile Include="to be tested\Box.h" />
     <ClCompile Include="to be tested\Character.cpp" />
     <ClCompile Include="to be tested\Character.h" />
@@ -666,13 +667,20 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\lib;C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\includes;</AdditionalIncludeDirectories>
-      <AdditionalUsingDirectories>C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\lib;C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\includes;%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
+      <AdditionalIncludeDirectories>C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\lib;C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\includes</AdditionalIncludeDirectories>
+      <AdditionalUsingDirectories>C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\lib;C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\includes</AdditionalUsingDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;user32.lib;gdi32.lib;shell32.lib</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib
+;libvlc.lib
+;libvlccore.lib
+;opengl32.lib;
+user32.lib;
+gdi32.lib
+;shell32.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)dependencies\lib\vlc;$(ProjectDir)dependencies\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -685,13 +693,20 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\lib;C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\includes;</AdditionalIncludeDirectories>
-      <AdditionalUsingDirectories>C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\lib;C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\includes;%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
+      <AdditionalIncludeDirectories>C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\lib;C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\includes</AdditionalIncludeDirectories>
+      <AdditionalUsingDirectories>C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\lib;C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\includes</AdditionalUsingDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;user32.lib;gdi32.lib;shell32.lib</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib
+;libvlc.lib
+;libvlccore.lib
+;opengl32.lib;
+user32.lib;
+gdi32.lib
+;shell32.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)dependencies\lib\vlc;$(ProjectDir)dependencies\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -700,16 +715,22 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\&amp; Goorie ke Games\kurukshetra new\dependencies\includes;D:\&amp; Goorie ke Games\kurukshetra new\dependencies\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\lib;C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\includes</AdditionalIncludeDirectories>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalUsingDirectories>D:\&amp; Goorie ke Games\kurukshetra new\dependencies\includes;D:\&amp; Goorie ke Games\kurukshetra new\dependencies\lib;%(AdditionalIncludeDirectories)</AdditionalUsingDirectories>
+      <AdditionalUsingDirectories>C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\lib;C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\includes</AdditionalUsingDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)/dependencies/lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;user32.lib;gdi32.lib;shell32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)dependencies\lib\vlc;$(ProjectDir)dependencies\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib
+;libvlc.lib
+;libvlccore.lib
+;opengl32.lib;
+user32.lib;
+gdi32.lib
+;shell32.lib;</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -720,16 +741,22 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\&amp; Goorie ke Games\kurukshetra new\dependencies\includes;D:\&amp; Goorie ke Games\kurukshetra new\dependencies\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\lib;C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\includes</AdditionalIncludeDirectories>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalUsingDirectories>D:\&amp; Goorie ke Games\kurukshetra new\dependencies\includes;D:\&amp; Goorie ke Games\kurukshetra new\dependencies\lib;%(AdditionalIncludeDirectories)</AdditionalUsingDirectories>
+      <AdditionalUsingDirectories>C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\lib;C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\kurukshetra\dependencies\includes</AdditionalUsingDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(ProjectDir)dependencies\lib\vlc;$(ProjectDir)dependencies\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;libvlc.lib;libvlccore.lib;opengl32.lib;user32.lib;gdi32.lib;shell32.lib</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib
+;libvlc.lib
+;libvlccore.lib
+;opengl32.lib;
+user32.lib;
+gdi32.lib
+;shell32.lib;</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

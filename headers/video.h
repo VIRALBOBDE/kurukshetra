@@ -2,40 +2,66 @@
 
 #include <thread>
 #include <chrono>
-#include <vlc/vlc.h>
 #include <iostream>
+#include <string>
+
+#include <vlc/vlc.h>
 
 class video_player
 {
+private:
+
+    libvlc_instance_t* m_instance = nullptr;
+    libvlc_media_t* m_media = nullptr;
+    libvlc_media_player_t* m_media_player = nullptr;
+
+    unsigned char* m_pixel_buffer = nullptr;
+
+    unsigned m_buffer_size = 0;
+
+    int m_video_width = 0;
+    int m_video_height = 0;
 
 private:
-	unsigned char* buffer          = nullptr		;
-	libvlc_instance_t* m_instance  = nullptr		;
-	libvlc_media_t* m_media        = nullptr		;
-	libvlc_media_player_t* m_media_player = nullptr	;
-	unsigned char* m_pixel_buffer  = nullptr		;
-	int m_video_width				{ 0 }	;
-	int m_video_height				{ 0 }	;
 
-	bool wait_until_done();
-	bool parse_media();
-	bool extract_video_information( ) ;
-	bool read_video_meta_data();
+    bool wait_until_done();
+    bool parse_media();
+
+    bool extract_video_information();
+    bool read_video_metadata();
+
+    static void* lock_callback(void* opaque, void** planes);
+    static void unlock_callback(void* opaque, void* picture, void* const* planes);
+    static void display_callback(void* opaque, void* picture);
+
 public:
 
-	//  Constructor
-	video_player();
+    video_player();
+    ~video_player();
 
-	//  Destructor
-	~video_player();
+    bool initialize();
 
-	//  Other important functions
-	bool initialize();
+    void load_media(const std::string& media_path);
 
-	void load_media(const std::string& media_path);
+    bool play();
 
-	bool play();
+    inline unsigned char* get_video_buffer()
+    {
+        return m_pixel_buffer;
+    }
 
+    inline int get_video_width()
+    {
+        return m_video_width;
+    }
 
+    inline int get_video_height()
+    {
+        return m_video_height;
+    }
 
+    inline unsigned get_buffer_size()
+    {
+        return m_buffer_size;
+    }
 };

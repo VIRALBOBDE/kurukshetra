@@ -52,6 +52,7 @@ int main()
 	testrenderer.set_texture("resources/textures/ideal_bheem.png");
 	testrenderer.set_texture("resources/textures/dur.png");
 	testrenderer.set_texture("resources/textures/kuruksetra backgrouknd v1.png");
+	testrenderer.set_texture(testplayer.get_video_width(), testplayer.get_video_height());
 	testrenderer.set_sampler_array("text");
 	animation bheem_idle(testrenderer.get_texture_address(1), 1, 0.095f, { 372, 530 }, true, true);
 	for (int i{ 0 }; i < 6; i++) bheem_idle.push({ 0 , i });
@@ -86,6 +87,7 @@ int main()
 	float timer = 0.0f;
 	float delay = 0.12f;  // Kitni der ek frame dikhega (in seconds)
 	float x_mid, y_mid;
+	testplayer.play();
 	while (!testrenderer.is_window_closed())
 	{
 		if (Bheem.death()) testrenderer.update_camera({ Bheem.body.x,Bheem.body.y,0.0f });
@@ -115,8 +117,8 @@ int main()
 
 
 		//if (deltaTime > 0.05f) deltaTime = 0.05f;
-
-		testrenderer.set_backgroud(3);
+		testrenderer.update_texure(testplayer.get_video_buffer(), 4);
+		testrenderer.set_backgroud(4);
 		testrenderer.draw_quad({ Bheem.body.x, Bheem.body.y },
 			{ Bheem.body.x + Bheem.body.width + 10.0f, Bheem.body.y + Bheem.body.height + 10.0f },
 			{ 1.0f, 0.0f, 0.0f , 1.0f },

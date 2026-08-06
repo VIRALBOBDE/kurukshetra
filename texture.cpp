@@ -32,12 +32,18 @@ texture::texture(std::string file_name , int slot)
 
 }
 
-texture::texture(int height_of_image, int width_of_image, int channels_in_image , int slot)
+texture::texture( int width_of_image, int height_of_image, int channels_in_image , int slot)
 {
 	height = height_of_image;
 	width = width_of_image;
 	channels = channels_in_image;
 	this->slot = slot;
+	std::cout
+		<< "Texture size = "
+		<< width
+		<< " x "
+		<< height
+		<< std::endl;
 	GLcall(glGenTextures(1, &texture_id));
 	GLcall(glActiveTexture  (GL_TEXTURE0 + slot));
 	GLcall(glBindTexture(GL_TEXTURE_2D, texture_id));
@@ -45,15 +51,21 @@ texture::texture(int height_of_image, int width_of_image, int channels_in_image 
 	GLcall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR));
 	GLcall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE));
 	GLcall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE));
-	GLcall(glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr));
+	GLcall(glTexImage2D(GL_TEXTURE_2D, 0, GL_BGRA, width, height, 0, GL_BGRA, GL_UNSIGNED_BYTE, nullptr));
 }
 
-void texture::update_texture(const unsigned char* data)
+void texture::update_texture(const unsigned char* data, int slot)
 {
 	if (data == nullptr) return;
-	//GLcall(glActiveTexture(GL_TEXTURE0 + slot));
+	std::cout
+		<< "Texture size = "
+		<< width
+		<< " x "
+		<< height
+		<< std::endl;
+	GLcall(glActiveTexture(GL_TEXTURE0 + slot));
 	GLcall(glBindTexture(GL_TEXTURE_2D, texture_id));
-	GLcall(glTexSubImage2D(GL_TEXTURE_2D, 0, 0 , 0 , width, height, GL_RGBA , GL_UNSIGNED_BYTE, data));
+	GLcall(glTexSubImage2D(GL_TEXTURE_2D, 0, 0 , 0 , width, height, GL_BGRA , GL_UNSIGNED_BYTE, data));
 }
 
 void texture::add_texture(std::string file_name, int slot)

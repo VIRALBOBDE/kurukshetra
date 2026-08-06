@@ -4,9 +4,10 @@
 #include"Box.h"
 #include"moves.h"
 #include"map.h"
+#include "../headers/renderer.h"
+#include "../headers/animation.h"
 #include<vector>
 #include <GLFW/glfw3.h>
-//#include "headers/renderer.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -99,7 +100,7 @@ public:
 	void set_character_dimentions(float x, float y, float width, float height) ;
 
 	// character mara ya nahi wo dekhne ke liye function
-	void death();
+	bool death();
 
 	// character ki saari values ko upadate karne ke liye function
 	void Update(float deltaTime);

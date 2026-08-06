@@ -186,7 +186,7 @@ void renderer2D::set_backgroud(float texture_slot)
 {
 	float coordinates_x = m_window->get_height();
 	float coordinates_y = m_window->get_width();
-	fill_vbo_data({ 0.0f,0.0f }, { coordinates_y,coordinates_x }, { 0.0f,0.0f,0.0f,1.0f }, { 0.0f,0.0f,1.0f,1.0f }, texture_slot);
+	fill_vbo_data({ 0.0f,0.0f }, { coordinates_y,coordinates_x }, { 0.0f,0.0f,0.0f,1.0f }, { 0.0f,1.0f,1.0f,0.0f }, texture_slot);
 }
 
 void renderer2D::set_texture(string location_of_the_texture )
@@ -195,6 +195,17 @@ void renderer2D::set_texture(string location_of_the_texture )
 	m_texture[texture_counter++]->bind();
 	//m_texture_slot[texture_counter] = m_texture[slot]->get_texture_id();
 	//texture_counter++;
+}
+
+void renderer2D::set_texture( int width, int height)
+{
+	m_texture[texture_counter] = new texture(width , height , 4 , texture_counter);
+	m_texture[texture_counter++]->bind();
+}
+
+void renderer2D::update_texure( const unsigned char* data , int slot)
+{
+	m_texture[slot]->update_texture(data , slot);
 }
 
 //void renderer2D::add_texture(string name_of_the_texture)

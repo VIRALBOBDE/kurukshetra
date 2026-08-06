@@ -72,6 +72,8 @@ public:
 	void set_shader			(string name_of_the_shader);
 	void set_shader			(string name_of_the_shader , int fragment_shader_sampler_count);
 	void set_texture		(string name_of_the_texture );
+	void set_texture		(int width, int height);
+	void update_texure		(const unsigned char* data , int slot);
 	void set_walls			(glm::vec2 left_bottom_corner, glm::vec2 width_and_height, glm::vec4 r_g_b_values , glm::vec2 texture_indices , float texture_no);
 	void set_colors			(float r, float g, float b, float a) { m_window->setcolors(r, g, b, a); }
 	void set_sampler_array	(std::string name_of_sampler);
