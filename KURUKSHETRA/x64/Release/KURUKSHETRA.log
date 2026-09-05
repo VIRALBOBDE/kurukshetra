@@ -1,0 +1,108 @@
+﻿  glad.c
+  glm.cpp
+  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_impl_glfw.cpp
+  imgui_impl_opengl3.cpp
+  imgui_tables.cpp
+  imgui_widgets.cpp
+  stb_image.cpp
+  animation.cpp
+C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\REVISED KURUKSHETRA\KURUKSHETRA\engine\texture.h(20,36): warning C4244: 'return': conversion from 'const int' to 'float', possible loss of data
+  (compiling source file 'engine/animation.cpp')
+  
+C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\REVISED KURUKSHETRA\KURUKSHETRA\engine\texture.h(21,36): warning C4244: 'return': conversion from 'const int' to 'float', possible loss of data
+  (compiling source file 'engine/animation.cpp')
+  
+C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\REVISED KURUKSHETRA\KURUKSHETRA\engine\animation.cpp(50,39): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\REVISED KURUKSHETRA\KURUKSHETRA\engine\animation.cpp(52,97): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  camera.cpp
+  common.cpp
+  drawing system.cpp
+C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\REVISED KURUKSHETRA\KURUKSHETRA\engine\texture.h(20,36): warning C4244: 'return': conversion from 'const int' to 'float', possible loss of data
+  (compiling source file 'engine/drawing%20system.cpp')
+  
+C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\REVISED KURUKSHETRA\KURUKSHETRA\engine\texture.h(21,36): warning C4244: 'return': conversion from 'const int' to 'float', possible loss of data
+  (compiling source file 'engine/drawing%20system.cpp')
+  
+C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\REVISED KURUKSHETRA\KURUKSHETRA\engine\drawing system.cpp(58,21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\REVISED KURUKSHETRA\KURUKSHETRA\engine\drawing system.cpp(70,3): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\REVISED KURUKSHETRA\KURUKSHETRA\engine\drawing system.cpp(104,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  error.cpp
+  IBO.cpp
+  renderer.cpp
+C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\REVISED KURUKSHETRA\KURUKSHETRA\engine\texture.h(20,36): warning C4244: 'return': conversion from 'const int' to 'float', possible loss of data
+  (compiling source file 'engine/renderer.cpp')
+  
+C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\REVISED KURUKSHETRA\KURUKSHETRA\engine\texture.h(21,36): warning C4244: 'return': conversion from 'const int' to 'float', possible loss of data
+  (compiling source file 'engine/renderer.cpp')
+  
+C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\REVISED KURUKSHETRA\KURUKSHETRA\engine\renderer.cpp(144,22): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\REVISED KURUKSHETRA\KURUKSHETRA\engine\renderer.cpp(145,22): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\REVISED KURUKSHETRA\KURUKSHETRA\engine\renderer.cpp(146,114): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\REVISED KURUKSHETRA\KURUKSHETRA\engine\renderer.cpp(193,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\REVISED KURUKSHETRA\KURUKSHETRA\engine\renderer.cpp(193,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\REVISED KURUKSHETRA\KURUKSHETRA\engine\renderer.cpp(267,32): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\REVISED KURUKSHETRA\KURUKSHETRA\engine\renderer.cpp(274,32): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\REVISED KURUKSHETRA\KURUKSHETRA\engine\renderer.cpp(281,32): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\REVISED KURUKSHETRA\KURUKSHETRA\engine\renderer.cpp(288,32): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  shader.cpp
+  stbimplementation.cpp
+  subtexture.cpp
+C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\REVISED KURUKSHETRA\KURUKSHETRA\engine\texture.h(20,36): warning C4244: 'return': conversion from 'const int' to 'float', possible loss of data
+  (compiling source file 'engine/subtexture.cpp')
+  
+C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\REVISED KURUKSHETRA\KURUKSHETRA\engine\texture.h(21,36): warning C4244: 'return': conversion from 'const int' to 'float', possible loss of data
+  (compiling source file 'engine/subtexture.cpp')
+  
+  texture.cpp
+C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\REVISED KURUKSHETRA\KURUKSHETRA\engine\texture.h(20,36): warning C4244: 'return': conversion from 'const int' to 'float', possible loss of data
+  (compiling source file 'engine/texture.cpp')
+  
+C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\REVISED KURUKSHETRA\KURUKSHETRA\engine\texture.h(21,36): warning C4244: 'return': conversion from 'const int' to 'float', possible loss of data
+  (compiling source file 'engine/texture.cpp')
+  
+  Compiling...
+  VAO.cpp
+C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\REVISED KURUKSHETRA\KURUKSHETRA\engine\VAO.cpp(13,2): warning C4312: 'type cast': conversion from 'int' to 'void *' of greater size
+  VBO.cpp
+  video.cpp
+  window.cpp
+  character_animator.cpp
+  character_sprite.cpp
+  transform.cpp
+  drawing data.cpp
+  Box.cpp
+  Character.cpp
+C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\REVISED KURUKSHETRA\KURUKSHETRA\engine\texture.h(20,36): warning C4244: 'return': conversion from 'const int' to 'float', possible loss of data
+  (compiling source file 'game/game's%20dustbin/Character.cpp')
+  
+C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\REVISED KURUKSHETRA\KURUKSHETRA\engine\texture.h(21,36): warning C4244: 'return': conversion from 'const int' to 'float', possible loss of data
+  (compiling source file 'game/game's%20dustbin/Character.cpp')
+  
+  Circle.cpp
+  circular character.cpp
+  moves.cpp
+  game.cpp
+C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\REVISED KURUKSHETRA\KURUKSHETRA\engine\texture.h(20,36): warning C4244: 'return': conversion from 'const int' to 'float', possible loss of data
+  (compiling source file 'game/game.cpp')
+  
+C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\REVISED KURUKSHETRA\KURUKSHETRA\engine\texture.h(21,36): warning C4244: 'return': conversion from 'const int' to 'float', possible loss of data
+  (compiling source file 'game/game.cpp')
+  
+  InputHandling.cpp
+C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\REVISED KURUKSHETRA\KURUKSHETRA\engine\texture.h(20,36): warning C4244: 'return': conversion from 'const int' to 'float', possible loss of data
+  (compiling source file 'game/input%20handling/InputHandling.cpp')
+  
+C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\REVISED KURUKSHETRA\KURUKSHETRA\engine\texture.h(21,36): warning C4244: 'return': conversion from 'const int' to 'float', possible loss of data
+  (compiling source file 'game/input%20handling/InputHandling.cpp')
+  
+C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\REVISED KURUKSHETRA\KURUKSHETRA\game\input handling\InputHandling.cpp(218,35): warning C4305: '=': truncation from 'double' to 'float'
+  physics.cpp
+  Source.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 2685 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  KURUKSHETRA.vcxproj -> C:\Users\KALYANI01\Desktop\coder_bhai_zindabaad\gamedev_practice\REVISED KURUKSHETRA\KURUKSHETRA\x64\Release\KURUKSHETRA.exe

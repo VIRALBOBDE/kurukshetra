@@ -1,0 +1,19 @@
+#pragma once
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+#include "error.h"
+class camera
+{
+private:
+	glm::vec3 camera_position = glm::vec3(0.0f, 0.0f, 0.0f);
+	glm::mat4 projection;
+	glm::mat4 view ;
+	glm::mat4 view_projection;
+public:
+	camera(float width, float height);
+	void viewmatrix(glm::vec3 changed_camera_pos);
+	glm::vec3 const get_coordinates()  { return camera_position; }
+	void update(glm::vec2 x_coordinate_values);
+	glm::mat4 view_projection_matrix() const { return view_projection; }
+};

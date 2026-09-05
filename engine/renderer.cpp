@@ -1,0 +1,353 @@
+#include "renderer.h"
+
+
+void renderer2D::set_wall_coordinates(glm::vec2 coordinates)
+{
+	m_buffer_ptr->coordinate = { coordinates.x,coordinates.y };
+	m_buffer_ptr->rgba_value = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
+	m_buffer_ptr->texturecoordinates = { 0,0 };
+	m_buffer_ptr->texture_index = -1.0f;
+	m_buffer_ptr++;
+}
+
+//void renderer2D::fill_vbo_data(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner, glm::vec3 r_g_b_values, glm::vec2 texture_indices, int texture_no)
+//{
+//	//m_buffer_ptr = m_buffer_base;
+//	//m_buffer_ptr = structure_batao;
+//	//left bottom wala corner ka data
+//	glm::vec2 tex_coord[2];
+//	m_subtexture->texturecoordinates({ texture_indices.x,texture_indices.y }, tex_coord);
+//	m_buffer_ptr->coordinate = { left_bottom_corner.x,left_bottom_corner.y };
+//	m_buffer_ptr->rgba_value = glm::vec4(r_g_b_values, 1.0f);
+//	m_buffer_ptr->texturecoordinates = { tex_coord[0].x,tex_coord[0].y };
+//	m_buffer_ptr->texture_index = texture_no;
+//	m_buffer_ptr++;
+//
+//	//right bottom wala corner ka data
+//	m_buffer_ptr->coordinate = { right_top_corner.x  ,left_bottom_corner.y };
+//	m_buffer_ptr->rgba_value = glm::vec4(r_g_b_values, 1.0f);
+//	m_buffer_ptr->texturecoordinates = { tex_coord[1].x,tex_coord[0].y };
+//	m_buffer_ptr->texture_index = texture_no;
+//	m_buffer_ptr++;
+//
+//	//right top wala corner ka data
+//	m_buffer_ptr->coordinate = { right_top_corner.x  ,right_top_corner.y };
+//	m_buffer_ptr->rgba_value = glm::vec4(r_g_b_values, 1.0f);
+//	m_buffer_ptr->texturecoordinates = { tex_coord[1].x,tex_coord[1].y };
+//	m_buffer_ptr->texture_index = texture_no;
+//	m_buffer_ptr++;
+//
+//	//left top wala corner ka data
+//	m_buffer_ptr->coordinate = { left_bottom_corner.x  , right_top_corner.y };
+//	m_buffer_ptr->rgba_value = glm::vec4(r_g_b_values, 1.0f);
+//	m_buffer_ptr->texturecoordinates = { tex_coord[0].x,tex_coord[1].y };
+//	m_buffer_ptr->texture_index = texture_no;
+//	m_buffer_ptr++;
+//}
+
+renderer2D::renderer2D(int width , int height , const char* name) : m_width(width) , m_height(height)
+{
+	m_window =  new window (width, height , name , 3, 3);
+	//m_window -> checkwindow();
+	gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+
+	//checking if window is open or not
+	if (!(m_window->checkwindow()))
+	{
+		std::cout << "couldn't open window from renderer !!";
+		__debugbreak();
+	}
+
+	for (int i = 0; i < 32; i++)
+	{
+		m_texture_slot[i] = i ;
+	}
+	unsigned int offset = 0;
+	for (int i = 0; i < 6000; i += 6)
+	{
+		m_ibo_buffer[i + 0] = offset + 0;
+		m_ibo_buffer[i + 1] = offset + 1;
+		m_ibo_buffer[i + 2] = offset + 2;
+		m_ibo_buffer[i + 3] = offset + 2;
+		m_ibo_buffer[i + 4] = offset + 3;
+		m_ibo_buffer[i + 5] = offset + 0;	
+		offset += 4;
+	}
+
+	//testing this with coordintes and indices array 
+	/*float coordinates[] =
+	{
+		100.0f, 100.0f, 0.0f , 0.0f ,
+		300.0f, 100.0f, 1.0f , 0.0f ,
+		300.0f, 300.0f, 1.0f , 1.0f ,
+		100.0f, 300.0f, 0.0f , 1.0f
+	};
+
+	unsigned int indices[] =
+	{
+		0,1,2,
+		2,3,0
+	};
+	m_vao = new vao ;
+	m_vbo = new vbo (coordinates, sizeof(coordinates));
+	m_ibo = new ibo (indices, sizeof(indices));
+	m_vao->loaddata(0, 2, 4, 0, 0);
+	m_vao->loaddata(1, 2, 4, 2, 0);
+	int actual_gpu_size = 0;
+	GLcall(glGetBufferParameteriv(GL_ARRAY_BUFFER, GL_BUFFER_SIZE, &actual_gpu_size));
+	std::cout << "GPU KE ANDAR BUFFER KI SIZE CONSTRUCTOR SE : " << actual_gpu_size << " bytes\n" << std::endl;
+	m_vbo->unbind();*/
+	// RESULT : works perfectly fine 
+	// OBSERVATIONS : no matter where we declare all the stuff (vao , vbo , ibo and all ) we can use them in the application with proper functions 
+
+
+	//    ALL CLEAR
+	//   STARTING DANGER ZONE
+	m_vao = new vao;
+	m_vbo = new vbo( sizeof(vertex)*MaxVertexCount);
+	int actual_gpu_size = 0;
+	GLcall(glGetBufferParameteriv(GL_ARRAY_BUFFER, GL_BUFFER_SIZE, &actual_gpu_size));
+	std::cout << "GPU KE ANDAR BUFFER KI SIZE CONSTRUCTOR SE : " << actual_gpu_size << " bytes\n" << std::endl;
+	m_ibo = new ibo(m_ibo_buffer, MaxIndexCount);
+	m_vao->loaddata(0, 2 , 9 , 0 , 0);
+	m_vao->loaddata(1, 4 , 9 , 2 , 0);
+	m_vao->loaddata(2, 2 , 9 , 6 , 0);
+	m_vao->loaddata(3, 1 , 9 , 8 , 0);
+	m_vbo->unbind();
+}
+void renderer2D::set_shader(string name_of_the_shader)
+{
+	m_shader = new shader(name_of_the_shader);
+	m_shader->use();
+	m_shader->setsampler("text", 0);
+	set_camera();
+	glm::mat4 viewprojectionmatrix = m_camera->view_projection_matrix();
+	m_shader->setsamplermatrix("view_projection", viewprojectionmatrix);
+}
+
+void renderer2D::set_shader(string name_of_the_shader, int fragment_shader_sampler_count)
+{
+	m_shader = new shader(name_of_the_shader);
+	m_shader->use();
+	set_camera();
+	glm::mat4 viewprojectionmatrix = m_camera->view_projection_matrix();
+	m_shader->setsamplermatrix("view_projection", viewprojectionmatrix);
+}
+
+inline void renderer2D::set_sampler(string name_of_uniform, int sampler_count , int* sampler_array)
+{
+	m_shader->setsamplerarray(name_of_uniform, sampler_count, sampler_array);
+}
+
+void renderer2D::set_backgroud(float texture_slot)
+{
+	float coordinates_x = m_window->get_height();
+	float coordinates_y = m_window->get_width();
+	fill_vbo_data({ 0.0f,0.0f }, { coordinates_y,coordinates_x }, { 0.0f,0.0f,0.0f,1.0f }, { 0.0f,1.0f,1.0f,0.0f }, texture_slot);
+}
+
+void renderer2D::set_texture(string location_of_the_texture )
+{
+	m_texture[texture_counter] = new texture(location_of_the_texture, texture_counter);
+	m_texture[texture_counter++]->bind();
+}
+
+
+
+void renderer2D::set_texture(int width, int height, int channels)
+{
+	m_texture[texture_counter] = new texture(width, height, channels, texture_counter);
+	m_texture[texture_counter++]->bind();
+}
+
+void renderer2D::update_texture(const unsigned char* video_frame_buffer_data , int slot)
+{
+	m_texture[slot]->update_texture( video_frame_buffer_data , slot );
+}
+
+
+//void renderer2D::add_texture(string name_of_the_texture)
+//{
+//	if (m_texture = nullptr) m_texture = new texture(name_of_the_texture,texture_counter);
+//	else
+//	{
+//		if (texture_counter <= 31)
+//		{
+//		m_texture->add_texture(name_of_the_texture, texture_counter);
+//		texture_counter++;
+//		}
+//		else
+//		{
+//			texture_counter = 15;
+//			m_texture->add_texture(name_of_the_texture, texture_counter);
+//			texture_counter++;
+//		}
+//
+//	}
+//	
+//}
+
+
+void renderer2D::set_camera()
+{
+	m_camera = new camera(m_width, m_height);
+}
+
+
+
+void renderer2D::update_camera(glm::vec3 position)
+{
+	m_camera->viewmatrix(position);
+	m_shader->use();
+	glm::mat4 viewprojectionmatrix = m_camera->view_projection_matrix();
+	m_shader->setsamplermatrix("view_projection", viewprojectionmatrix);
+
+}
+
+void renderer2D::Begin_Scene()
+{
+	m_buffer_ptr = m_buffer_base;
+}
+
+
+
+void renderer2D::draw_quad(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner, glm::vec4 r_g_b_values, glm::vec4 texture_coordinates ,  int texture_no)
+{
+	fill_vbo_data(left_bottom_corner, right_top_corner, r_g_b_values, texture_coordinates, texture_no);
+}
+
+void renderer2D::set_sampler_array(std::string name_of_sampler)
+{
+	m_shader->setsamplerarray(name_of_sampler, 32, m_texture_slot);
+}
+
+void renderer2D::draw_quad(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner, glm::vec3 r_g_b_values, vertex* structure_batao)
+{
+	
+	//left bottom wala corner ka data
+	structure_batao[0].coordinate = { left_bottom_corner.x,left_bottom_corner.y };
+	structure_batao[0].rgba_value = glm::vec4(r_g_b_values, 1.0f);
+	structure_batao[0].texturecoordinates = glm::vec2(0.0f, 0.0f);
+	structure_batao[0].texture_index = 0.0f;
+
+	cout <<endl<< "data bhar diya hai 1 ka :\n" << structure_batao[0].coordinate.x << "\n" << structure_batao[0].coordinate.y << "\n" << structure_batao[0].rgba_value.x << "\n" << structure_batao[0].rgba_value.y << "\n" << structure_batao[0].rgba_value.z << "\n" << structure_batao[0].rgba_value.w << "\n" << structure_batao[0].texturecoordinates.x << "\n" << structure_batao[0].texturecoordinates.y <<"\n" << structure_batao[0].texture_index;
+	
+
+	//right bottom wala corner ka data
+	structure_batao[1].coordinate = { right_top_corner.x  ,left_bottom_corner.y };
+	structure_batao[1].rgba_value = glm::vec4(r_g_b_values, 1.0f);
+	structure_batao[1].texturecoordinates = glm::vec2(1.0f, 0.0f);
+	structure_batao[1].texture_index = 0.0f;
+	
+	cout << endl << "data bhar diya hai 2 ka:\n" << structure_batao[1].coordinate.x << "\n" << structure_batao[1].coordinate.y << "\n" << structure_batao[1].rgba_value.x << "\n" << structure_batao[1].rgba_value.y << "\n" << structure_batao[1].rgba_value.z << "\n" << structure_batao[1].rgba_value.w << "\n" << structure_batao[1].texturecoordinates.x << "\n" << structure_batao[1].texturecoordinates.y << "\n" << structure_batao[1].texture_index;
+
+	//right top wala corner ka data
+	structure_batao[2].coordinate = { right_top_corner.x  ,right_top_corner.y };
+	structure_batao[2].rgba_value = glm::vec4(r_g_b_values, 1.0f);
+	structure_batao[2].texturecoordinates = glm::vec2(1.0f, 1.0f);
+	structure_batao[2].texture_index = 0.0f;
+	
+	cout << endl << "data bhar diya hai 3 ka:\n" << structure_batao[2].coordinate.x << "\n" << structure_batao[2].coordinate.y << "\n" << structure_batao[2].rgba_value.x << "\n" << structure_batao[2].rgba_value.y << "\n" << structure_batao[2].rgba_value.z << "\n" << structure_batao[2].rgba_value.w << "\n" << structure_batao[2].texturecoordinates.x << "\n" << structure_batao[2].texturecoordinates.y << "\n" << structure_batao[2].texture_index;
+
+	//left top wala corner ka data
+	structure_batao[3].coordinate = { left_bottom_corner.x  , right_top_corner.y };
+	structure_batao[3].rgba_value = glm::vec4(r_g_b_values, 1.0f);
+	structure_batao[3].texturecoordinates = glm::vec2(0.0f, 1.0f);
+	structure_batao[3].texture_index = 0.0f;
+
+	cout << endl << "data bhar diya hai 4 ka:\n" << structure_batao[3].coordinate.x << "\n" << structure_batao[3].coordinate.y << "\n" << structure_batao[3].rgba_value.x << "\n" << structure_batao[3].rgba_value.y << "\n" << structure_batao[3].rgba_value.z << "\n" << structure_batao[3].rgba_value.w << "\n" << structure_batao[3].texturecoordinates.x << "\n" << structure_batao[3].texturecoordinates.y << "\n" << structure_batao[3].texture_index;
+
+}
+
+void renderer2D::fill_vbo_data(glm::vec2 left_bottom_corner, glm::vec2 right_top_corner, glm::vec4 r_g_b_values, glm::vec4 texture_coordinates, int texture_no)
+{
+	m_buffer_ptr->coordinate = { left_bottom_corner.x,left_bottom_corner.y };
+	m_buffer_ptr->rgba_value = r_g_b_values;
+	m_buffer_ptr->texturecoordinates = { texture_coordinates.x,texture_coordinates.y };
+	m_buffer_ptr->texture_index = texture_no;
+	m_buffer_ptr++;
+
+	//right bottom wala corner ka data
+	m_buffer_ptr->coordinate = { right_top_corner.x  ,left_bottom_corner.y };
+	m_buffer_ptr->rgba_value = r_g_b_values;
+	m_buffer_ptr->texturecoordinates = { texture_coordinates.z,texture_coordinates.y };
+	m_buffer_ptr->texture_index = texture_no;
+	m_buffer_ptr++;
+
+	//right top wala corner ka data
+	m_buffer_ptr->coordinate = { right_top_corner.x  ,right_top_corner.y };
+	m_buffer_ptr->rgba_value = r_g_b_values;
+	m_buffer_ptr->texturecoordinates = { texture_coordinates.z,texture_coordinates.a };
+	m_buffer_ptr->texture_index = texture_no;
+	m_buffer_ptr++;
+
+	//left top wala corner ka data
+	m_buffer_ptr->coordinate = { left_bottom_corner.x  , right_top_corner.y };
+	m_buffer_ptr->rgba_value = r_g_b_values;
+	m_buffer_ptr->texturecoordinates = { texture_coordinates.x,texture_coordinates.a };
+	m_buffer_ptr->texture_index = texture_no;
+	m_buffer_ptr++;
+}
+
+void renderer2D::End_Scene()
+{
+	Flush();
+}
+
+void renderer2D::Flush()
+{
+	uint32_t size = (uint32_t)((uint8_t*)m_buffer_ptr - (uint8_t*)m_buffer_base);
+	if (size == 0) return;
+
+	//==========================================================================================================//
+	//                                          DEBUGGING !!                                                    //
+	//==========================================================================================================//
+	  // --- ASLI SACH YAHAN PATA CHALEGA ---
+	//std::cout << "\n--- FLUSH DEBUG ---" << std::endl;
+	//std::cout << "Buffer Ptr Address : " << m_buffer_ptr << std::endl;
+	//std::cout << "Buffer Base Address: " << m_buffer_base << std::endl;
+	//std::cout << "Calculated Size    : " << size << " bytes" << std::endl;
+	//std::cout << "VBO Max Capacity   : " << sizeof(vertex) * 4000 << " bytes" << std::endl;
+	//std::cout << "-------------------\n";
+
+	//// --- ASLI X-RAY SCANNER ---
+	//m_vbo->bind(); // Pehle VBO pakdo
+	//int actual_gpu_size = 0;
+	//GLcall(glGetBufferParameteriv(GL_ARRAY_BUFFER, GL_BUFFER_SIZE, &actual_gpu_size));
+	//std::cout << "GPU KE ANDAR BUFFER KI SIZE FLUSH SE: " << actual_gpu_size << " bytes\n" << std::endl;
+	//// --------------------------
+
+	////==========================================================================================================//
+	////                                          DEBUGGING !!                                                    //
+	////==========================================================================================================//
+	////NAYA VBO KO BIND AND USE KARO
+	//
+
+
+	uint32_t indices = (uint32_t)((float)size / (float)sizeof(vertex) * 1.5f);
+	m_vbo->subdata(m_buffer_base, (int)(size/sizeof(vertex)));
+	m_shader->use();
+	m_vao->bind();
+
+	for (int i = 1 ; i< texture_counter ; i++ ) m_texture[i]->bind();
+	//m_texture->bind(1);
+	GLcall(glDrawElements(GL_TRIANGLES, indices, GL_UNSIGNED_INT, NULL));
+
+
+	m_window->swapbuffer();
+	glfwPollEvents();
+}
+
+
+
+renderer2D::~renderer2D()
+{
+	delete m_window      ;
+	delete m_vao         ;
+	delete m_vbo         ;
+	delete m_buffer_base ;
+	delete m_ibo         ;
+	delete m_shader      ;
+	delete m_camera		 ;
+	for ( int i = 0 ; i < texture_counter ; i++ ) delete m_texture[i]     ;
+}

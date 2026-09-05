@@ -1,0 +1,93 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\fwd.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|solutionrelative:dependencies\\includes\\glm\\fwd.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\geometric.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|solutionrelative:dependencies\\includes\\glm\\geometric.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\integer.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|solutionrelative:dependencies\\includes\\glm\\integer.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\mat2x2.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|solutionrelative:dependencies\\includes\\glm\\mat2x2.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "fwd.hpp",
+              "DocumentMoniker": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\fwd.hpp",
+              "RelativeDocumentMoniker": "dependencies\\includes\\glm\\fwd.hpp",
+              "ToolTip": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\fwd.hpp",
+              "RelativeToolTip": "dependencies\\includes\\glm\\fwd.hpp",
+              "ViewState": "AgIAADcAAAAAAAAAAAAYwDsAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-09-05T09:37:38.35Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "geometric.hpp",
+              "DocumentMoniker": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\geometric.hpp",
+              "RelativeDocumentMoniker": "dependencies\\includes\\glm\\geometric.hpp",
+              "ToolTip": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\geometric.hpp",
+              "RelativeToolTip": "dependencies\\includes\\glm\\geometric.hpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-09-05T09:37:37.14Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "integer.hpp",
+              "DocumentMoniker": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\integer.hpp",
+              "RelativeDocumentMoniker": "dependencies\\includes\\glm\\integer.hpp",
+              "ToolTip": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\integer.hpp",
+              "RelativeToolTip": "dependencies\\includes\\glm\\integer.hpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-09-05T09:37:35.492Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "mat2x2.hpp",
+              "DocumentMoniker": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\mat2x2.hpp",
+              "RelativeDocumentMoniker": "dependencies\\includes\\glm\\mat2x2.hpp",
+              "ToolTip": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\mat2x2.hpp",
+              "RelativeToolTip": "dependencies\\includes\\glm\\mat2x2.hpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-09-05T09:37:29.918Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
