@@ -1274,7 +1274,7 @@
     <ClInclude Include="game\input handling\InputHandling.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="game\map\level.h">
+    <ClInclude Include="game\gamestate\base_sate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="game\background.h">

@@ -3,20 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\fwd.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|solutionrelative:dependencies\\includes\\glm\\fwd.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\geometric.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|solutionrelative:dependencies\\includes\\glm\\geometric.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\integer.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|solutionrelative:dependencies\\includes\\glm\\integer.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\mat2x2.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|solutionrelative:dependencies\\includes\\glm\\mat2x2.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\gamestate\\base_sate.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|solutionrelative:game\\gamestate\\base_sate.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,56 +26,24 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{c6f34f0d-7ae5-4f3a-be61-fe0c21ae9eb8}"
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "fwd.hpp",
-              "DocumentMoniker": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\fwd.hpp",
-              "RelativeDocumentMoniker": "dependencies\\includes\\glm\\fwd.hpp",
-              "ToolTip": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\fwd.hpp",
-              "RelativeToolTip": "dependencies\\includes\\glm\\fwd.hpp",
-              "ViewState": "AgIAADcAAAAAAAAAAAAYwDsAAAAfAAAAAAAAAA==",
+              "Title": "base_sate.h",
+              "DocumentMoniker": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\gamestate\\base_sate.h",
+              "RelativeDocumentMoniker": "game\\gamestate\\base_sate.h",
+              "ToolTip": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\gamestate\\base_sate.h",
+              "RelativeToolTip": "game\\gamestate\\base_sate.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-09-05T09:37:38.35Z",
+              "WhenOpened": "2026-09-05T11:23:17.755Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "geometric.hpp",
-              "DocumentMoniker": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\geometric.hpp",
-              "RelativeDocumentMoniker": "dependencies\\includes\\glm\\geometric.hpp",
-              "ToolTip": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\geometric.hpp",
-              "RelativeToolTip": "dependencies\\includes\\glm\\geometric.hpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-09-05T09:37:37.14Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "integer.hpp",
-              "DocumentMoniker": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\integer.hpp",
-              "RelativeDocumentMoniker": "dependencies\\includes\\glm\\integer.hpp",
-              "ToolTip": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\integer.hpp",
-              "RelativeToolTip": "dependencies\\includes\\glm\\integer.hpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-09-05T09:37:35.492Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "mat2x2.hpp",
-              "DocumentMoniker": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\mat2x2.hpp",
-              "RelativeDocumentMoniker": "dependencies\\includes\\glm\\mat2x2.hpp",
-              "ToolTip": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\mat2x2.hpp",
-              "RelativeToolTip": "dependencies\\includes\\glm\\mat2x2.hpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-09-05T09:37:29.918Z"
             }
           ]
         }
