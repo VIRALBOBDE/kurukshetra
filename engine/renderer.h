@@ -13,9 +13,10 @@
 #include <string>
 #include <vector>
 using namespace std;
-class renderer2D
+class renderer2D :
+	private window
 {
-private:
+protected:
 	//hamare engine ki limit
 	static const size_t       MaxQuadCount    = 1000            ;  // 1000 Squares draw kar paayega
 	static const size_t       MaxVertexCount  = MaxQuadCount * 4;  // 4000 Vertices honge 1000 squares ke
@@ -58,7 +59,7 @@ private:
 	//    PRIVATE FUNCTIONS
 	void set_wall_coordinates(glm::vec2 coordinates);
 public:
-
+	renderer2D() {}
 	renderer2D(int width, int height , const char* name);
 
 	//setters
@@ -75,6 +76,7 @@ public:
 
 	//getters
 	texture* get_texture_address(int slot) { return m_texture[slot]; }
+	glm::vec2 get_window_dimentions();
 
 	void update_camera	(glm:: vec3 position);
 	void Begin_Scene	();

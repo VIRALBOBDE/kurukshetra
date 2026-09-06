@@ -1,10 +1,14 @@
+#pragma once
 #include "renderer.h"
+#include "window.h"
 #include "../game/common data/drawing data.h"
 #include <iostream>
-class drawing_system
+
+class drawing_system : protected renderer2D
 {
 private:
 	renderer2D& renderer;
+
 public :
 	//constructor
 	drawing_system(renderer2D& renderer_address);
@@ -20,6 +24,7 @@ public :
 	//window related functions
 	GLFWwindow* get_window_address();
 	bool check_window_status();
+	glm::vec2 get_window_right_top();
 
 
 	//texture related functions 
@@ -38,7 +43,7 @@ public :
 
 	//drawing related functions 
 	void draw		(drawing_data& input_data_to_draw);
-	void draw_quad
+	void draw
 	(
 		glm::vec2 lower_bootom_corner,
 		glm::vec2 upper_top_corner,

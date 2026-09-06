@@ -172,6 +172,7 @@ void video_player::load_media(const std::string& media_path)
     }
 
     // media ki details naye se banao and store karo
+    std::cout << m_media;
     m_media = libvlc_media_new_path(m_instance, media_path.c_str());
     if (!m_media)
     {
@@ -180,7 +181,7 @@ void video_player::load_media(const std::string& media_path)
     }
 
     // extracting video information
-    if (!extract_video_information())
+    if (!extract_video_information())   
     {
         std::cerr << "Failed in extraction of video information. Please check!\n";
         __debugbreak();

@@ -129,6 +129,12 @@
     <ClCompile Include="game\Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="game\gamestate\game_manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="game\gamestate\main_menu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dependencies\includes\glad\glad.h">
@@ -1274,13 +1280,19 @@
     <ClInclude Include="game\input handling\InputHandling.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="game\gamestate\base_sate.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="game\background.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="game\physics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="game\gamestate\base_state.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="game\gamestate\game_manager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="game\gamestate\main_menu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -1688,6 +1700,13 @@
     <None Include="dependencies\includes\glm\gtx\wrap.inl">
       <Filter>Header Files</Filter>
     </None>
+    <None Include=".gitignore" />
+    <None Include="resources\shaders\advance.shader" />
+    <None Include="resources\shaders\default.shader" />
+    <None Include="resources\shaders\shader.shader" />
+    <None Include="resources\textures\craftpix-net-160005-free-ruined-temple-top-down-location-pixel-art.zip" />
+    <None Include="resources\textures\craftpix-net-180537-free-swordsman-1-3-level-pixel-top-down-sprite-character.zip" />
+    <None Include="resources\textures\craftpix-net-453698-free-shinobi-sprites-pixel-art.zip" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="dependencies\includes\GLFW\glfw3.lib" />
@@ -1697,5 +1716,97 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="dependencies\includes\glm\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\textures\background.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\bheem.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\bheem.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\bheem_character.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\bheema.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\content.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\cute ghost.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\cute ghost.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\dur.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\duryodhan.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\duryodhanv1.jpeg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\file_000000006a6071fabef6891e951e7cbb.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\good.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\ideal_bheem.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\image (4).jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\IMG_20260813_202102707_HDR.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\IMG_20260813_202144558_HDR.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\IMG_20260813_203924377_HDR.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\IMG_20260814_202933046_HDR.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\jhanda pic.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\jhanda pic1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\kuruksetra backgrouknd v1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\kurukshetra1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\realtest.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\slot0.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\sprite sheet.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\sprite-8-bit-animation-dreams-of-an-absolution-sprite-sheet-bb0009c2e460cf8a770dcb1dcfa84a7d.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\testimage.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\quit.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\play.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

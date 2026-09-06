@@ -4,6 +4,7 @@ drawing_system::drawing_system(renderer2D& renderer_address)
 	:
 	renderer ( renderer_address )
 {
+	//printf("%u", renderer);
 }
 
 void drawing_system::turn_on_vsync()
@@ -47,6 +48,11 @@ bool drawing_system::check_window_status()
 	return renderer.is_window_closed();
 }
 
+glm::vec2 drawing_system::get_window_right_top()
+{
+	return { renderer.get_window_dimentions()};
+}
+
 void drawing_system::draw(drawing_data& input_data_to_draw)
 {
 	renderer.draw_quad
@@ -59,7 +65,7 @@ void drawing_system::draw(drawing_data& input_data_to_draw)
 	);
 }
 
-void drawing_system::draw_quad(glm::vec2 lower_bootom_corner, glm::vec2 upper_top_corner, glm::vec4 r_g_b_values, glm::vec4 texture_coordinates, float texture_index)
+void drawing_system::draw(glm::vec2 lower_bootom_corner, glm::vec2 upper_top_corner, glm::vec4 r_g_b_values, glm::vec4 texture_coordinates, float texture_index)
 {
 	renderer.draw_quad
 	(

@@ -3,20 +3,76 @@
   "WorkspaceRootPath": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\fwd.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|solutionrelative:dependencies\\includes\\glm\\fwd.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|solutionrelative:game\\game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\geometric.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|solutionrelative:dependencies\\includes\\glm\\geometric.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|C:\\USERS\\KALYANI01\\DESKTOP\\CODER_BHAI_ZINDABAAD\\GAMEDEV_PRACTICE\\REVISED KURUKSHETRA\\KURUKSHETRA\\GAME\\GAMESTATE\\MAIN_MENU.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|solutionrelative:GAME\\GAMESTATE\\MAIN_MENU.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\integer.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|solutionrelative:dependencies\\includes\\glm\\integer.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\gamestate\\main_menu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|solutionrelative:game\\gamestate\\main_menu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\mat2x2.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|solutionrelative:dependencies\\includes\\glm\\mat2x2.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\gamestate\\game_manager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|solutionrelative:game\\gamestate\\game_manager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\gamestate\\game_manager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|solutionrelative:game\\gamestate\\game_manager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\gamestate\\base_state.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|solutionrelative:game\\gamestate\\base_state.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\engine\\video.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|solutionrelative:engine\\video.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\engine\\renderer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|solutionrelative:engine\\renderer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\engine\\drawing system.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|solutionrelative:engine\\drawing system.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\engine\\shader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|solutionrelative:engine\\shader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\engine\\drawing system.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|solutionrelative:engine\\drawing system.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\engine\\renderer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|solutionrelative:engine\\renderer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\physics.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|solutionrelative:game\\physics.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\common data\\drawing data.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|solutionrelative:game\\common data\\drawing data.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\engine\\window.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|solutionrelative:engine\\window.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\common data\\drawing data.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|solutionrelative:game\\common data\\drawing data.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\game\u0027s dustbin\\Box.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|solutionrelative:game\\game\u0027s dustbin\\Box.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\game\u0027s dustbin\\Character.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2E2E324-ECA1-4CEA-80FC-DEB92DDBD010}|KURUKSHETRA.vcxproj|solutionrelative:game\\game\u0027s dustbin\\Character.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,8 +82,22 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "drawing system.cpp",
+              "DocumentMoniker": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\engine\\drawing system.cpp",
+              "RelativeDocumentMoniker": "engine\\drawing system.cpp",
+              "ToolTip": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\engine\\drawing system.cpp",
+              "RelativeToolTip": "engine\\drawing system.cpp",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAMwG0AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-09-06T05:43:24.874Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
@@ -37,57 +107,225 @@
               "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{c6f34f0d-7ae5-4f3a-be61-fe0c21ae9eb8}"
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "game_manager.h",
+              "DocumentMoniker": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\gamestate\\game_manager.h",
+              "RelativeDocumentMoniker": "game\\gamestate\\game_manager.h",
+              "ToolTip": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\gamestate\\game_manager.h",
+              "RelativeToolTip": "game\\gamestate\\game_manager.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-09-06T12:45:20.697Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "fwd.hpp",
-              "DocumentMoniker": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\fwd.hpp",
-              "RelativeDocumentMoniker": "dependencies\\includes\\glm\\fwd.hpp",
-              "ToolTip": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\fwd.hpp",
-              "RelativeToolTip": "dependencies\\includes\\glm\\fwd.hpp",
-              "ViewState": "AgIAADcAAAAAAAAAAAAYwDsAAAAfAAAAAAAAAA==",
+              "Title": "game.cpp",
+              "DocumentMoniker": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\game.cpp",
+              "RelativeDocumentMoniker": "game\\game.cpp",
+              "ToolTip": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\game.cpp",
+              "RelativeToolTip": "game\\game.cpp",
+              "ViewState": "AgIAAKUAAAAAAAAAAAAAAKoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-09-05T12:31:49.928Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "base_state.h",
+              "DocumentMoniker": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\gamestate\\base_state.h",
+              "RelativeDocumentMoniker": "game\\gamestate\\base_state.h",
+              "ToolTip": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\gamestate\\base_state.h",
+              "RelativeToolTip": "game\\gamestate\\base_state.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-09-05T09:37:38.35Z",
+              "WhenOpened": "2026-09-06T12:45:12.887Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "main_menu.cpp",
+              "DocumentMoniker": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\gamestate\\main_menu.cpp",
+              "RelativeDocumentMoniker": "game\\gamestate\\main_menu.cpp",
+              "ToolTip": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\gamestate\\main_menu.cpp",
+              "RelativeToolTip": "game\\gamestate\\main_menu.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-09-06T12:47:55.521Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "geometric.hpp",
-              "DocumentMoniker": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\geometric.hpp",
-              "RelativeDocumentMoniker": "dependencies\\includes\\glm\\geometric.hpp",
-              "ToolTip": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\geometric.hpp",
-              "RelativeToolTip": "dependencies\\includes\\glm\\geometric.hpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "main_menu.h",
+              "DocumentMoniker": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\gamestate\\main_menu.h",
+              "RelativeDocumentMoniker": "game\\gamestate\\main_menu.h",
+              "ToolTip": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\gamestate\\main_menu.h",
+              "RelativeToolTip": "game\\gamestate\\main_menu.h",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-09-05T09:37:37.14Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "integer.hpp",
-              "DocumentMoniker": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\integer.hpp",
-              "RelativeDocumentMoniker": "dependencies\\includes\\glm\\integer.hpp",
-              "ToolTip": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\integer.hpp",
-              "RelativeToolTip": "dependencies\\includes\\glm\\integer.hpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-09-05T09:37:35.492Z"
+              "WhenOpened": "2026-09-06T12:42:07.436Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "mat2x2.hpp",
-              "DocumentMoniker": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\mat2x2.hpp",
-              "RelativeDocumentMoniker": "dependencies\\includes\\glm\\mat2x2.hpp",
-              "ToolTip": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\dependencies\\includes\\glm\\mat2x2.hpp",
-              "RelativeToolTip": "dependencies\\includes\\glm\\mat2x2.hpp",
+              "Title": "game_manager.cpp",
+              "DocumentMoniker": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\gamestate\\game_manager.cpp",
+              "RelativeDocumentMoniker": "game\\gamestate\\game_manager.cpp",
+              "ToolTip": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\gamestate\\game_manager.cpp",
+              "RelativeToolTip": "game\\gamestate\\game_manager.cpp",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAkwCAAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-09-06T12:45:17.425Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "video.cpp",
+              "DocumentMoniker": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\engine\\video.cpp",
+              "RelativeDocumentMoniker": "engine\\video.cpp",
+              "ToolTip": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\engine\\video.cpp",
+              "RelativeToolTip": "engine\\video.cpp",
+              "ViewState": "AgIAAHwAAAAAAAAAAAAMwI4AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-09-06T15:05:03.186Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "renderer.cpp",
+              "DocumentMoniker": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\engine\\renderer.cpp",
+              "RelativeDocumentMoniker": "engine\\renderer.cpp",
+              "ToolTip": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\engine\\renderer.cpp",
+              "RelativeToolTip": "engine\\renderer.cpp",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAMwJEAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-09-06T10:56:38.586Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "shader.cpp",
+              "DocumentMoniker": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\engine\\shader.cpp",
+              "RelativeDocumentMoniker": "engine\\shader.cpp",
+              "ToolTip": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\engine\\shader.cpp",
+              "RelativeToolTip": "engine\\shader.cpp",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAEwFoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-09-06T13:39:08.074Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "renderer.h",
+              "DocumentMoniker": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\engine\\renderer.h",
+              "RelativeDocumentMoniker": "engine\\renderer.h",
+              "ToolTip": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\engine\\renderer.h",
+              "RelativeToolTip": "engine\\renderer.h",
+              "ViewState": "AgIAADUAAAAAAAAAAAAhwEIAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-09-06T10:53:49.771Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "drawing system.h",
+              "DocumentMoniker": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\engine\\drawing system.h",
+              "RelativeDocumentMoniker": "engine\\drawing system.h",
+              "ToolTip": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\engine\\drawing system.h",
+              "RelativeToolTip": "engine\\drawing system.h",
+              "ViewState": "AgIAABgAAAAAAAAAAAAhwCUAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-09-06T10:49:24.58Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "physics.h",
+              "DocumentMoniker": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\physics.h",
+              "RelativeDocumentMoniker": "game\\physics.h",
+              "ToolTip": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\physics.h",
+              "RelativeToolTip": "game\\physics.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-09-05T09:37:29.918Z"
+              "WhenOpened": "2026-09-06T13:29:04.249Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "drawing data.h",
+              "DocumentMoniker": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\common data\\drawing data.h",
+              "RelativeDocumentMoniker": "game\\common data\\drawing data.h",
+              "ToolTip": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\common data\\drawing data.h",
+              "RelativeToolTip": "game\\common data\\drawing data.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-09-06T08:57:23.621Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "window.h",
+              "DocumentMoniker": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\engine\\window.h",
+              "RelativeDocumentMoniker": "engine\\window.h",
+              "ToolTip": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\engine\\window.h",
+              "RelativeToolTip": "engine\\window.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-09-06T10:56:24.089Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "drawing data.cpp",
+              "DocumentMoniker": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\common data\\drawing data.cpp",
+              "RelativeDocumentMoniker": "game\\common data\\drawing data.cpp",
+              "ToolTip": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\common data\\drawing data.cpp",
+              "RelativeToolTip": "game\\common data\\drawing data.cpp",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAQwBQAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-09-06T08:58:56.695Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Box.h",
+              "DocumentMoniker": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\game\u0027s dustbin\\Box.h",
+              "RelativeDocumentMoniker": "game\\game\u0027s dustbin\\Box.h",
+              "ToolTip": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\game\u0027s dustbin\\Box.h",
+              "RelativeToolTip": "game\\game\u0027s dustbin\\Box.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-09-06T08:06:23.313Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Character.h",
+              "DocumentMoniker": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\game\u0027s dustbin\\Character.h",
+              "RelativeDocumentMoniker": "game\\game\u0027s dustbin\\Character.h",
+              "ToolTip": "C:\\Users\\KALYANI01\\Desktop\\coder_bhai_zindabaad\\gamedev_practice\\REVISED KURUKSHETRA\\KURUKSHETRA\\game\\game\u0027s dustbin\\Character.h",
+              "RelativeToolTip": "game\\game\u0027s dustbin\\Character.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-09-05T16:19:14.699Z",
+              "EditorCaption": ""
             }
           ]
         }

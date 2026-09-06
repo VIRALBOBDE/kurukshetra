@@ -195,6 +195,11 @@ void renderer2D::set_camera()
 
 
 
+glm::vec2 renderer2D::get_window_dimentions()
+{
+	return glm::vec2(m_window->get_width(), m_window->get_height());
+}
+
 void renderer2D::update_camera(glm::vec3 position)
 {
 	m_camera->viewmatrix(position);
