@@ -581,6 +581,7 @@
     <ClInclude Include="game\gamestate\base_state.h" />
     <ClInclude Include="game\gamestate\game_manager.h" />
     <ClInclude Include="game\gamestate\main_menu.h" />
+    <ClInclude Include="game\gamestate\statesonly.h" />
     <ClInclude Include="game\input handling\InputHandling.h" />
     <ClInclude Include="game\physics.h" />
   </ItemGroup>

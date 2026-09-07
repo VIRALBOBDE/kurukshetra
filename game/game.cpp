@@ -166,8 +166,7 @@
 #include "imgui/imgui_impl_glfw.h"
 #include "imgui/imgui_impl_opengl3.h"
 #include <iostream>
-#include "gamestate/game_manager.h"
-#include "gamestate/main_menu.h"
+#include "gamestate/statesonly.h"
 
 
 
