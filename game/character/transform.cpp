@@ -19,9 +19,9 @@ Transform::Transform(glm::vec2 pos, glm::vec2 scl, float rot) :position(pos), sc
 
 //getters
 // positions ko fund karne ke liye function
-glm::vec2 Transform::getPosition()
+glm::vec4 Transform::getPosition()
 {
-	return position;
+	return { position , position.x + scale.x , position.y + scale.y };
 }
 // scale ya size pata karne ke liye function
 glm::vec2 Transform::getScale()
@@ -60,4 +60,9 @@ void Transform::rotate(float angle)
 {
 	// Current rotation mein angle add kar rahe hain
 	rotation += angle;
+}
+
+void Transform::resize(glm::vec2 by_how_much)
+{
+	scale += by_how_much;
 }

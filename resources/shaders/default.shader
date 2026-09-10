@@ -14,11 +14,13 @@
 
 		 //uniform variables
 		 uniform mat4 view_projection;
+         uniform mat4 model;
 
 
 		 void main()  
 		 {  
-         gl_Position       = view_projection * vec4(pos,0.0,1.0) ;
+
+         gl_Position       = view_projection * model * vec4(pos,0.0,1.0) ;
 		 texture_positions = tex_pos           ; 
 		 frag_color = vert_color               ;
 		 texture_index = tex_ind               ;
@@ -38,7 +40,7 @@
 		 out vec4 color                ;
 
 		 //uniform variables
-		 uniform sampler2D text [32]       ;
+		 uniform sampler2D text [32]   ;
 		 //void main()  
 		 //{  
 		//	 if(texture(text , texture_positions).xyz == vec3(0.0f,0.0f,0.0f)) 

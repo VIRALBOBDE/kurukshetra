@@ -9,7 +9,7 @@
 #include "imgui/imgui_impl_opengl3.h"
 class window
 {
-private:
+protected:
 	const char* name = "window";
 	GLFWwindow* myWindow = 0;
 	int major = 0, minor = 0;

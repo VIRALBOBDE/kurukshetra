@@ -119,7 +119,7 @@ void renderer2D::set_shader(string name_of_the_shader)
 {
 	m_shader = new shader(name_of_the_shader);
 	m_shader->use();
-	m_shader->setsampler("text", 0);
+	//m_shader->setsampler("text", 0);
 	set_camera();
 	glm::mat4 viewprojectionmatrix = m_camera->view_projection_matrix();
 	m_shader->setsamplermatrix("view_projection", viewprojectionmatrix);
@@ -132,6 +132,11 @@ void renderer2D::set_shader(string name_of_the_shader, int fragment_shader_sampl
 	set_camera();
 	glm::mat4 viewprojectionmatrix = m_camera->view_projection_matrix();
 	m_shader->setsamplermatrix("view_projection", viewprojectionmatrix);
+}
+
+void renderer2D::set_sampler_matrix(string name_of_the_uniform, glm::mat4 matrix)
+{
+	m_shader->setsamplermatrix(name_of_the_uniform, matrix );
 }
 
 inline void renderer2D::set_sampler(string name_of_uniform, int sampler_count , int* sampler_array)
@@ -194,6 +199,11 @@ void renderer2D::set_camera()
 }
 
 
+
+glm::vec2 renderer2D::get_window_dimentions()
+{
+	return glm::vec2(m_window->get_width(), m_window->get_height());
+}
 
 void renderer2D::update_camera(glm::vec3 position)
 {

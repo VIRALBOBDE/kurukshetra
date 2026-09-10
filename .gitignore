@@ -3,3 +3,7 @@ x64/
 Debug/
 Release/
 *.user
+KURUKSHETRA/x64/
+resources/videos/Duryodhan Idle .mov
+KURUKSHETRA.vcxproj.filters
+KURUKSHETRA.vcxproj

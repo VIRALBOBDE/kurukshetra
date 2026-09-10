@@ -14,7 +14,7 @@ public:
 	Transform(glm::vec2 pos, glm::vec2 scl, float rot);
 
 	//getters
-	glm::vec2 getPosition();
+	glm::vec4 getPosition();
 	glm::vec2 getScale();
 	float getRotation();
 
@@ -25,4 +25,5 @@ public:
 
 	void translate(glm::vec2 offset);
 	void rotate(float angle);
+	void resize(glm::vec2 by_how_much);
 };
