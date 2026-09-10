@@ -9,6 +9,7 @@ public:
         NONE = 0,
         LIGHT,
         HEAVY,
+        ULTIMATE,
         SPECIAL
     };
 

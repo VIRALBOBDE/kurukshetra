@@ -38,6 +38,31 @@ float Combat::get_damage() const
 void Combat::set_current_attack(Attack attack)
 {
     current_attack = attack;
+    switch (attack)
+    {
+    case LIGHT:
+        stamina_consumption = 25.0f;
+        damage = 30.0f;
+        break;
+
+    case HEAVY:
+        stamina_consumption = 40.0f;
+        damage = 50.0f;
+        break;
+
+    case ULTIMATE:
+    case SPECIAL:  // Dono ki values same hain toh hum inko combine kar sakte hain
+        stamina_consumption = 50.0f;
+        damage = 70.0f;
+        break;
+
+    case NONE:
+    default:
+        stamina_consumption = 0.0f;
+        damage = 0.0f;
+        break;
+    }
+
 }
 
 void Combat::set_stamina_consumption(float value)
